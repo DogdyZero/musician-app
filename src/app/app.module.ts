@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
@@ -15,6 +16,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {TableModule} from 'primeng/table';
 import {InputMaskModule} from 'primeng/inputmask';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {CardModule} from 'primeng/card';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -34,7 +38,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     DropdownModule,
     TableModule,
     InputMaskModule,
-    RadioButtonModule
+    RadioButtonModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
