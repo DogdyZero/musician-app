@@ -1,16 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadProdutoComponent } from './cad-produto/cad-produto.component';
+import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
+
+// primeng modules
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {DropdownModule} from 'primeng/dropdown';
+import {TableModule} from 'primeng/table';
+import {InputMaskModule} from 'primeng/inputmask';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadProdutoComponent,
+    CadUsuarioComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    // primeng imports
+    InputTextModule,
+    ButtonModule,
+    DropdownModule,
+    TableModule,
+    InputMaskModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
