@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {SelectItem} from 'primeng/api';
 
-
 @Component({
   selector: 'app-cad-usuario',
   templateUrl: './cad-usuario.component.html',

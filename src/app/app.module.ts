@@ -17,6 +17,8 @@ import {TableModule} from 'primeng/table';
 import {InputMaskModule} from 'primeng/inputmask';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {CardModule} from 'primeng/card';
+import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import {TabMenuModule} from 'primeng/tabmenu';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import {CardModule} from 'primeng/card';
     AppComponent,
     CadProdutoComponent,
     CadUsuarioComponent,
+    MenuUsuarioComponent,
 
   ],
   imports: [
@@ -39,7 +42,8 @@ import {CardModule} from 'primeng/card';
     TableModule,
     InputMaskModule,
     RadioButtonModule,
-    CardModule
+    CardModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
