@@ -19,6 +19,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {CardModule} from 'primeng/card';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     InputMaskModule,
     RadioButtonModule,
     CardModule,
+    KeyFilterModule,
+    InputTextareaModule,
     TabMenuModule
   ],
   providers: [],
