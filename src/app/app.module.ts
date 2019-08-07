@@ -26,6 +26,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { MainComponent } from './main/main.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
     MenuUsuarioComponent,
     MainComponent,
     CadEnderecoComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
