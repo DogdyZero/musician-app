@@ -1,0 +1,73 @@
+<p-card header="Dados do Produto"   styleClass="ui-card-shadow">
+    <div class="p-grid "> 
+            <div class="p-col-5">
+                <span>Nome
+                    <input class="p-col-12" id="float-input" type="text" pInputText> 
+                </span>
+            </div>
+
+            <div class="p-col-2">
+                <span>Marca
+                    <input class="p-col-12" id="float-input" type="text" pInputText> 
+                </span>
+            </div>
+        </div>
+
+    <div class="p-grid">
+            <div class="p-col-3">
+                <span>Modelo
+                        <input class="p-col-12" id="float-input" type="text" pInputText> 
+                </span>
+            </div>
+            <div class="p-col-2">
+                <span>Linha
+                        <input class="p-col-12" id="float-input" type="text" pInputText> 
+                </span>
+            </div>
+            <div class="p-col-1">
+                <span>Ano
+                    <input class="p-col-12" id="float-inout" pInputText pKeyFilter="num" type="text" placeholder="yyyy" maxlength="4" pInputText>
+                </span>
+            </div>
+
+
+        </div>
+
+        <div  class="p-grid left-5">
+            <div class="p-col-5 ">
+                <p-dropdown [options]="prodCategoria" [(ngModel)]="categoria" [showClear]="true" placeholder="Selecione a categoria"></p-dropdown>
+            </div>
+        </div>
+
+</p-card>
+<br>
+
+<p-card header="EAN"  styleClass="ui-card-shadow">
+        <div class="p-grid">
+            <div class="p-col-3">
+                <span class="ui-float-label ">
+                        <input class="p-col-12" id="float-inout" type="text" placeholder="Código universal" minlength="8" maxlength="14" pInputText>
+                </span>
+            </div>
+        </div>
+    </p-card>
+<br>
+
+<p-card header="Preço"  styleClass="ui-card-shadow">
+    <div class="p-grid">
+        <div class="p-col-1">
+            <input placeholder="R$" pInputText pKeyFilter="money" type="text"> 
+        </div>
+    </div>
+</p-card>
+<br>
+
+<p-card header="Descrição"  styleClass="ui-card-shadow">
+        <div class="p-grid">
+            <div class="p-col-1">
+                    <textarea rows="25" cols="80" pInputTextarea autoResize="autoResize"></textarea>
+            </div>
+        </div>
+    </p-card>
+
+
