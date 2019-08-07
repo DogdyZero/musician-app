@@ -1,0 +1,24 @@
+<div class="p-grid">
+    <div class="p-col-4" *ngFor="let inst of instrumento">
+        <div >
+            <p-card header="{{inst.nome}} {{inst.marca.nome}}" subheader="modelo {{inst.modelo}}" styleClass="ui-card-shadow">
+                <p-header class="text-center">
+                    <img  src="{{inst.pathImage}}">
+                </p-header>
+                <div class="p-grid p-dir-col">
+                    <div class="p-col">
+                        {{inst.descricao}}
+                    </div>
+                    <div class="p-col">
+                        Preço: {{inst.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}
+                    </div>
+                </div>
+                <p-footer>
+                    <div class="p-grid">
+                        <button pButton type="button" label="comprar" icon="pi pi-check" style="margin-right: .25em"></button>
+                    </div>
+                </p-footer>
+            </p-card>
+        </div>
+    </div>
+</div>

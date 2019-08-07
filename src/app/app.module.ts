@@ -3,6 +3,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +24,8 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-
+import { MainComponent } from './main/main.component';
+import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     CadProdutoComponent,
     CadUsuarioComponent,
     MenuUsuarioComponent,
-
+    MainComponent,
+    CadEnderecoComponent,
   ],
   imports: [
     BrowserModule,
