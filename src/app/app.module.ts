@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
+import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -27,6 +28,11 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import { MainComponent } from './main/main.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { HeaderComponent } from './header/header.component';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {PasswordModule} from 'primeng/password';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import { AltSenhaComponent } from './alt-senha/alt-senha.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +43,8 @@ import { HeaderComponent } from './header/header.component';
     MainComponent,
     CadEnderecoComponent,
     HeaderComponent,
+    CadCartaoComponent,
+    AltSenhaComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +55,15 @@ import { HeaderComponent } from './header/header.component';
     // primeng imports
     InputTextModule,
     ButtonModule,
+    ContextMenuModule,
     DropdownModule,
     TableModule,
+    PasswordModule,
     InputMaskModule,
     RadioButtonModule,
     CardModule,
     KeyFilterModule,
+    SelectButtonModule,
     InputTextareaModule,
     TabMenuModule
   ],

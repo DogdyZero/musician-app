@@ -1,0 +1,29 @@
+<p-card header="Alterar senha" styleClass="ui-card-shadow">
+    <div class="p-grid">
+        <div class="p-col-5">
+            <span>Digite sua senha antiga: <br>
+                <input placeholder="Senha antiga" type="password" class="p-col-7" id="float-input" pInputText>
+            </span>
+        </div>
+    </div>
+    <hr width="100%" />
+    <div class="p-grid">
+        <div class="p-col-5">
+            <span>Digite a nova senha: <br>
+                <input placeholder="Nova senha" class="p-col-7" type="password" pPassword />
+            </span>
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-col-5">
+                <input placeholder="Digite novamente" class="p-col-7" type="password" pPassword />
+        </div>
+    </div>
+
+
+
+        <p-footer>
+            <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
+            <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+        </p-footer>
+</p-card>
