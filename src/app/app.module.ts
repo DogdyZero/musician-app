@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
+import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -31,7 +32,7 @@ import { HeaderComponent } from './header/header.component';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
-import { AltSenhaComponent } from './alt-senha/alt-senha.component';
+import {MenubarModule} from 'primeng/menubar';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { AltSenhaComponent } from './alt-senha/alt-senha.component';
     KeyFilterModule,
     SelectButtonModule,
     InputTextareaModule,
-    TabMenuModule
+    TabMenuModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
