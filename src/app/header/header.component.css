@@ -1,0 +1,9 @@
+.navbar{
+  background-color: black;
+  background-image: linear-gradient(silver, #9968);
+  height: 60px;
+  width: 100%;
+}
+img{
+    height: 50px;;
+}
