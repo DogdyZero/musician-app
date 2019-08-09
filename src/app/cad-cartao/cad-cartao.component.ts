@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {SelectItem} from 'primeng/api';
-import {SelectButtonModule} from 'primeng/selectbutton';
+import { Component, OnInit, Input } from '@angular/core';
+import {SelectItem, MenuItem} from 'primeng/api';
+import { Usuario } from '../model/usuario';
 
 @Component({
   selector: 'app-cad-cartao',
@@ -8,19 +8,32 @@ import {SelectButtonModule} from 'primeng/selectbutton';
   styleUrls: ['./cad-cartao.component.css']
 })
 export class CadCartaoComponent implements OnInit {
+  items: MenuItem[];
+
   tipoBandeira: SelectItem[];
   selectedType: string;
   selectedTypes: string[] = ['Elo', 'MasterCard'];
 
-  constructor() {
+  cadastro=false;
+  continue(usuario:Usuario){
+    this.cadastro = true;
+    this.usuario = usuario;
+  }
+  @Input() usuario:Usuario;
+  constructor() { }
+
+  ngOnInit() {
     this.tipoBandeira = [
       {label: 'Elo', value: 'Elo'},
       {label: 'Visa', value: 'Visa'},
       {label: 'MasterCard', value: 'MasterCard'}
-  ];
-   }
-
-  ngOnInit() {
+    ];
+    this.items = [
+      {label: 'Dados Pessoais'},
+      {label: 'Endereços'},
+      {label: 'Cartões'},
+      {label: 'Senha'}
+    ];
   }
 
 }
