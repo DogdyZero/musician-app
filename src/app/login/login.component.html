@@ -1,0 +1,38 @@
+<app-header></app-header>
+<style>
+    #login{
+        position: relative;
+        left: 30%;
+        top: 50px;
+    }
+</style>
+<div id="login">
+    <p-card [style]="{width: '450px'}" styleClass="ui-card-shadow" >
+        <header>
+            <h1 style="text-align: center; color: red" >IDENTIFICAÇÃO</h1>
+            <hr style="width: 100%">
+        </header>
+        <br>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <span>E-mail:
+                    <input placeholder="Digite seu email" class="p-col-12" id="float-input" type="text" pInputText>                
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <span>Senha:
+                        <input placeholder="Digite sua senha" type="password" class="p-col-12" id="float-input" pInputText>
+                        <h5 style="text-align: end; color: blue">Esqueceu sua senha?</h5> 
+                </span>    
+            </div>
+        </div>
+               
+        <div class="p-grid">
+            <button style="margin: 0 auto;" pButton type="button" label="Entrar" class="ui-button-success"></button>
+        </div>
+        <h5 style="text-align: center; color: blue">Ainda não é cadastrado? Cadastrar</h5>
+    </p-card>
+</div>

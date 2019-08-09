@@ -6,6 +6,9 @@ import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
 import { HeaderComponent } from './header/header.component';
 import { AltSenhaComponent } from './alt-senha/alt-senha.component';
+import { DescProdutoComponent } from './desc-produto/desc-produto.component';
+import { LoginComponent } from './login/login.component';
+
 
 const routes: Routes = [
   { path : '', component:MainComponent},
@@ -13,7 +16,9 @@ const routes: Routes = [
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cad_usuario', component:CadUsuarioComponent},
-  { path: 'alt_senha', component:AltSenhaComponent}
+  { path : 'alt_senha', component:AltSenhaComponent},
+  { path : 'desc_produto', component:DescProdutoComponent},
+  { path : 'login', component:LoginComponent}
 ];
 
 @NgModule({

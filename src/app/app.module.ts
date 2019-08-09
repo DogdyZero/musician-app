@@ -33,6 +33,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
+import { DescProdutoComponent } from './desc-produto/desc-produto.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import {MenubarModule} from 'primeng/menubar';
     HeaderComponent,
     CadCartaoComponent,
     AltSenhaComponent,
+    DescProdutoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
