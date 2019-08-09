@@ -17,7 +17,6 @@ const routes: Routes = [
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cad_usuario', component:CadUsuarioComponent},
   { path : 'alt_senha', component:AltSenhaComponent},
-  { path : 'desc_produto', component:DescProdutoComponent},
   { path : 'login', component:LoginComponent}
 ];
 
