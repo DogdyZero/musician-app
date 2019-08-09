@@ -1,6 +1,7 @@
 <app-header></app-header>
 <br>
-<div class="p-grid">
+<div class="p-grid" *ngIf="instEnable==false">
+    
     <div class="p-col-4" *ngFor="let inst of instrumento">
         <div >
             <p-card header="{{inst.nome}} {{inst.marca.nome}}" subheader="modelo {{inst.modelo}}" styleClass="ui-card-shadow">
@@ -17,10 +18,15 @@
                 </div>
                 <p-footer>
                     <div class="p-grid">
-                        <button pButton type="button" label="comprar" icon="pi pi-check" style="margin-right: .25em"></button>
+                        <button pButton type="button" (click)="detalhes(inst)" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
+                        
                     </div>
                 </p-footer>
             </p-card>
         </div>
     </div>
+</div>
+
+<div *ngIf="instEnable">
+    <app-desc-produto [instrumento]="inst"></app-desc-produto>
 </div>

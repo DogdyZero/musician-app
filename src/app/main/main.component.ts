@@ -7,7 +7,12 @@ import { Instrumento } from '../model/instrumento';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  instEnable=false;
+  detalhes(inst : Instrumento){
+    this.inst = inst;
+    this.instEnable=true;
+  }
+  inst:Instrumento;
   instrumento:Instrumento[];
   
   constructor() { }

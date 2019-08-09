@@ -5,5 +5,11 @@
   width: 100%;
 }
 img{
-    height: 50px;;
+    height: 45px;;
+}
+h2{
+  color:white;
+}
+.text-center{
+  text-align: center;
 }
