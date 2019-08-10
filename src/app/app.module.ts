@@ -13,6 +13,10 @@ import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
 import { AltSenhaComponent } from './alt-senha/alt-senha.component';
+import { DescProdutoComponent } from './desc-produto/desc-produto.component';
+import { LoginComponent } from './login/login.component';
+import { CadSenhaComponent } from './cad-senha/cad-senha.component';
+import { ConsCadastroComponent } from './cons-cadastro/cons-cadastro.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -33,8 +37,9 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
-import { DescProdutoComponent } from './desc-produto/desc-produto.component';
-import { LoginComponent } from './login/login.component';
+import {StepsModule} from 'primeng/steps';
+import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
+import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 
 
 @NgModule({
@@ -50,6 +55,10 @@ import { LoginComponent } from './login/login.component';
     AltSenhaComponent,
     DescProdutoComponent,
     LoginComponent,
+    CadSenhaComponent,
+    ConsCadastroComponent,
+    ConsEnderecoComponent,
+    MenuCadastroComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +80,8 @@ import { LoginComponent } from './login/login.component';
     SelectButtonModule,
     InputTextareaModule,
     TabMenuModule,
-    MenubarModule
+    MenubarModule,
+    StepsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

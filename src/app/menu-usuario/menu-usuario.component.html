@@ -1,12 +1,22 @@
-<p-tabMenu [model]="items" [activeItem]="activeItem">
-        <ng-template pTemplate="item" let-item let-i="index">
-            <div style="position: relative; text-align: center; min-width: 10em">
-                <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
-                <div class="ui-menuitem-text">
-                    {{item.label}}
-                </div>
-
+<p-tabMenu  [model]="items" [activeItem]="activeItem">
+    <ng-template pTemplate="item" let-item let-i="index">
+        <div style="position: relative; text-align: center; min-width: 10em">
+            <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
+            <div  class="ui-menuitem-text">
+                {{item.label}}
             </div>
-        </ng-template>
-    </p-tabMenu>
-<app-cad-usuario></app-cad-usuario>
+        </div>
+    </ng-template>
+</p-tabMenu>
+<div *ngIf="id==0">
+    <app-cons-cadastro [usuario]="usuario"></app-cons-cadastro>
+</div>
+<div *ngIf="id==1">
+    <app-cons-endereco [usuario]="usuario"></app-cons-endereco>
+</div>
+<div *ngIf="id==2">
+    aba consulta 2
+</div>
+<div *ngIf="id==3">
+    aba consulta 3
+</div>

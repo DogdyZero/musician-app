@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {SelectItem} from 'primeng/api';
+import { Component, OnInit, Input } from '@angular/core';
+import {SelectItem, MenuItem} from 'primeng/api';
+import { Usuario } from '../model/usuario';
 
 @Component({
   selector: 'app-cad-usuario',
@@ -8,33 +8,24 @@ import {SelectItem} from 'primeng/api';
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
-  tiposEndereco: SelectItem[];
-  tipo: string;
+  @Input() id: number;
+  items: MenuItem[];
+  cadastro=false;
+  usuario:Usuario = new Usuario();
 
-  endereco:any =[{
-    cep:null,
-    logradouro:null,
-    bairro:null,
-    localidade:null,
-    uf:null
-  }];
-
-
-  buscarCep(cep:any){
-    let url = `https://viacep.com.br/ws/${cep}/json/`
-    this.http.get(url).subscribe(data=>{
-      this.endereco=data;}) 
+  constructor(){}
+  continue(usuario:Usuario){
+    this.id++;
+    this.cadastro=true;
+    this.usuario = usuario;
   }
-  constructor(private http:HttpClient) {
-    
-    }
-  
   ngOnInit() {
-    this.tiposEndereco = [
-      {label: 'Correspondência', value: 'Correspondência'},
-      {label: 'Cobrança', value: 'Cobrança'},
-      {label: 'Outros', value: 'Outros'}
-  ];
+    this.items = [
+      {label: 'Dados Pessoais'},
+      {label: 'Endereços'},
+      {label: 'Cartões'},
+      {label: 'Senha'}
+    ];
   }
 
 }
