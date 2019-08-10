@@ -1,0 +1,31 @@
+<app-header></app-header>
+<br>
+<h2>Carrinho de compras</h2>
+<p-card styleClass="ui-card-shadow">
+    <div class="p-grid">
+        <div class="p-col-7" *ngFor="let inst of instrumento">
+            <p-card id="card">
+                <div class="p-grid">
+                    <div class="p-col-2">
+                        <img src="{{inst.pathImage}}">
+                    </div>
+                    <div class="p-col-3">
+                        <label><strong>{{inst.nome}} {{inst.modelo}} {{inst.ano}}</strong></label><br><br>
+                            <p>{{inst.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
+                    </div>
+                    <div id="qnt" class="p-col-3">
+                        <span><strong>Quantidade:</strong><br>
+                            <input min="1" value="1" class="p-col-3" id="float-input" type="number" pInputText> 
+                        </span>
+                    </div>
+                    <div class="p-col-3">
+                        <button id="trsh" pButton type="button" icon="pi pi-trash" ></button>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+    <p-footer>
+            <button id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em"></button>
+        </p-footer>
+</p-card>

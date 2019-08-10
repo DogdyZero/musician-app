@@ -9,6 +9,7 @@ import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { LoginComponent } from './login/login.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path : 'menu', component:MenuCadastroComponent},
   { path : 'cad_endereco', component:CadEnderecoComponent},
   { path : 'alt_senha', component:AltSenhaComponent},
-  { path : 'login', component:LoginComponent}
+  { path : 'login', component:LoginComponent},
+  { path : 'cart', component:CartComponent}
 ];
 
 @NgModule({

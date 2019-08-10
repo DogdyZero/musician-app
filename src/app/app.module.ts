@@ -40,6 +40,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
 import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
 import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
     ConsCadastroComponent,
     ConsEnderecoComponent,
     MenuCadastroComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
