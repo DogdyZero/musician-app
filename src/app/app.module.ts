@@ -15,6 +15,8 @@ import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
 import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { LoginComponent } from './login/login.component';
+import { CadSenhaComponent } from './cad-senha/cad-senha.component';
+import { ConsCadastroComponent } from './cons-cadastro/cons-cadastro.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -36,7 +38,9 @@ import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
-import { CadSenhaComponent } from './cad-senha/cad-senha.component';
+import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
+import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +56,9 @@ import { CadSenhaComponent } from './cad-senha/cad-senha.component';
     DescProdutoComponent,
     LoginComponent,
     CadSenhaComponent,
+    ConsCadastroComponent,
+    ConsEnderecoComponent,
+    MenuCadastroComponent,
   ],
   imports: [
     BrowserModule,

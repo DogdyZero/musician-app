@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="localizado==false"></app-header>
 <style>
     #login{
         position: relative;
@@ -6,7 +6,7 @@
         top: 50px;
     }
 </style>
-<div id="login">
+<div *ngIf="localizado==false" id="login">
     <p-card [style]="{width: '450px'}" styleClass="ui-card-shadow" >
         <header>
             <h1 style="text-align: center; color: red" >IDENTIFICAÇÃO</h1>
@@ -15,8 +15,8 @@
         <br>
         <div class="p-grid">
             <div class="p-col-12">
-                <span>E-mail:
-                    <input placeholder="Digite seu email" class="p-col-12" id="float-input" type="text" pInputText>                
+                <span>Login:
+                    <input [(ngModel)]="usuario.nome" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
                 </span>
             </div>
         </div>
@@ -31,11 +31,14 @@
         </div>
                
         <div class="p-grid">
-            <button style="margin: 0 auto;" pButton type="button" label="Entrar" class="ui-button-success"></button>
+            <button style="margin: 0 auto;" (click)="logar(usuario)" pButton type="button" label="Entrar" class="ui-button-success"></button>
         </div>
         <h5 style="text-align: center; color: blue">
             <a href="/cadastro"> Ainda não é cadastrado? Cadastrar</a>
         </h5>
        
     </p-card>
+</div>
+<div *ngIf="localizado==true">
+    <app-menu-usuario [usuario]="usuario"></app-menu-usuario>
 </div>

@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { LoginComponent } from './login/login.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
+import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cadastro', component:CadUsuarioComponent},
+  { path : 'menu', component:MenuCadastroComponent},
   { path : 'cad_endereco', component:CadEnderecoComponent},
   { path : 'alt_senha', component:AltSenhaComponent},
   { path : 'login', component:LoginComponent}

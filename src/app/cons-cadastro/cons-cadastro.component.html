@@ -1,0 +1,22 @@
+<br>
+<p-card header="{{usuario.nome|uppercase}}" >
+    <div>
+        CPF: {{usuario.cpf}}
+    </div>
+</p-card>
+<p-table [value]="usuario.telefone">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>DDD</th>
+                <th>Numero</th>  
+                <th></th>  
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-telefone>
+            <tr style="text-align:center"> 
+                <td>{{telefone.ddd}}</td>
+                <td>{{telefone.numero}}</td>
+                <td><button pButton type="button" icon="pi pi-pencil" ></button></td>
+            </tr>
+        </ng-template>
+    </p-table>

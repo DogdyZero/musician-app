@@ -10,6 +10,7 @@ import { Endereco } from '../model/endereco';
   styleUrls: ['./cad-endereco.component.css']
 })
 export class CadEnderecoComponent implements OnInit {
+  @Input() id:number;
   items: MenuItem[];
   tiposEndereco: SelectItem[];
   tipo: string;

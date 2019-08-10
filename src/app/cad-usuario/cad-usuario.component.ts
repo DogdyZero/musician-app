@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
 
@@ -8,12 +8,14 @@ import { Usuario } from '../model/usuario';
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
+  @Input() id: number;
   items: MenuItem[];
   cadastro=false;
   usuario:Usuario = new Usuario();
 
   constructor(){}
   continue(usuario:Usuario){
+    this.id++;
     this.cadastro=true;
     this.usuario = usuario;
   }
