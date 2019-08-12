@@ -1,0 +1,24 @@
+<p-table [value]="pedido"  [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Valor</th>  
+            <th>Frete</th>
+            <th>Total</th>
+            <th>Data</th> 
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ped>
+        <tr style="text-align:center" >
+            <td>{{ped.id}}</td>
+            <td>{{ped.cliente.nome}}</td>
+            <td>{{ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
+            <td>{{ped.frete |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
+            <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
+            <td>{{ped.data |date: 'dd/MM/yyyy'}}</td>
+            <td><button pButton type="button" icon="pi pi-align-justify" ></button></td>
+        </tr>
+    </ng-template>
+</p-table>
