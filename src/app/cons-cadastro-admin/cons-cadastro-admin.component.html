@@ -1,0 +1,19 @@
+<p-table [value]="pessoa"  [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>DDD</th>
+            <th>Numero</th>  
+            <th></th>  
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-p>
+        <tr style="text-align:center ;font-weight:bold">
+            <td colspan="3">{{p.nome}} - CPF - {{p.cpf}}</td>
+        </tr>
+        <tr style="text-align:center" *ngFor="let tel of p.telefone">
+            <td>{{tel.ddd}}</td>
+            <td>{{tel.numero}}</td>
+            <td><button pButton type="button" icon="pi pi-pencil" ></button></td>
+        </tr>
+    </ng-template>
+</p-table>

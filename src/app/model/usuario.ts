@@ -1,10 +1,11 @@
 import { Telefone } from './telefone';
 import { Endereco } from './endereco'
+import { Perfil } from './perfil';
 
 export class Usuario {
     id:number;
-    nome:string;
-    cpf:string;
-    telefone: Telefone[];
-    endereco:Endereco[];
+    login:string;
+    senha:string;
+    perfil:Perfil;
+
 }

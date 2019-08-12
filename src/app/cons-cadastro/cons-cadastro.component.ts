@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Usuario } from '../model/usuario';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-cons-cadastro',
@@ -7,7 +7,7 @@ import { Usuario } from '../model/usuario';
   styleUrls: ['./cons-cadastro.component.css']
 })
 export class ConsCadastroComponent implements OnInit {
-  @Input() usuario: Usuario;
+  @Input() pessoa: Pessoa;
   constructor() { }
 
   ngOnInit() {

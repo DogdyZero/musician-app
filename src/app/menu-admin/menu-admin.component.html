@@ -8,19 +8,17 @@
         </div>
     </ng-template>
 </p-tabMenu>
+<br>
 <div *ngIf="id==0">
-    <app-cons-cadastro [pessoa]="pessoa"></app-cons-cadastro>
+    <app-menu-produto></app-menu-produto>
 </div>
 <div *ngIf="id==1">
-    <app-cons-endereco [pessoa]="pessoa"></app-cons-endereco>
+    <app-cons-cadastro-admin></app-cons-cadastro-admin>
 </div>
 <div *ngIf="id==2">
-    <app-cons-cartao [pessoa]="pessoa"></app-cons-cartao>
+    <app-cons-endereco-admin></app-cons-endereco-admin>
 </div>
 <div *ngIf="id==3">
-    em planejamento
+    <app-cons-cartao-admin></app-cons-cartao-admin>
 </div>
-<div *ngIf="id==4">
-    <br>
-    <app-alt-senha></app-alt-senha>
-</div>
+    

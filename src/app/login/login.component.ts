@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
+import { MemoryPessoa } from '../memoryPessoasDataBase';
+import { Pessoa } from '../model/pessoa';
+
 
 @Component({
   selector: 'app-login',
@@ -8,16 +11,21 @@ import { Usuario } from '../model/usuario';
 })
 export class LoginComponent implements OnInit {
   localizado=false;
+  admin=false;
   msg:string;
+  memoryBase= MemoryPessoa;
   usuario:Usuario = new Usuario();
-  usuarios: Usuario[];
+  pessoa:Pessoa;
+
   constructor() { }
   logar(usuario:Usuario){
-    for(let u of this.usuarios){
-      if(usuario.nome==u.nome){
+    for(let mem of this.memoryBase){
+      if(usuario.login==mem.usuario.login){
         this.localizado=true;
-        this.usuario=u;
-        console.log(this.usuario);
+        if(mem.usuario.perfil.nome=='admin'){
+          this.admin=true;
+        }
+        this.pessoa = mem;
       } 
     }
     if(this.localizado==false){
@@ -27,20 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usuarios=[
-      {id:1,nome:'douglas',cpf:'12345678919',
-      endereco:[{tipoLogradouro:'cobrança',
-      logradouro:'Rua A',numero:200,complemento:null,
-      bairro:'Cesar de Souza',cidade:'Mogi das Cruzes',
-      estado:'SP',cep:'08810-340'},
-      {tipoLogradouro:'cobrança',
-      logradouro:'Rua B',numero:250,complemento:null,
-      bairro:'Cesar de Souza',cidade:'Mogi das Cruzes',
-      estado:'SP',cep:'08810-400'}],
-      telefone:[{id:1,ddd:'11',numero:'23452345'},
-      {id:2,ddd:'11',numero:'35438768'}
-    ]}
-  ]
   }
-
+    
 }

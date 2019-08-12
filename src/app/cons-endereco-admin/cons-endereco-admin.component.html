@@ -1,0 +1,30 @@
+<p-table [value]="pessoa" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Tipo</th>
+                <th>logradouro</th>
+                <th>Numero</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-p>
+            <tr style="text-align:center ;font-weight:bold">
+                <td colspan="8">{{p.nome}}</td>
+            </tr>
+            <tr style="text-align:center" *ngFor="let end of p.endereco">
+                <td>{{end.tipoLogradouro}}</td>
+                <td>{{end.logradouro}}</td>
+                <td>{{end.numero}}</td>
+                <td>{{end.complemento}}</td>
+                <td>{{end.bairro}}</td>
+                <td>{{end.cidade}}</td>
+                <td>{{end.estado}}</td>
+                    
+                <td><button pButton type="button" icon="pi pi-pencil" ></button></td>
+            </tr>
+        </ng-template>
+    </p-table>

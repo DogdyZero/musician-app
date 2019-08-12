@@ -46,7 +46,7 @@ export class CadEnderecoComponent implements OnInit {
     endereco.tipoLogradouro=this.tipo;
     this.cadastro=true;
     this.enderecos.push(endereco);
-    this.usuario.endereco = this.enderecos;
+    //this.usuario.endereco = this.enderecos;
     console.log(this.enderecos);
   }
 
