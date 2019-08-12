@@ -1,11 +1,9 @@
-<p-steps [model]="items" ([activeIndex])="id"></p-steps>
+<p-steps [model]="items" [activeIndex]="id"></p-steps>
 
 <div *ngIf="id==0">
     <app-cad-usuario [id]="id"></app-cad-usuario>
 </div>
-<div *ngIf="id==1">
-    <app-cad-endereco [id]="id"></app-cad-endereco></div>
-<div *ngIf="id==3">
-    <p-steps [model]="items" [activeIndex]=2></p-steps>
-    tela 2
-</div>
+
+<button (click)="change(0)">First</button>
+<button (click)="change(1)">Second</button>
+<button (click)="change(2)">Third</button>

@@ -15,7 +15,6 @@ export class CadUsuarioComponent implements OnInit {
 
   constructor(){}
   continue(usuario:Usuario){
-    this.id++;
     this.cadastro=true;
     this.usuario = usuario;
   }
