@@ -49,6 +49,7 @@ import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
 import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
 import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
 import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
+import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.
     ConsEnderecoAdminComponent,
     ConsCadastroAdminComponent,
     ConsCartaoAdminComponent,
+    PedidosAdminComponent,
   ],
   imports: [
     BrowserModule,
