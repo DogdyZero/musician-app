@@ -16,7 +16,7 @@
         <div class="p-grid">
             <div class="p-col-12">
                 <span>Login:
-                    <input [(ngModel)]="usuario.nome" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
+                    <input [(ngModel)]="usuario.login" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
                 </span>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="p-grid">
             <div class="p-col-12">
                 <span>Senha:
-                        <input placeholder="Digite sua senha" type="password" class="p-col-12" id="float-input" pInputText>
+                        <input [(ngModel)]="usuario.senha" placeholder="Digite sua senha" type="password" class="p-col-12" id="float-input" pInputText>
                         <h5 style="text-align: end; color: blue">Esqueceu sua senha?</h5> 
                 </span>    
             </div>
@@ -40,5 +40,10 @@
     </p-card>
 </div>
 <div *ngIf="localizado==true">
-    <app-menu-usuario [usuario]="usuario"></app-menu-usuario>
+    <div *ngIf="admin==false">
+        <app-menu-usuario [pessoa]="pessoa"></app-menu-usuario>
+    </div>
+    <div *ngIf="admin==true">
+        <app-menu-admin></app-menu-admin>
+    </div>
 </div>

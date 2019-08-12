@@ -8,15 +8,11 @@
         </div>
     </ng-template>
 </p-tabMenu>
+<br>
 <div *ngIf="id==0">
-    <app-cons-cadastro [pessoa]="pessoa"></app-cons-cadastro>
-</div>
-<div *ngIf="id==1">
-    <app-cons-endereco [pessoa]="pessoa"></app-cons-endereco>
+    <app-menu-produto></app-menu-produto>
 </div>
 <div *ngIf="id==2">
-    <app-cons-cartao [pessoa]="pessoa"></app-cons-cartao>
+    <app-cons-endereco-admin></app-cons-endereco-admin>
 </div>
-<div *ngIf="id==3">
-    aba consulta 3
-</div>
+    

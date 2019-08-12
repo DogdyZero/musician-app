@@ -1,10 +1,10 @@
 <br>
-<p-card header="{{usuario.nome|uppercase}}" >
+<p-card header="{{pessoa.nome|uppercase}}" >
     <div>
-        CPF: {{usuario.cpf}}
+        CPF: {{pessoa.cpf}}
     </div>
 </p-card>
-<p-table [value]="usuario.telefone">
+<p-table [value]="pessoa.telefone">
         <ng-template pTemplate="header">
             <tr>
                 <th>DDD</th>

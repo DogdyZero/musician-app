@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Usuario } from '../model/usuario';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-cons-endereco',
@@ -8,10 +8,11 @@ import { Usuario } from '../model/usuario';
 })
 export class ConsEnderecoComponent implements OnInit {
 
-  @Input() usuario:Usuario;
+  @Input() pessoa:Pessoa;
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

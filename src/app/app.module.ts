@@ -17,6 +17,12 @@ import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { LoginComponent } from './login/login.component';
 import { CadSenhaComponent } from './cad-senha/cad-senha.component';
 import { ConsCadastroComponent } from './cons-cadastro/cons-cadastro.component';
+import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
+import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
+import { CartComponent } from './cart/cart.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { ConsCartaoComponent } from './cons-cartao/cons-cartao.component';
+import { MenuProdutoComponent } from './menu-produto/menu-produto.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -38,9 +44,9 @@ import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
-import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
-import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
-import { CartComponent } from './cart/cart.component';
+import {AccordionModule} from 'primeng/accordion';
+import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
+import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
 
 
 @NgModule({
@@ -61,6 +67,11 @@ import { CartComponent } from './cart/cart.component';
     ConsEnderecoComponent,
     MenuCadastroComponent,
     CartComponent,
+    MenuAdminComponent,
+    ConsCartaoComponent,
+    MenuProdutoComponent,
+    ConsProdutoComponent,
+    ConsEnderecoAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +94,8 @@ import { CartComponent } from './cart/cart.component';
     InputTextareaModule,
     TabMenuModule,
     MenubarModule,
-    StepsModule
+    StepsModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

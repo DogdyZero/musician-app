@@ -1,0 +1,24 @@
+<p-table [value]="instrumento">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>nome</th>
+                <th>Marca</th>
+                <th>Ano</th>
+                <th>Tipo</th>
+                <th>Linha</th>
+                <th>Preço</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-inst>
+            <tr style="text-align:center">
+                <td>{{inst.nome}}</td>
+                <td>{{inst.marca.nome}}</td>
+                <td>{{inst.ano}}</td>
+                <td>{{inst.tipo.tipo}}</td>
+                <td>{{inst.linha}}</td>
+                <td>{{inst.preco}}</td>
+                <td><button pButton type="button" icon="pi pi-pencil" ></button></td>
+            </tr>
+        </ng-template>
+    </p-table>

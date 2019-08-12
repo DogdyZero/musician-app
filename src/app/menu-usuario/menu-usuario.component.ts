@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import { Usuario } from '../model/usuario';
-import { TestBed } from '@angular/core/testing';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-menu-usuario',
@@ -10,7 +9,7 @@ import { TestBed } from '@angular/core/testing';
 })
 export class MenuUsuarioComponent implements OnInit {
   items: MenuItem[];
-  @Input() usuario:Usuario;
+  @Input() pessoa:Pessoa;
   activeItem: MenuItem;
   id=0;
   teste(){
