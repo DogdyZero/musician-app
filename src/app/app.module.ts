@@ -47,6 +47,8 @@ import {StepsModule} from 'primeng/steps';
 import {AccordionModule} from 'primeng/accordion';
 import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
 import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
+import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
+import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-
     MenuProdutoComponent,
     ConsProdutoComponent,
     ConsEnderecoAdminComponent,
+    ConsCadastroAdminComponent,
+    ConsCartaoAdminComponent,
   ],
   imports: [
     BrowserModule,
