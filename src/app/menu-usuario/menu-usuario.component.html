@@ -1,3 +1,5 @@
+<app-header></app-header>
+<br>
 <p-tabMenu  [model]="items" [activeItem]="activeItem">
     <ng-template pTemplate="item" let-item let-i="index">
         <div style="position: relative; text-align: center; min-width: 10em">
@@ -18,7 +20,7 @@
     <app-cons-cartao [pessoa]="pessoa"></app-cons-cartao>
 </div>
 <div *ngIf="id==3">
-    em planejamento
+    <app-pedidos-usuario></app-pedidos-usuario>
 </div>
 <div *ngIf="id==4">
     <br>

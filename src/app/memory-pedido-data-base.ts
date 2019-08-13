@@ -50,9 +50,9 @@ let pessoas: Pessoa[] =[
 ]
 
 export const MemoryPedidoDataBase:Pedido[] =[
-    {id:1,cliente:pessoas[0],produto:[instrumentos[0]],frete:30.00,valor:instrumentos[0].preco, data:new Date()},
-    {id:2,cliente:pessoas[1],produto:[instrumentos[2]],frete:40.00,valor:instrumentos[2].preco, data:new Date()},
-    {id:3,cliente:pessoas[2],produto:[instrumentos[1],instrumentos[2]],frete:50.00,valor:(instrumentos[1].preco+instrumentos[2].preco), data:new Date()}
+    {id:1,cliente:pessoas[0],produto:[instrumentos[0]],frete:30.00,valor:instrumentos[0].preco, data:new Date(),status:"Entregue"},
+    {id:2,cliente:pessoas[1],produto:[instrumentos[2]],frete:40.00,valor:instrumentos[2].preco, data:new Date(),status:"Em transporte"},
+    {id:3,cliente:pessoas[2],produto:[instrumentos[1],instrumentos[2]],frete:50.00,valor:(instrumentos[1].preco+instrumentos[2].preco), data:new Date(),status:"Aguardando aprovação"}
 
 ] 
 

@@ -50,6 +50,10 @@ import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-
 import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
 import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
 import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
+import { PedidosUsuarioComponent } from './pedidos-usuario/pedidos-usuario.component';
+import {DialogModule} from 'primeng/dialog';
+import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
+import {SelectItem} from 'primeng/api';
 
 
 @NgModule({
@@ -78,6 +82,8 @@ import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
     ConsCadastroAdminComponent,
     ConsCartaoAdminComponent,
     PedidosAdminComponent,
+    PedidosUsuarioComponent,
+    TrocaAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +107,7 @@ import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
     TabMenuModule,
     MenubarModule,
     StepsModule,
+    DialogModule,
     AccordionModule
   ],
   providers: [],

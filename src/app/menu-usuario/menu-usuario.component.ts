@@ -35,7 +35,7 @@ export class MenuUsuarioComponent implements OnInit {
           command: (data)=>{
             this.id=3;
           }},
-          {label: 'Senha', icon: 'pi pi-globe',
+          {label: 'Senha', icon: 'pi pi-unlock',
           command: (data)=>{
             this.id=4;
           }},

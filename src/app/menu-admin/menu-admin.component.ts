@@ -37,6 +37,10 @@ export class MenuAdminComponent implements OnInit {
           command: (data)=>{
             this.id=4;
           }},
+          {label: 'Trocas', icon: 'pi pi-undo',
+          command: (data)=>{
+            this.id=5;
+          }}
       ];
       this.activeItem = this.items[0];
 
