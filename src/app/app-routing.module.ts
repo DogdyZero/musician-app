@@ -17,7 +17,7 @@ import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 const routes: Routes = [
   { path : '', component:MainComponent},
   { path : 'produto/:id', component:DescProdutoComponent},
-  { path : 'head', component:HeaderComponent},
+  { path : 'carrinho/:id', component:CartComponent},
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cadastro', component:CadUsuarioComponent},

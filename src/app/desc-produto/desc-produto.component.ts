@@ -10,8 +10,7 @@ import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
 })
 export class DescProdutoComponent implements OnInit {
   id:number;
-  @Input() instrumento1 : Instrumento;
-   instrumento: Instrumento = new Instrumento();
+  instrumento: Instrumento;
  
   constructor(private activatedRoute: ActivatedRoute ) { }
 
@@ -21,7 +20,7 @@ export class DescProdutoComponent implements OnInit {
         this.id = params['id'];
       }
     )
-
+      // criar classe de servico
     for(let inst of MemoryProdutosDataBase){
       if(inst.id == this.id){
         this.instrumento = {
@@ -36,19 +35,7 @@ export class DescProdutoComponent implements OnInit {
             pathImage:inst.pathImage,
             descricao:inst.descricao}
       }
-    }  
-        //this.instrumento = {id: 1, nome:'guitarra', marca:{nome:'Guibson'},ano:'2012',modelo:'Les paul',tipo:{tipo:'Corda'},linha:'10',preco:999.99,pathImage:'./assets/guitarra1.jpeg',descricao:'Modelo de refêrencia de diversos guitarrista, este modelo é uma réplica do modelo favorito usado pelo Slash'}
-    //this.instrumento = {
-    //  id: this.instrumento.id, 
-    //  nome:this.instrumento.nome, 
-    //  marca:{nome:this.instrumento.marca.nome},
-    //  ano:this.instrumento.ano,
-    //  modelo:this.instrumento.modelo,
-    //  tipo:{tipo:this.instrumento.tipo.tipo},
-    //  linha:this.instrumento.linha,
-    //  preco:this.instrumento.preco,
-    //  pathImage:this.instrumento.pathImage,
-    //  descricao:this.instrumento.descricao}
+    } 
   }
 
 }

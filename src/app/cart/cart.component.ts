@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
 import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +9,24 @@ import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  id:number;
   inst:Instrumento;
-  instrumento=MemoryProdutosDataBase;
+  instrumento:Instrumento[] =[];
 
-  constructor() { }
+  constructor(private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params:any)=>{
+        this.id = params['id'];
+      }
+    )
+    for (let inst of MemoryProdutosDataBase){
+      if(inst.id == this.id){
+        this.instrumento.push(inst);
+      }
     }
+
+  }
 
 }
