@@ -28,6 +28,9 @@ import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-
 import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
 import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
 import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
+import { GraficoComponent } from './grafico/grafico.component';
+import { PedidosUsuarioComponent } from './pedidos-usuario/pedidos-usuario.component';
+import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -50,23 +53,10 @@ import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
 import {AccordionModule} from 'primeng/accordion';
-<<<<<<< HEAD
 import {ChartModule} from 'primeng/chart';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
-import { GraficoComponent } from './grafico/grafico.component';
-=======
-import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
-import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
-import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
-import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
-import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
-import { PedidosUsuarioComponent } from './pedidos-usuario/pedidos-usuario.component';
 import {DialogModule} from 'primeng/dialog';
-import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
-import {SelectItem} from 'primeng/api';
-
->>>>>>> b9de68fd4b3b297c58bbe7d95ad79e5bd2dba9c6
 
 @NgModule({
   declarations: [
@@ -94,12 +84,9 @@ import {SelectItem} from 'primeng/api';
     ConsCadastroAdminComponent,
     ConsCartaoAdminComponent,
     PedidosAdminComponent,
-<<<<<<< HEAD
-    GraficoComponent,
-=======
     PedidosUsuarioComponent,
     TrocaAdminComponent,
->>>>>>> b9de68fd4b3b297c58bbe7d95ad79e5bd2dba9c6
+    GraficoComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,15 +110,11 @@ import {SelectItem} from 'primeng/api';
     TabMenuModule,
     MenubarModule,
     StepsModule,
-<<<<<<< HEAD
     AccordionModule,
     ChartModule,
     MessagesModule,
-    MessageModule
-=======
-    DialogModule,
-    AccordionModule
->>>>>>> b9de68fd4b3b297c58bbe7d95ad79e5bd2dba9c6
+    MessageModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
