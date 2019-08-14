@@ -8,4 +8,5 @@ export class Pedido {
     frete: number;
     valor: number;
     data: Date;
+    status: string;
 }
