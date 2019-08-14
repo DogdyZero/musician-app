@@ -15,14 +15,12 @@
                 </div>
                 <p-footer>
                     <div class="p-grid">
-                        <button pButton type="button" (click)="detalhes(inst)" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
+                        <a [routerLink]="['produto',inst.id]">                        
+                            <button pButton type="button" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
+                        </a>
                     </div>
                 </p-footer>
             </p-card>
         </div>
     </div>
-</div>
-
-<div *ngIf="instEnable">
-    <app-desc-produto [instrumento]="inst"></app-desc-produto>
 </div>
