@@ -10,9 +10,13 @@ import { Usuario } from '../model/usuario';
 export class MenuCadastroComponent implements OnInit {
   items: MenuItem[];
   @Input() usuario: Usuario;
-  @Input() id=0;
+  id=0;
   activeIndex: number =this.id;
   constructor() { }
+
+  change(index: number): void {
+    this.id++;
+  }
 
   ngOnInit() {
     this.items = [

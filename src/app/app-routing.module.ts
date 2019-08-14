@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 import { CartComponent } from './cart/cart.component';
+import { GraficoComponent } from './grafico/grafico.component';
 
 
 const routes: Routes = [

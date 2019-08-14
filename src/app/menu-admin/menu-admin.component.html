@@ -11,21 +11,24 @@
 <a href="">Voltar ao site</a>
 <br>
 <div *ngIf="id==0">
-    <app-menu-produto></app-menu-produto>
+    <app-grafico></app-grafico>
 </div>
 <div *ngIf="id==1">
-    <app-cons-cadastro-admin></app-cons-cadastro-admin>
+    <app-menu-produto></app-menu-produto>
 </div>
 <div *ngIf="id==2">
-    <app-cons-endereco-admin></app-cons-endereco-admin>
+    <app-cons-cadastro-admin></app-cons-cadastro-admin>
 </div>
 <div *ngIf="id==3">
-    <app-cons-cartao-admin></app-cons-cartao-admin>
+    <app-cons-endereco-admin></app-cons-endereco-admin>
 </div>
 <div *ngIf="id==4">
-    <app-pedidos-admin></app-pedidos-admin>
+    <app-cons-cartao-admin></app-cons-cartao-admin>
 </div>
 <div *ngIf="id==5">
+    <app-pedidos-admin></app-pedidos-admin>
+</div>
+<div *ngIf="id==6">
     <app-troca-admin></app-troca-admin>
 </div>
     
