@@ -17,25 +17,29 @@ export class MenuAdminComponent implements OnInit {
 
   ngOnInit() {
       this.items = [
-        {label: 'Produtos', icon : 'pi pi-briefcase',
+        {label: 'Dashboard', icon : 'pi pi-shopping-cart',
           command:(data)=>{
             this.id=0;
           }},
-          {label: 'Usuarios', icon: 'pi pi-user',
-          command: (data)=>{
+        {label: 'Produtos', icon : 'pi pi-money-bill',
+          command:(data)=>{
             this.id=1;
           }},
-          {label: 'Endereços', icon: 'pi pi-briefcase',
+          {label: 'Usuarios', icon: 'pi pi-user',
           command: (data)=>{
             this.id=2;
           }},
-          {label: 'Cartões', icon: 'pi pi-dollar',
+          {label: 'Endereços', icon: 'pi pi-briefcase',
           command: (data)=>{
             this.id=3;
           }},
-          {label: 'Pedidos', icon: 'pi pi-globe',
+          {label: 'Cartões', icon: 'pi pi-dollar',
           command: (data)=>{
             this.id=4;
+          }},
+          {label: 'Pedidos', icon: 'pi pi-globe',
+          command: (data)=>{
+            this.id=5;
           }},
       ];
       this.activeItem = this.items[0];

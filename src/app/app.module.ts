@@ -23,6 +23,11 @@ import { CartComponent } from './cart/cart.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ConsCartaoComponent } from './cons-cartao/cons-cartao.component';
 import { MenuProdutoComponent } from './menu-produto/menu-produto.component';
+import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
+import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
+import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
+import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
+import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -45,12 +50,10 @@ import {ContextMenuModule} from 'primeng/contextmenu';
 import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
 import {AccordionModule} from 'primeng/accordion';
-import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
-import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
-import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
-import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
-import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
-
+import {ChartModule} from 'primeng/chart';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import { GraficoComponent } from './grafico/grafico.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,7 @@ import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
     ConsCadastroAdminComponent,
     ConsCartaoAdminComponent,
     PedidosAdminComponent,
+    GraficoComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +105,10 @@ import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
     TabMenuModule,
     MenubarModule,
     StepsModule,
-    AccordionModule
+    AccordionModule,
+    ChartModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
