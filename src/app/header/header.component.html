@@ -2,20 +2,22 @@
     <div class="p-grid p-justify-between ">
         <div class="p-col-1 text-center">
            
-            <div class="box "><a href=""><img  src="/assets/logo.png" > </a>
+            <div class="box "><a routerLink="/"><img  src="/assets/logo.png" > </a>
             </div>
         </div>
         <div class="p-col-2 p-align-center vertical-container name=app">
             <div class="box "><h2 class="">For Musician App</h2></div>
         </div>
         <div class="p-col-1 ">
-            <div class="box"><a  href="/cart"><img src="/assets/carrinho.png" alt=""></a>
+            <div class="box"><a routerLink="/cart" ><img src="/assets/carrinho.png" alt=""></a>
             </div>
         </div>
     </div>
 </div>
 
+
 <p-menubar [model]="items" [autoDisplay]="false">
     <input type="text" pInputText placeholder="Search">
-    <a href="/login"><button pButton label="Login" icon="pi pi-sign-in"></button></a> 
+    <p-menu #menu [popup]="true" [model]="menuLogin"></p-menu>
+    <button type="button" pButton icon="pi pi-bars" label="Meu Acesso" (click)="menu.toggle($event)"></button>
 </p-menubar>

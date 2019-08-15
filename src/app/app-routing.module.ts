@@ -11,11 +11,13 @@ import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 import { CartComponent } from './cart/cart.component';
 import { GraficoComponent } from './grafico/grafico.component';
+import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 
 
 const routes: Routes = [
   { path : '', component:MainComponent},
-  { path : 'head', component:HeaderComponent},
+  { path : 'produto/:id', component:DescProdutoComponent},
+  { path : 'carrinho/:id', component:CartComponent},
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cadastro', component:CadUsuarioComponent},

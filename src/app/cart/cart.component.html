@@ -19,7 +19,7 @@
                         </span>
                     </div>
                     <div class="p-col-3">
-                        <button id="trsh" pButton type="button" icon="pi pi-trash" ></button>
+                        <button (click)="remove(inst.id)"id="trsh" pButton type="button" icon="pi pi-trash" ></button>
                     </div>
                 </div>
             </p-card>
@@ -37,7 +37,10 @@
         </div>
     </div>
     <p-footer>
-            <button id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em"></button>
+            <a routerLink="/" >
+                <button id="buy" pButton type="button" label="Voltar" icon="pi pi-check" style="margin-right: .25em"></button>
+            </a>
+            <button (click)="comprar()" id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em"></button>
         </p-footer>
 
 </p-card>

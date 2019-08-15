@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
+import { Route, ActivatedRoute } from '@angular/router';
+import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
+import { DescProdutoService } from './desc-produto.service';
 
 @Component({
   selector: 'app-desc-produto',
@@ -7,25 +10,20 @@ import { Instrumento } from '../model/instrumento';
   styleUrls: ['./desc-produto.component.css']
 })
 export class DescProdutoComponent implements OnInit {
-  @Input() instrumento : Instrumento;
- // instrumento: Instrumento;
+  id:number;
+  instrumento: Instrumento;
  
-  constructor() { }
+  constructor(
+    private descricao :DescProdutoService,
+    private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
-    //this.instrumento = {id: 1, nome:'guitarra', marca:{nome:'Guibson'},ano:'2012',modelo:'Les paul',tipo:{tipo:'Corda'},linha:'10',preco:999.99,pathImage:'./assets/guitarra1.jpeg',descricao:'Modelo de refêrencia de diversos guitarrista, este modelo é uma réplica do modelo favorito usado pelo Slash'}
-    console.log(this.instrumento);
-    this.instrumento = {
-      id: this.instrumento.id, 
-      nome:this.instrumento.nome, 
-      marca:{nome:this.instrumento.marca.nome},
-      ano:this.instrumento.ano,
-      modelo:this.instrumento.modelo,
-      tipo:{tipo:this.instrumento.tipo.tipo},
-      linha:this.instrumento.linha,
-      preco:this.instrumento.preco,
-      pathImage:this.instrumento.pathImage,
-      descricao:this.instrumento.descricao}
+    this.activatedRoute.params.subscribe(
+      (params:any)=>{
+        this.id = params['id'];
+      }
+    )
+    this.instrumento = this.descricao.getInstrumentoById(this.id);
   }
 
 }
