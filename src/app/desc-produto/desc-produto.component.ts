@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
 import { Route, ActivatedRoute } from '@angular/router';
 import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
+import { DescProdutoService } from './desc-produto.service';
 
 @Component({
   selector: 'app-desc-produto',
@@ -12,7 +13,9 @@ export class DescProdutoComponent implements OnInit {
   id:number;
   instrumento: Instrumento;
  
-  constructor(private activatedRoute: ActivatedRoute ) { }
+  constructor(
+    private descricao :DescProdutoService,
+    private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -20,22 +23,7 @@ export class DescProdutoComponent implements OnInit {
         this.id = params['id'];
       }
     )
-      // criar classe de servico
-    for(let inst of MemoryProdutosDataBase){
-      if(inst.id == this.id){
-        this.instrumento = {
-            id: inst.id, 
-            nome:inst.nome, 
-            marca:{nome:inst.marca.nome},
-            ano:inst.ano,
-            modelo:inst.modelo,
-            tipo:{tipo:inst.tipo.tipo},
-            linha:inst.linha,
-            preco:inst.preco,
-            pathImage:inst.pathImage,
-            descricao:inst.descricao}
-      }
-    } 
+    this.instrumento = this.descricao.getInstrumentoById(this.id);
   }
 
 }

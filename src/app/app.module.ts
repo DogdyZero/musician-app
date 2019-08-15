@@ -57,6 +57,7 @@ import {ChartModule} from 'primeng/chart';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {DialogModule} from 'primeng/dialog';
+import {MenuModule} from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import {DialogModule} from 'primeng/dialog';
     ChartModule,
     MessagesModule,
     MessageModule,
-    DialogModule
+    DialogModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

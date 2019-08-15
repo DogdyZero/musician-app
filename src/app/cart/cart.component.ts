@@ -18,6 +18,9 @@ export class CartComponent implements OnInit {
     this.cartService.removeOfList(id);
   }
 
+  comprar(){
+
+  }
 
   constructor(
     private cartService : CartService,
@@ -33,6 +36,7 @@ export class CartComponent implements OnInit {
 
     this.instrumento = this.cartService.getInstrumentos();
 
+    
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { MemoryPessoa } from '../memoryPessoasDataBase';
 import { Pessoa } from '../model/pessoa';
+import { LoginService } from './login.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   usuario:Usuario = new Usuario();
   pessoa:Pessoa;
 
-  constructor() { }
+  constructor(private services : LoginService) { }
   logar(usuario:Usuario){
     for(let mem of this.memoryBase){
       if(usuario.login==mem.usuario.login){
