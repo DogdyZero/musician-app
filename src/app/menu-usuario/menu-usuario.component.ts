@@ -47,10 +47,15 @@ export class MenuUsuarioComponent implements OnInit {
           command: (data)=>{
             this.id=3;
           }},
-          {label: 'Senha', icon: 'pi pi-unlock',
+          {label: 'Cupons disponíveis', icon: 'pi pi-money-bill',
           command: (data)=>{
             this.id=4;
           }},
+          {label: 'Senha', icon: 'pi pi-unlock',
+          command: (data)=>{
+            this.id=5;
+          }}
+          
       ];
       this.activeItem = this.items[0];
 

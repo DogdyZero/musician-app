@@ -60,6 +60,10 @@ import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
 import { CompraComponent } from './compra/compra.component';
 import {FieldsetModule} from 'primeng/fieldset';
+import { CupomComponent } from './cupom/cupom.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -91,6 +95,7 @@ import {FieldsetModule} from 'primeng/fieldset';
     TrocaAdminComponent,
     GraficoComponent,
     CompraComponent,
+    CupomComponent,
   ],
   imports: [
     BrowserModule,
