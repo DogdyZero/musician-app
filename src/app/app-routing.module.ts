@@ -12,6 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { CompraComponent } from './compra/compra.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path : '', component:MainComponent},
   { path : 'produto/:id', component:DescProdutoComponent},
   { path : 'carrinho/:id', component:CartComponent},
+  { path : 'usuario/:id', component:MenuUsuarioComponent},
   { path : 'admin', component:MenuAdminComponent},
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},

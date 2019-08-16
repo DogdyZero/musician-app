@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { Pessoa } from '../model/pessoa';
+import { PessoaService } from './pessoa.service';
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-menu-usuario',
@@ -9,15 +12,24 @@ import { Pessoa } from '../model/pessoa';
 })
 export class MenuUsuarioComponent implements OnInit {
   items: MenuItem[];
-  @Input() pessoa:Pessoa;
+  pessoa:Pessoa;
   activeItem: MenuItem;
   id=0;
-  teste(){
-    console.log('teste');
-  }
-  constructor() { }
+  idPessoa:number;
+
+  constructor(
+    private pessoaService:PessoaService,
+    private activatedRoute :ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params:any)=>{
+        this.idPessoa = params['id'];
+      }
+    )
+    this.pessoaService.setPessoa(this.idPessoa);
+    this.pessoa = this.pessoaService.getPessoa();
+
       this.items = [
           {label: 'Meus Dados', icon: 'pi pi-user',
           command: (data)=>{
