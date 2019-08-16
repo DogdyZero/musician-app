@@ -4,15 +4,14 @@ import { MainComponent } from './main/main.component';
 import { CadProdutoComponent } from './cad-produto/cad-produto.component';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
-import { HeaderComponent } from './header/header.component';
 import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { LoginComponent } from './login/login.component';
 import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 import { CartComponent } from './cart/cart.component';
-import { GraficoComponent } from './grafico/grafico.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { CompraComponent } from './compra/compra.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 
 
 
@@ -20,6 +19,7 @@ const routes: Routes = [
   { path : '', component:MainComponent},
   { path : 'produto/:id', component:DescProdutoComponent},
   { path : 'carrinho/:id', component:CartComponent},
+  { path : 'admin', component:MenuAdminComponent},
   { path : 'cad_produto', component:CadProdutoComponent},
   { path : 'cad_cartao', component:CadCartaoComponent},
   { path : 'cadastro', component:CadUsuarioComponent},
