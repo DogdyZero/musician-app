@@ -4,6 +4,7 @@ import { MemoryPessoa } from '../memoryPessoasDataBase';
 import { Pessoa } from '../model/pessoa';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   usuario:Usuario = new Usuario();
 
   constructor(private router:Router,
+    private cartService :CartService,
     private services : LoginService) { }
 
   logar(usuario:Usuario){
@@ -24,7 +26,12 @@ export class LoginComponent implements OnInit {
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
     } else if (resultado == 'cliente'){
-      this.router.navigate(['/cart']);
+      
+      if(this.cartService.getTotalInstrumentos()>0){
+        this.router.navigate(['/cart']);
+      }else {
+        this.router.navigate(['/']);
+      }
     } else{
       this.msg =resultado;
     }

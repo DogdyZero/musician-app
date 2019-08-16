@@ -24,9 +24,6 @@ export class HeaderComponent implements OnInit {
         if(resultado == null){
             objLogin = {label: 'Login', icon: 'pi pi-fw pi-download',routerLink: ['/login']}
         } else {
-            this.loginService.logout();
-            objLogin = {label: 'Logout', icon: 'pi pi-fw pi-download',routerLink: ['/']}
-            objDados = {label: 'Meus Dados', icon: 'pi pi-fw pi-plus', routerLink:['/usuario/1']}
 
         }
         this.items = [
