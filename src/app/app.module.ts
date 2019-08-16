@@ -58,6 +58,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
+import { CompraComponent } from './compra/compra.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,7 @@ import {MenuModule} from 'primeng/menu';
     PedidosUsuarioComponent,
     TrocaAdminComponent,
     GraficoComponent,
+    CompraComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,7 @@ import {MenuModule} from 'primeng/menu';
     ChartModule,
     MessagesModule,
     MessageModule,
+    FieldsetModule,
     DialogModule,
     MenuModule
   ],

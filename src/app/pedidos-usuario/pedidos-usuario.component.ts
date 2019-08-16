@@ -7,6 +7,7 @@ import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
   styleUrls: ['./pedidos-usuario.component.css']
 })
 export class PedidosUsuarioComponent implements OnInit {
+  selectedValue: string;
   pedido = MemoryPedidoDataBase;
   display: boolean = false;
 

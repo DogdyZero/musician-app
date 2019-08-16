@@ -12,6 +12,8 @@ import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
 import { CartComponent } from './cart/cart.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
+import { CompraComponent } from './compra/compra.component';
+
 
 
 const routes: Routes = [
@@ -25,7 +27,8 @@ const routes: Routes = [
   { path : 'cad_endereco', component:CadEnderecoComponent},
   { path : 'alt_senha', component:AltSenhaComponent},
   { path : 'login', component:LoginComponent},
-  { path : 'cart', component:CartComponent}
+  { path : 'cart', component:CartComponent},
+  { path : 'compra', component:CompraComponent}
 ];
 
 @NgModule({

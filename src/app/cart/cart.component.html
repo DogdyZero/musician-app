@@ -25,22 +25,13 @@
             </p-card>
         </div>
     </div>
-    <div class="p-grid">
-        <div class="p-col-10">
-            <div id="frete">
-                <p style="color: black; font-size: 18px"><strong>Simulador de frete</strong></p>
-                <span class="ui-float-label">
-                    <input placeholder="Digite seu CEP" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
-                    <p-button icon="pi pi-check" label="Calcular"></p-button>
-                </span>
-            </div>
-        </div>
-    </div>
     <p-footer>
+        <a routerLink="/compra" >
+            <button (click)="comprar()" id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em;position: relative;bottom: 10px;"></button>
+        </a>
             <a routerLink="/" >
-                <button id="buy" pButton type="button" label="Voltar" icon="pi pi-check" style="margin-right: .25em"></button>
-            </a>
-            <button (click)="comprar()" id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em"></button>
+            <button id="buy" pButton type="button" label="Escolher mais produtos" icon="pi pi-check" style="margin-right: .25em;background-color: grey;width: 200px;position: relative;right: 80px"></button>
+        </a>
         </p-footer>
 
 </p-card>

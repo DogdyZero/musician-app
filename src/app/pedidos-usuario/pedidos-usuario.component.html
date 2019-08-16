@@ -22,9 +22,13 @@
     </ng-template>
 </p-table>
 
-<p-dialog header="Digite o motivo de troca" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+<p-dialog header="Selecione o motivo de troca" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
          [baseZIndex]="10000">
-            <textarea placeholder="(EX: tamanho errado, defeito de fabricação...)" rows="50" cols="42" pInputTextarea autoResize="autoResize"></textarea>
+         <div class="ui-g" style="width:250px;margin-bottom:10px">
+                <div class="ui-g-12"><p-radioButton name="group1" value="TamanhoErrado" label="Produto diferente do comprado" [(ngModel)]="val1" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="group1" value="DefeitoFabricação" label="Defeito de fabricação" [(ngModel)]="val1" inputId="opt2"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="group1" value="Arrependimento" label="Arrependimento" [(ngModel)]="val1" inputId="opt3"></p-radioButton></div>
+            </div>        
         <p-footer>
             <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Confirmar"></button>
             <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancelar" class="ui-button-secondary"></button>
