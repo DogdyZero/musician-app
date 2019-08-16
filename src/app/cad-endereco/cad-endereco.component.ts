@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
 import { HttpClient } from '@angular/common/http';
@@ -11,6 +11,11 @@ import { Endereco } from '../model/endereco';
 })
 export class CadEnderecoComponent implements OnInit {
   @Input() id:number;
+
+  @Output() novoId = new EventEmitter();
+
+  updateId(){
+  }
   items: MenuItem[];
   tiposEndereco: SelectItem[];
   tipo: string;
@@ -38,6 +43,8 @@ export class CadEnderecoComponent implements OnInit {
   }
 
   continue(endereco:Endereco){
+    this.novoId.emit(++this.id);
+    
     if(endereco.bairro==null){
       endereco.bairro = this.enderecoCorreios.bairro;
       endereco.cidade = this.enderecoCorreios.cidade;

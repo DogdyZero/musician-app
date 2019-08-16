@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Usuario } from '../model/usuario';
 
@@ -10,6 +10,11 @@ import { Usuario } from '../model/usuario';
 export class MenuCadastroComponent implements OnInit {
   items: MenuItem[];
   @Input() usuario: Usuario;
+
+  updateMenu(id:any){
+    console.log(id);
+  }
+
   id=0;
   activeIndex: number =this.id;
   constructor() { }
