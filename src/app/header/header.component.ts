@@ -21,13 +21,14 @@ export class HeaderComponent implements OnInit {
         let objLogin ={};
         let objDados={};
         let resultado = this.loginService.getUser();
+        console.log(resultado);
         if(resultado == null){
             objLogin = {label: 'Login', icon: 'pi pi-fw pi-download',routerLink: ['/login']}
         } else {
-            this.loginService.logout();
-            objLogin = {label: 'Logout', icon: 'pi pi-fw pi-download',routerLink: ['/']}
-            objDados = {label: 'Meus Dados', icon: 'pi pi-fw pi-plus', routerLink:['/']}
-
+            objLogin = {label: 'Logout', icon: 'pi pi-fw pi-download',routerLink: ['/'],command:(event: any)=>{
+                this.loginService.logout();
+            }}
+            objDados = {label: 'Meus Dados', icon: 'pi pi-fw pi-plus', routerLink:['usuario',resultado.id]}
         }
         this.items = [
         {

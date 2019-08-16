@@ -34,7 +34,7 @@ export class LoginService {
     }
   }
   logout(){
-    this.usuario = null;
+    this.usuario =null;
   }
 
 }
