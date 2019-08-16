@@ -1,0 +1,15 @@
+<br>
+<p-table [value]="cupom"  [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Codigo do cupom</th>
+            <th>Valor de desconto</th>  
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cup>
+        <tr style="text-align:center" >
+            <td>{{cup.codigo}}</td>
+            <td>R$&nbsp;{{cup.valor}}</td>
+        </tr>
+    </ng-template>
+</p-table>

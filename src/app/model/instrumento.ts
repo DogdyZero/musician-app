@@ -12,4 +12,5 @@ export class Instrumento {
     marca:Marca;
     pathImage:string;
     descricao:string;
+    quantidade:number;
 }
