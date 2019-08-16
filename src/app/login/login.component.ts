@@ -3,6 +3,7 @@ import { Usuario } from '../model/usuario';
 import { MemoryPessoa } from '../memoryPessoasDataBase';
 import { Pessoa } from '../model/pessoa';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,28 +12,22 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  localizado=false;
-  admin=false;
+
   msg:string;
-  memoryBase= MemoryPessoa;
   usuario:Usuario = new Usuario();
-  pessoa:Pessoa;
 
-  constructor(private services : LoginService) { }
+  constructor(private router:Router,
+    private services : LoginService) { }
+
   logar(usuario:Usuario){
-    for(let mem of this.memoryBase){
-      if(usuario.login==mem.usuario.login){
-        this.localizado=true;
-        if(mem.usuario.perfil.nome=='admin'){
-          this.admin=true;
-        }
-        this.pessoa = mem;
-      } 
+    let resultado = this.services.getLogin(usuario);
+    if(resultado == 'admin'){
+      this.router.navigate(['/admin']);
+    } else if (resultado == 'cliente'){
+      this.router.navigate(['/cart']);
+    } else{
+      this.msg =resultado;
     }
-    if(this.localizado==false){
-      this.msg='Senha ou usuario invalido';
-    }
-
   }
 
   ngOnInit() {

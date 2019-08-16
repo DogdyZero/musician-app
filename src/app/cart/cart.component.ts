@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Instrumento } from '../model/instrumento';
 import { CartService } from './cart.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-cart',
@@ -19,11 +20,18 @@ export class CartComponent implements OnInit {
   }
 
   comprar(){
-
+    let resultado = this.loginService.getUser();
+    if(resultado ==null){
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/compra']);
+    }
   }
 
   constructor(
     private cartService : CartService,
+    private loginService :LoginService,
+    private router:Router,
     private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
