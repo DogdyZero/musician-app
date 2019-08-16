@@ -39,4 +39,7 @@ export class CartService {
       }
     }
   }
+  getTotalInstrumentos(){
+    return  this.instrumentos.length;
+  }
 }
