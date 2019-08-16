@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-cad-usuario',
@@ -9,6 +10,12 @@ import { Usuario } from '../model/usuario';
 })
 export class CadUsuarioComponent implements OnInit {
   @Input() id: number;
+  @Output() novoId = new EventEmitter();
+
+  updateId(){
+    this.novoId.emit('teste');
+  }
+
   items: MenuItem[];
   cadastro=false;
   usuario:Usuario = new Usuario();

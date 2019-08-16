@@ -28,7 +28,7 @@
     </p-footer>
 </p-card>
 <div *ngIf="cadastro==true">
-    <app-cad-endereco [usuario]="usuario"></app-cad-endereco>
+    <app-cad-endereco [usuario]="usuario" [id]="id" (novoId)="updateMenu($event)"></app-cad-endereco>
 </div>
 
 
