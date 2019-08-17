@@ -33,28 +33,42 @@ export class HeaderComponent implements OnInit {
         }
         this.items = [
         {
-            label: 'File',
+            label: 'Categorias',
             items: [{
-                    label: 'New', 
-                    icon: 'pi pi-fw pi-plus',
+                    label: 'Corda',
                     items: [
-                        {label: 'Project'},
-                        {label: 'Other'},
+                        {label: 'Guitarra'},
+                        {label: 'Violão'},
+                        {label: 'Violino'},
+                        {label: 'Baixo'},
                     ]
                 },
-                {label: 'Open'},
-                {label: 'Quit'}
+                {
+                    label: 'Sopro',
+                    items: [
+                        {label: 'Saxofone'},
+                        {label: 'Gaita'},
+                ]
+            },
+                {
+                    label: 'Tenores',
+                    items: [
+                        {label: 'Corno inglês'},
+                        {label : 'Trombone'},
+                    ]
+                },
             ]
         },
         {
-            label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
+            label: 'Marcas',
             items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
+                {label: 'Nux'},
+                {label: 'Gianini'},
+                {label: 'Sabian'},
+                {label: 'Roland'},
+
             ]
         }
-        
     ];
         this.menuLogin = [{
             label: 'App',

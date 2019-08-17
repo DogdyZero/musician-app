@@ -63,6 +63,8 @@ import {FieldsetModule} from 'primeng/fieldset';
 import { CupomComponent } from './cupom/cupom.component';
 import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
+import { ConfCompraComponent } from './conf-compra/conf-compra.component';
+import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 
 
 
@@ -100,6 +102,8 @@ import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
     CupomComponent,
     EditProdutoComponent,
     EditEstoqueComponent,
+    ConfCompraComponent,
+    ConfCadastroComponent,
   ],
   imports: [
     BrowserModule,
