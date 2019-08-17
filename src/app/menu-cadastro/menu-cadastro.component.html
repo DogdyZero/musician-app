@@ -1,18 +1,18 @@
 <p-steps [model]="items" [activeIndex]="id"></p-steps>
 
 <div *ngIf="id==0">
-    <app-cad-usuario [usuario]="usuario" (updateUsuario)="updateUser($event)"
+    <app-cad-usuario [pessoa]="pessoa" (update)="updatePessoa($event)"
                         [id]="id" (updateId)="updateId($event)"></app-cad-usuario>
 </div>
 <div *ngIf="id==1">
-        <app-cad-endereco [usuario]="usuario" (updateUsuario)="updateUser($event)"
+        <app-cad-endereco [pessoa]="pessoa" (update)="updatePessoa($event)"
                         [id]="id" (updateId)="updateId($event)"></app-cad-endereco>
 </div>
 <div *ngIf="id==2" >
-    <app-cad-cartao [usuario]="usuario" (updateUsuario)="updateUser($event)"
+    <app-cad-cartao [pessoa]="pessoa" (update)="updatePessoa($event)"
                         [id]="id" (updateId)="updateId($event)"></app-cad-cartao>
 </div>
 <div *ngIf="id==3" >
-    <app-cad-senha [usuario]="usuario" (updateUsuario)="updateUser($event)"
+    <app-cad-senha [pessoa]="pessoa" (update)="updatePessoa($event)"
                     [id]="id" (updateId)="updateId($event)"></app-cad-senha>
 </div>

@@ -5,6 +5,7 @@ import { Pessoa } from '../model/pessoa';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { CartService } from '../cart/cart.service';
+import { Message } from 'primeng/api';
 
 
 @Component({
@@ -13,8 +14,8 @@ import { CartService } from '../cart/cart.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  msgs: Message[] = [];
 
-  msg:string;
   usuario:Usuario = new Usuario();
 
   constructor(private router:Router,
@@ -33,8 +34,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       }
     } else{
-      this.msg =resultado;
-    }
+      this.msgs = [];
+      this.msgs.push({severity:'error', summary:'Atenção', detail:'Login ou senha digitadas estão erradas'});    }
   }
 
   ngOnInit() {

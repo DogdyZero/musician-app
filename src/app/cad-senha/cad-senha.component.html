@@ -1,18 +1,19 @@
+<p-messages [(value)]="msgs"></p-messages>
 <p-card header="Cadastrar senha" styleClass="ui-card-shadow">
     <hr width="100%" />
     <div class="p-grid">
         <div class="p-col-5">
             <span>Digite a senha: <br>
-                <input placeholder="Senha" class="p-col-7" type="password" pPassword />
+                <input #senha1 placeholder="Senha" class="p-col-7" type="password" pPassword />
             </span>
         </div>
     </div>
     <div class="p-grid">
         <div class="p-col-5">
-                <input placeholder="Digite novamente" class="p-col-7" type="password" pPassword />
+                <input #senha2 placeholder="Digite novamente" class="p-col-7" type="password" pPassword />
         </div>
     </div>
     <p-footer>
-        <button (click)="salvar(usuario)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
+        <button (click)="salvar(senha1.value,senha2.value)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
     </p-footer>
 </p-card>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Usuario } from '../model/usuario';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-menu-cadastro',
@@ -8,33 +9,20 @@ import { Usuario } from '../model/usuario';
   styleUrls: ['./menu-cadastro.component.css']
 })
 export class MenuCadastroComponent implements OnInit {
+  constructor() { }
+  
   items: MenuItem[];
-  usuario: Usuario =new Usuario();
+  pessoa: Pessoa =new Pessoa();
   id=0;
   activeIndex: number;
 
-  updateUser(event){
-    console.log(event);
-  }
-  ngOnChange(){
-    console.log(this.id);
-  }
   updateId(event){
     this.id=event;
   }
-
-  constructor() { }
-
-  continue(){
-    if(this.id<3){
-      this.id++;
-    }
+  updatePessoa(event){
+    console.log(event);
   }
-  voltar(){
-    if(this.id>0){
-      this.id--;
-    }
-  }
+
   ngOnInit() {
     this.items = [
       {label: 'Dados Pessoais',

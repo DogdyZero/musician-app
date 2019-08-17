@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
-import { Usuario } from '../model/usuario';
+import { Pessoa } from '../model/pessoa';
+import { Cartao } from '../model/cartao';
 
 @Component({
   selector: 'app-cad-cartao',
@@ -8,36 +9,37 @@ import { Usuario } from '../model/usuario';
   styleUrls: ['./cad-cartao.component.css']
 })
 export class CadCartaoComponent implements OnInit {
-  @Input() usuario :Usuario;
-  @Output() updateUsuario = new EventEmitter();
+  constructor() { }
+
+  @Input() pessoa :Pessoa;
+  @Output() update = new EventEmitter();
 
   @Input() id:number;
   @Output() updateId = new EventEmitter();
 
+  cartao: Cartao = new Cartao();
+  cartoes:Cartao[] = [];
   items: MenuItem[];
 
   tipoBandeira: SelectItem[];
   selectedType: string;
   selectedTypes: string[] = ['Elo', 'MasterCard'];
 
-  cadastro=false;
-  salvar(usuario:Usuario){
-    this.updateUsuario.emit(this.usuario);
+  salvar(cartao:Cartao){
+    this.cartao.bandeira=this.selectedType;
+    this.cartao = cartao;
+    this.cartoes.push(this.cartao);
+    this.pessoa.cartao = this.cartoes;
+
+    this.update.emit(this.pessoa);
     this.updateId.emit(++this.id);
   }
-  constructor() { }
 
   ngOnInit() {
     this.tipoBandeira = [
       {label: 'Elo', value: 'Elo'},
       {label: 'Visa', value: 'Visa'},
       {label: 'MasterCard', value: 'MasterCard'}
-    ];
-    this.items = [
-      {label: 'Dados Pessoais'},
-      {label: 'Endereços'},
-      {label: 'Cartões'},
-      {label: 'Senha'}
     ];
   }
 
