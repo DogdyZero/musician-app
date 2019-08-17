@@ -17,7 +17,7 @@
             <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td>{{ped.data |date: 'dd/MM/yyyy'}}</td>
             <td>{{ped.status}}</td>
-            <td><button type="button" (click)="showDialog()" pButton icon="pi pi-sort-alt" label="Solicitar troca"></button></td>
+            <td><button name="btn_troca" type="button" (click)="showDialog()" pButton icon="pi pi-sort-alt" label="Solicitar troca"></button></td>
         </tr>
     </ng-template>
 </p-table>
@@ -30,7 +30,7 @@
                 <div class="ui-g-12"><p-radioButton name="group1" value="Arrependimento" label="Arrependimento" [(ngModel)]="val1" inputId="opt3"></p-radioButton></div>
             </div>        
         <p-footer>
-            <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Confirmar"></button>
-            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancelar" class="ui-button-secondary"></button>
+            <button name="btn_conf_troca" type="button" pButton icon="pi pi-check" (click)="display=false" label="Confirmar"></button>
+            <button name="btn_cancelar_troca" type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancelar" class="ui-button-secondary"></button>
         </p-footer>
 </p-dialog>

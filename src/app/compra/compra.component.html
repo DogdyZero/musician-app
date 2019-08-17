@@ -3,11 +3,11 @@
     <div class="p-grid">
         <div class="p-col-12">
             <div class="ui-g-15" style="width:270px;margin-bottom:10px">
-                <div class="ui-g-12"><p-radioButton name="group1" value="Option 1" label="Avenida Henrique Heroles, 201" [(ngModel)]="val1" inputId="opt1"></p-radioButton></div>
-                <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="Rua Carlos Barattino, 908" [(ngModel)]="val1" inputId="opt2"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="end_compra" value="Option 1" label="Avenida Henrique Heroles, 201" [(ngModel)]="val1" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="end_compra" value="Option 2" label="Rua Carlos Barattino, 908" [(ngModel)]="val1" inputId="opt2"></p-radioButton></div>
             </div>
         </div>
-        <button type="button" (click)="showDialogEnd()" pButton icon="pi pi-plus" label="Adicionar novo endereço"></button>
+        <button type="button" name="btn_novoEnd_compra" (click)="showDialogEnd()" pButton icon="pi pi-plus" label="Adicionar novo endereço"></button>
     </div>
 </p-card>
 <br>
@@ -16,11 +16,11 @@
     <div class="p-grid">
         <div class="p-col-12">
             <div class="ui-g-15" style="width:270px;margin-bottom:10px">
-                <div class="ui-g-12"><p-radioButton name="group2" value="Option 1" label="Cartão terminado em: 0123" [(ngModel)]="val2" inputId="opt1"></p-radioButton></div>
-                <div class="ui-g-12"><p-radioButton name="group2" value="Option 2" label="Cartão terminado em: 3210" [(ngModel)]="val2  " inputId="opt2"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="card1_compra" value="Option 1" label="Cartão terminado em: 0123" [(ngModel)]="val2" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="card2_compra" value="Option 2" label="Cartão terminado em: 3210" [(ngModel)]="val2  " inputId="opt2"></p-radioButton></div>
             </div>
         </div>
-        <button type="button" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>
+        <button type="button" name="btn_novoCard_compra" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>
     </div>
 </p-card>
 <br>
@@ -38,15 +38,15 @@
         <br>
         <p style="color: black; font-size: 18px"><strong>Frete</strong></p>
                 <span class="ui-float-label">
-                    <input placeholder="Digite seu CEP" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
-                    &nbsp;<p-button label="Ok"></p-button>
+                    <input name="frete_compra" placeholder="Digite seu CEP" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
+                    &nbsp;<p-button name="btn_frete_compra" label="Ok"></p-button>
                 </span>
         <hr>
         <br>
         <p style="color: black; font-size: 18px"><strong>Cupom</strong></p>
                 <span class="ui-float-label">
-                    <input placeholder="Código do cupom" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
-                    &nbsp;<p-button label="Ok"></p-button>
+                    <input name="cupom_compra" placeholder="Código do cupom" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
+                    &nbsp;<p-button name="btn_cupom_compra" label="Ok"></p-button>
                 </span>
         <hr>
         <br>
@@ -55,8 +55,8 @@
             </span>
         <br>
         <div>
-            <a href="/">
-                <button style="float: right" pButton type="button" label="Finalizar compra" class="ui-button-success"></button>
+            <a href="/conf_compra">
+                <button name="final_compra" style="float: right" pButton type="button" label="Finalizar compra" class="ui-button-success"></button>
             </a>
         </div>
     </p-fieldset>

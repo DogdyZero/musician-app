@@ -18,8 +18,8 @@
             <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td width="100">{{ped.data |date: 'dd/MM/yyyy'}}</td>
             <td>(Motivo)</td>
-            <td><button style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" class="ui-button-success"></button> <p></p>
-                <button pButton icon="pi pi-ban" type="button" label="Recusar" class="ui-button-danger"></button>
+            <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" class="ui-button-success"></button> <p></p>
+                <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" class="ui-button-danger"></button>
             </td>
         </tr>
     </ng-template>

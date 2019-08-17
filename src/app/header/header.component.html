@@ -17,7 +17,7 @@
 
 
 <p-menubar [model]="items" [autoDisplay]="false">
-    <input type="text" pInputText placeholder="Search">
+    <input name="search" type="text" pInputText placeholder="Search">
     <p-menu #menu [popup]="true" [model]="menuLogin"></p-menu>
-    <button type="button" pButton icon="pi pi-bars" label="Meu Acesso" (click)="menu.toggle($event)"></button>
+    <button name="btn_logar" type="button" pButton icon="pi pi-bars" label="Meu Acesso" (click)="menu.toggle($event)"></button>
 </p-menubar>
