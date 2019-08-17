@@ -1,5 +1,4 @@
-<p-steps *ngIf="cadastro==false" [model]="items"   [activeIndex]=1  ></p-steps>
-<p-card *ngIf="cadastro==false" header="Endereco {{ tipo }}"   styleClass="ui-card-shadow">
+<p-card header="Endereco {{ tipo }}"   styleClass="ui-card-shadow">
     <div class="p-grid ">
         <div class="p-col-5">
             <button pButton type="button" label="Novo" style="margin-right: .25em"></button>
@@ -54,14 +53,7 @@
             </span>
         </div>
     </div>
-
     <p-footer>
-        <button pButton type="button" (click)="continue(endereco)" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
-        <button pButton type="button" label="Cancelar" icon="pi pi-times" class="ui-button-secondary"></button>
+        <button (click)="salvar(endereco)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
     </p-footer>
-
 </p-card>
-<div *ngIf="cadastro==true">
-    <app-cad-cartao [usuario]="usuario"></app-cad-cartao>
-</div>
-    

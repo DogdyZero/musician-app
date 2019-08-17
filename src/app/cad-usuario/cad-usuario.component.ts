@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-cad-usuario',
@@ -9,19 +8,21 @@ import { EventEmitter } from 'events';
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
-  @Input() id: number;
-  @Output() novoId = new EventEmitter();
+  @Input() usuario :Usuario;
+  @Output() updateUsuario = new EventEmitter();
 
-  updateId(){
-    this.novoId.emit('teste');
+  @Input() id:number;
+  @Output() updateId = new EventEmitter();
+
+  salvar(usuario:Usuario){
+    this.updateUsuario.emit(this.usuario);
+    this.updateId.emit(++this.id);
   }
-
   items: MenuItem[];
   cadastro=false;
-  usuario:Usuario = new Usuario();
 
   constructor(){}
-  continue(usuario:Usuario){
+  continue(usuario:Usuario){    
     this.cadastro=true;
     this.usuario = usuario;
   }

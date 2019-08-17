@@ -9,20 +9,32 @@ import { Usuario } from '../model/usuario';
 })
 export class MenuCadastroComponent implements OnInit {
   items: MenuItem[];
-  @Input() usuario: Usuario;
+  usuario: Usuario =new Usuario();
+  id=0;
+  activeIndex: number;
 
-  updateMenu(id:any){
-    console.log(id);
+  updateUser(event){
+    console.log(event);
+  }
+  ngOnChange(){
+    console.log(this.id);
+  }
+  updateId(event){
+    this.id=event;
   }
 
-  id=0;
-  activeIndex: number =this.id;
   constructor() { }
 
-  change(index: number): void {
-    this.id++;
+  continue(){
+    if(this.id<3){
+      this.id++;
+    }
   }
-
+  voltar(){
+    if(this.id>0){
+      this.id--;
+    }
+  }
   ngOnInit() {
     this.items = [
       {label: 'Dados Pessoais',
