@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,8 @@ import { LoginService } from '../login/login.service';
 })
 export class HeaderComponent implements OnInit {
     
-    constructor(private loginService:LoginService) { }
+    constructor(
+        private loginService:LoginService) { }
 
     msg:string;
 
