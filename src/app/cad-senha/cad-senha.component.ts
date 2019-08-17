@@ -20,13 +20,9 @@ export class CadSenhaComponent implements OnInit {
 
   usuario:Usuario = new Usuario();
   perfil:Perfil = new Perfil();
-  msg:string;
 
   msgs: Message[] = [];
 
-  showError() {
-    
-  }
   clear() {
     this.msgs = [];
   }
@@ -38,6 +34,7 @@ export class CadSenhaComponent implements OnInit {
       this.usuario.login = this.pessoa.cpf;
       this.pessoa.usuario = this.usuario;
       this.update.emit(this.pessoa);
+      this.updateId.emit(++this.id);
     } else {
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Erro', detail:'As senhas digitadas não conferem'});

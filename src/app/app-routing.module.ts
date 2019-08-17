@@ -34,7 +34,7 @@ const routes: Routes = [
   { path : 'cart', component:CartComponent},
   { path : 'compra', component:CompraComponent},
   { path : 'edit_prod', component:EditProdutoComponent},
-  { path : 'conf_compra', component:ConfCompraComponent},
+  { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent}
 
 ];
