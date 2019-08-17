@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
 import { Perfil } from '../model/perfil';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-cad-senha',
@@ -20,6 +21,15 @@ export class CadSenhaComponent implements OnInit {
   usuario:Usuario = new Usuario();
   perfil:Perfil = new Perfil();
   msg:string;
+
+  msgs: Message[] = [];
+
+  showError() {
+    
+  }
+  clear() {
+    this.msgs = [];
+  }
   salvar(senha:string, senhaRepetida:string){
     if(senha==senhaRepetida){
       this.usuario.senha = senha;
@@ -29,8 +39,9 @@ export class CadSenhaComponent implements OnInit {
       this.pessoa.usuario = this.usuario;
       this.update.emit(this.pessoa);
     } else {
-      this.msg = 'As senha digitadas não conferem';
-    }
+      this.msgs = [];
+      this.msgs.push({severity:'error', summary:'Erro', detail:'As senhas digitadas não conferem'});
+      }
   }
 
   ngOnInit() {
