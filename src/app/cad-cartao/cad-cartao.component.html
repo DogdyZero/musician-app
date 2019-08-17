@@ -1,5 +1,4 @@
-<p-steps *ngIf="cadastro==false" [model]="items" [activeIndex]=2></p-steps>
-<p-card *ngIf="cadastro==false" header="Cadastro de pagamento" styleClass="ui-card-shadow">
+<p-card header="Cadastro de pagamento" styleClass="ui-card-shadow">
     <div class="p-grid">
         <div class="p-col-5">
             <h4 class="first">Selecione abaixo a bandeira no qual deseja utilizar</h4>
@@ -41,10 +40,6 @@
     </div>
     <br>
     <p-footer>
-            <button pButton  (click)="continue(usuario)" type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
-            <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
-        </p-footer>
+        <button (click)="salvar(usuario)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
+    </p-footer>
 </p-card>
-<div *ngIf="cadastro==true">
-    <app-cad-senha [usuario]="usuario"></app-cad-senha>
-</div>

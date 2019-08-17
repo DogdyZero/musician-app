@@ -10,12 +10,12 @@ import { Endereco } from '../model/endereco';
   styleUrls: ['./cad-endereco.component.css']
 })
 export class CadEnderecoComponent implements OnInit {
+  @Input() usuario :Usuario;
+  @Output() updateUsuario = new EventEmitter();
+
   @Input() id:number;
+  @Output() updateId = new EventEmitter();
 
-  @Output() novoId = new EventEmitter();
-
-  updateId(){
-  }
   items: MenuItem[];
   tiposEndereco: SelectItem[];
   tipo: string;
@@ -23,7 +23,6 @@ export class CadEnderecoComponent implements OnInit {
 
   endereco:Endereco =new Endereco();
   enderecos:Endereco[]=[];
-  @Input() usuario :Usuario;
 
   enderecoCorreios:any ={
     cep:null,
@@ -42,9 +41,7 @@ export class CadEnderecoComponent implements OnInit {
     
   }
 
-  continue(endereco:Endereco){
-    this.novoId.emit(++this.id);
-    
+  salvar(endereco:Endereco){   
     if(endereco.bairro==null){
       endereco.bairro = this.enderecoCorreios.bairro;
       endereco.cidade = this.enderecoCorreios.cidade;
@@ -54,7 +51,8 @@ export class CadEnderecoComponent implements OnInit {
     this.cadastro=true;
     this.enderecos.push(endereco);
     //this.usuario.endereco = this.enderecos;
-    console.log(this.enderecos);
+    this.updateUsuario.emit(this.usuario);
+    this.updateId.emit(++this.id);
   }
 
   ngOnInit() {

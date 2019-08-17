@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
 
@@ -8,6 +8,12 @@ import { Usuario } from '../model/usuario';
   styleUrls: ['./cad-cartao.component.css']
 })
 export class CadCartaoComponent implements OnInit {
+  @Input() usuario :Usuario;
+  @Output() updateUsuario = new EventEmitter();
+
+  @Input() id:number;
+  @Output() updateId = new EventEmitter();
+
   items: MenuItem[];
 
   tipoBandeira: SelectItem[];
@@ -15,11 +21,10 @@ export class CadCartaoComponent implements OnInit {
   selectedTypes: string[] = ['Elo', 'MasterCard'];
 
   cadastro=false;
-  continue(usuario:Usuario){
-    this.cadastro = true;
-    this.usuario = usuario;
+  salvar(usuario:Usuario){
+    this.updateUsuario.emit(this.usuario);
+    this.updateId.emit(++this.id);
   }
-  @Input() usuario:Usuario;
   constructor() { }
 
   ngOnInit() {

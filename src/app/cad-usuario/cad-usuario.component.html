@@ -1,6 +1,4 @@
-<p-steps *ngIf="cadastro==false" [model]="items"   [activeIndex]=0  ></p-steps>
-
-<p-card  *ngIf="cadastro==false" header="Dados Cadastrais"   styleClass="ui-card-shadow">
+<p-card  header="Dados Cadastrais"   styleClass="ui-card-shadow">
     <div class="p-grid "> 
         <div class="p-col-5">
             <span>Nome
@@ -23,12 +21,9 @@
     
     </div>
     <p-footer>
-        <button pButton type="button" (click)="continue(usuario)" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
-        <button pButton type="button" label="Cancelar" icon="pi pi-times" class="ui-button-secondary"></button>
+        <button (click)="salvar(usuario)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
     </p-footer>
 </p-card>
-<div *ngIf="cadastro==true">
-    <app-cad-endereco [usuario]="usuario" [id]="id" (novoId)="updateMenu($event)"></app-cad-endereco>
-</div>
+
 
 
