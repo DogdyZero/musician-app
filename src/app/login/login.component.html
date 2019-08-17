@@ -1,5 +1,5 @@
 <app-header ></app-header>
-<p-messages [(value)]="msgs"></p-messages>
+<p-messages name="erro" [(value)]="msgs"></p-messages>
 <div id="login">
     <p-card [style]="{width: '450px'}" styleClass="ui-card-shadow" >
         <header>
@@ -10,7 +10,7 @@
         <div class="p-grid">
             <div class="p-col-12">
                 <span>Login:
-                    <input [(ngModel)]="usuario.login" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
+                    <input name="login" [(ngModel)]="usuario.login" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
                 </span>
             </div>
         </div>
@@ -25,7 +25,7 @@
         </div>
                
         <div class="p-grid">
-            <button style="margin: 0 auto;" (click)="logar(usuario)" pButton type="button" label="Entrar" class="ui-button-success"></button>
+            <button name="btnLogin" style="margin: 0 auto;" (click)="logar(usuario)" pButton type="button" label="Entrar" class="ui-button-success"></button>
         </div>
         <h5 style="text-align: center; color: blue">
             <a routerLink="/cadastro"> Ainda não é cadastrado? Cadastrar</a>
