@@ -13,6 +13,7 @@ import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { CompraComponent } from './compra/compra.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 
 
 
@@ -29,7 +30,9 @@ const routes: Routes = [
   { path : 'alt_senha', component:AltSenhaComponent},
   { path : 'login', component:LoginComponent},
   { path : 'cart', component:CartComponent},
-  { path : 'compra', component:CompraComponent}
+  { path : 'compra', component:CompraComponent},
+  { path : 'edit_prod', component:EditProdutoComponent}
+
 ];
 
 @NgModule({

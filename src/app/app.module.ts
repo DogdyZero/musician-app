@@ -61,6 +61,8 @@ import {MenuModule} from 'primeng/menu';
 import { CompraComponent } from './compra/compra.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import { CupomComponent } from './cupom/cupom.component';
+import { EditProdutoComponent } from './edit-produto/edit-produto.component';
+import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
 
 
 
@@ -96,6 +98,8 @@ import { CupomComponent } from './cupom/cupom.component';
     GraficoComponent,
     CompraComponent,
     CupomComponent,
+    EditProdutoComponent,
+    EditEstoqueComponent,
   ],
   imports: [
     BrowserModule,
