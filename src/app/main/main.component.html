@@ -16,7 +16,7 @@
                 <p-footer>
                     <div class="p-grid">
                         <a [routerLink]="['produto',inst.id]">                        
-                            <button name="btn_detalhes_prod" pButton type="button" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
+                            <button name="{{inst.nome}}{{inst.id}}" pButton type="button" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
                         </a>
                     </div>
                 </p-footer>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-cadastro',
@@ -9,7 +10,7 @@ import { Pessoa } from '../model/pessoa';
   styleUrls: ['./menu-cadastro.component.css']
 })
 export class MenuCadastroComponent implements OnInit {
-  constructor() { }
+  constructor(private router:Router) { }
   
   items: MenuItem[];
   pessoa: Pessoa =new Pessoa();
@@ -18,10 +19,14 @@ export class MenuCadastroComponent implements OnInit {
 
   updateId(event){
     this.id=event;
+    if(this.id==4){
+      this.router.navigate(['/fechamento']);
+    }
   }
   updatePessoa(event){
     console.log(event);
   }
+  
 
   ngOnInit() {
     this.items = [

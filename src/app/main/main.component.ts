@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
     this.inst = inst;
     this.instEnable=true;
   }
+  
   inst:Instrumento;
   instrumento = MemoryProdutosDataBase;
   
