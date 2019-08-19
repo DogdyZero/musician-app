@@ -68,6 +68,7 @@ import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     EditEstoqueComponent,
     ConfCompraComponent,
     ConfCadastroComponent,
+    CadTelefoneComponent,
   ],
   imports: [
     BrowserModule,

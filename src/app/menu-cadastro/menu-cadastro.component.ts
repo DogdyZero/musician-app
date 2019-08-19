@@ -26,7 +26,7 @@ export class MenuCadastroComponent implements OnInit {
   items: MenuItem[];
   pessoa: Pessoa =new Pessoa();
   id=0;
-  totalCadastro =3;
+  totalCadastro =4;;
   activeIndex: number;
 
   updateId(event){
@@ -64,17 +64,21 @@ export class MenuCadastroComponent implements OnInit {
       command:(data)=>{
         this.id=0;
       }},
-      {label: 'Endereços',
+      {label: 'Telefones',
       command:(data)=>{
         this.id=1;
       }},
-      {label: 'Cartões',
+      {label: 'Endereços',
       command:(data)=>{
         this.id=2;
       }},
-      {label: 'Senha',
+      {label: 'Cartões',
       command:(data)=>{
         this.id=3;
+      }},
+      {label: 'Senha',
+      command:(data)=>{
+        this.id=4;
       }}
     ];
   }

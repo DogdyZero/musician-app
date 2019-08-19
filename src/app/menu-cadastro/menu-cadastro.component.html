@@ -5,14 +5,18 @@
                         [id]="id" (updateId)="updateId($event)"></app-cad-usuario>
 </div>
 <div *ngIf="id==1">
+    <app-cad-telefone [pessoa]="pessoa" (update)="updatePessoa($event)"
+                        [id]="id" (updateId)="updateId($event)"></app-cad-telefone>
+</div>
+<div *ngIf="id==2">
         <app-cad-endereco [pessoa]="pessoa" (update)="updatePessoa($event)"
                         [id]="id" (updateId)="updateId($event)"></app-cad-endereco>
 </div>
-<div *ngIf="id==2" >
+<div *ngIf="id==3" >
     <app-cad-cartao [pessoa]="pessoa" (update)="updatePessoa($event)"
                         [id]="id" (updateId)="updateId($event)"></app-cad-cartao>
 </div>
-<div *ngIf="id==3" >
+<div *ngIf="id==4" >
     <app-cad-senha [pessoa]="pessoa" (update)="updatePessoa($event)"
                     [id]="id" (updateId)="updateId($event)"></app-cad-senha>
 </div>
