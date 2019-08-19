@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
+import { PessoasService } from '../services/pessoas.service';
 
 @Component({
   selector: 'app-cons-cadastro',
@@ -11,6 +12,7 @@ export class ConsCadastroComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

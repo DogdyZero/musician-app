@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
-import { MemoryPessoa } from '../memoryPessoasDataBase';
-import { Pessoa } from '../model/pessoa';
-import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 import { Message } from 'primeng/api';
+import { UsuariosService } from '../services/usuarios.service';
 
 
 @Component({
@@ -20,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private router:Router,
     private cartService :CartService,
-    private services : LoginService) { }
+    private usuariosService : UsuariosService) { }
 
-  logar(usuario:Usuario){
-    let resultado = this.services.getLogin(usuario);
+    async logar(usuario:Usuario){
+    let resultado = await this.usuariosService.efetuarLogin(usuario);
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
     } else if (resultado == 'cliente'){
@@ -36,7 +34,9 @@ export class LoginComponent implements OnInit {
     } else{
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Atenção', detail:'Login ou senha digitadas estão erradas'});    }
-  }
+
+    
+    }
 
   ngOnInit() {
   }

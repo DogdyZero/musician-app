@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Instrumento } from '../model/instrumento';
 import { CartService } from './cart.service';
-import { LoginService } from '../login/login.service';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   }
 
   comprar(){
-    let resultado = this.loginService.getUser();
+    let resultado = this.usuariosService.getUsuario();
     if(resultado ==null){
       this.router.navigate(['/login']);
     } else {
@@ -30,7 +30,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService : CartService,
-    private loginService :LoginService,
+    private usuariosService :UsuariosService,
     private router:Router,
     private activatedRoute : ActivatedRoute) { }
 
