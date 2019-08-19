@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MemoryPessoa } from '../memoryPessoasDataBase';
+import { Pessoa } from '../model/pessoa';
+import { PessoasService } from '../services/pessoas.service';
 
 @Component({
   selector: 'app-cons-cadastro-admin',
@@ -7,11 +9,16 @@ import { MemoryPessoa } from '../memoryPessoasDataBase';
   styleUrls: ['./cons-cadastro-admin.component.css']
 })
 export class ConsCadastroAdminComponent implements OnInit {
-  pessoa = MemoryPessoa;
-
-  constructor() { }
+  //pessoa = MemoryPessoa;
+  pessoa :Pessoa[];
+  constructor(private pessoasService:PessoasService) { }
 
   ngOnInit() {
+    this.pessoasService.getPessoas().subscribe(
+      (data)=>{
+        this.pessoa=data;
+      }
+    );
   }
 
 }

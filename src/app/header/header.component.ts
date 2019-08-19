@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
     
     constructor(
-        private loginService:LoginService) { }
+        private usuariosService:UsuariosService) { }
 
     msg:string;
 
@@ -22,12 +22,12 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         let objLogin ={};
         let objDados={};
-        let resultado = this.loginService.getUser();
+        let resultado = this.usuariosService.getUsuario();
         if(resultado == null){
             objLogin = {label: 'Login', icon: 'pi pi-fw pi-download',routerLink: ['/login']}
         } else {
             objLogin = {label: 'Logout', icon: 'pi pi-fw pi-download',routerLink: ['/'],command:(event: any)=>{
-                this.loginService.logout();
+                this.usuariosService.logout();
             }}
             objDados = {label: 'Meus Dados', icon: 'pi pi-fw pi-plus', routerLink:['usuario',resultado.id]}
         }

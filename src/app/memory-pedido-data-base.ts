@@ -7,13 +7,13 @@ import { Cartao } from './model/cartao';
 import { Endereco } from './model/endereco';
 
 let enderecos:Endereco[] = [
-    {tipoLogradouro:'cobranca',logradouro: 'Rua das acacias', numero:111,complemento:null,bairro:'Cesar de Souza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-    {tipoLogradouro:'entrega',logradouro: 'Rua das acacias', numero:111,complemento:null,bairro:'Cesar de Souza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-    {tipoLogradouro:'cobranca',logradouro: 'Rua das estrelas', numero:111,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-    {tipoLogradouro:'cobranca',logradouro: 'Rua das estrelas', numero:100,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-    {tipoLogradouro:'entrega',logradouro: 'Rua Mauricio', numero:44,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-    {tipoLogradouro:'cobranca',logradouro: 'Rua Jabuticaba', numero:44,complemento:null,bairro:'Vila Pomar',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
-  
+    {id:1,tipoLogradouro:'cobranca',logradouro: 'Rua das acacias', numero:111,complemento:null,bairro:'Cesar de Souza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
+    {id:2,tipoLogradouro:'entrega',logradouro: 'Rua das acacias', numero:111,complemento:null,bairro:'Cesar de Souza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
+    {id:3,tipoLogradouro:'cobranca',logradouro: 'Rua das estrelas', numero:111,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
+    {id:4,tipoLogradouro:'cobranca',logradouro: 'Rua das estrelas', numero:100,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
+    {id:5,tipoLogradouro:'entrega',logradouro: 'Rua Mauricio', numero:44,complemento:null,bairro:'Jardim Santa Tereza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
+    {id:6,tipoLogradouro:'cobranca',logradouro: 'Rua Jabuticaba', numero:44,complemento:null,bairro:'Vila Pomar',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'}
+    
 ];
 
 let cartoes:Cartao[] = [

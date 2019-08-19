@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http'
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePt);
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,17 @@ import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { PedidosUsuarioComponent } from './pedidos-usuario/pedidos-usuario.component';
 import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
+import { CompraComponent } from './compra/compra.component';
+import { MainComponent } from './main/main.component';
+import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
+import { HeaderComponent } from './header/header.component';
+import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { CupomComponent } from './cupom/cupom.component';
+import { EditProdutoComponent } from './edit-produto/edit-produto.component';
+import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
+import { ConfCompraComponent } from './conf-compra/conf-compra.component';
+import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
+import { DataService } from './data.service';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -40,13 +52,9 @@ import {TableModule} from 'primeng/table';
 import {InputMaskModule} from 'primeng/inputmask';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {CardModule} from 'primeng/card';
-import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-import { MainComponent } from './main/main.component';
-import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
-import { HeaderComponent } from './header/header.component';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {PasswordModule} from 'primeng/password';
 import {ContextMenuModule} from 'primeng/contextmenu';
@@ -58,16 +66,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
-import { CompraComponent } from './compra/compra.component';
 import {FieldsetModule} from 'primeng/fieldset';
-import { CupomComponent } from './cupom/cupom.component';
-import { EditProdutoComponent } from './edit-produto/edit-produto.component';
-import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
-import { ConfCompraComponent } from './conf-compra/conf-compra.component';
-import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
-
-
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -111,6 +111,7 @@ import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
     // primeng imports
     InputTextModule,
     ButtonModule,
@@ -133,7 +134,8 @@ import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
     MessageModule,
     FieldsetModule,
     DialogModule,
-    MenuModule
+    MenuModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

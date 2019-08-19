@@ -3,6 +3,8 @@ import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
 import { Perfil } from '../model/perfil';
 import { Message } from 'primeng/api';
+import { PessoasService } from '../services/pessoas.service';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-cad-senha',
@@ -10,7 +12,7 @@ import { Message } from 'primeng/api';
   styleUrls: ['./cad-senha.component.css']
 })
 export class CadSenhaComponent implements OnInit {
-  constructor() { }
+  constructor(private usuariosService:UsuariosService) { }
   
   @Input() pessoa :Pessoa;
   @Output() update = new EventEmitter();
@@ -28,6 +30,7 @@ export class CadSenhaComponent implements OnInit {
   }
   salvar(senha:string, senhaRepetida:string){
     if(senha==senhaRepetida){
+      //this.usuario.id =4;
       this.usuario.senha = senha;
       this.perfil.nome ='cliente';
       this.usuario.perfil = this.perfil;
