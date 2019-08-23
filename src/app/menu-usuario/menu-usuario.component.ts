@@ -32,12 +32,13 @@ export class MenuUsuarioComponent implements OnInit {
     this.pessoasService.getPessoa(this.idPessoa).subscribe(
       (data)=>{
         this.pessoa =data;
+
+        this.mostrarSpinner=false;
+        this.mostrarTela=true;
         console.log(this.pessoa);
       }
     )
     setTimeout(() => {
-      this.mostrarSpinner=false;
-      this.mostrarTela=true;
     }, 1000);
 
     //this.pessoaService.setPessoa(this.idPessoa);

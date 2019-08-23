@@ -43,6 +43,8 @@ import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
 import { ConfCompraComponent } from './conf-compra/conf-compra.component';
 import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 import { DataService } from './data.service';
+import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
+
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -68,7 +70,7 @@ import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -137,7 +139,8 @@ import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
     FieldsetModule,
     DialogModule,
     MenuModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
