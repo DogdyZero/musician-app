@@ -10,17 +10,22 @@ import { Pessoa } from '../model/pessoa';
 export class PessoasService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'api/pessoas';
+  //url:string = 'api/pessoas';
+  url:string = "http://localhost:8080/pessoas";
+
 
   getPessoas():Observable<Pessoa[]>{
     return this.httpClient.get<Pessoa[]>(this.url);
   }
   
   getPessoa(id:number):Observable<Pessoa>{
-    return this.httpClient.get<Pessoa>(`${this.url}/${id}`);
+    return this.httpClient.get<Pessoa>(`${this.url}/${id}`).pipe();
   }
   salvarPessoa(pessoa:Pessoa):Observable<Pessoa>{
-    return this.httpClient.post<Pessoa>(this.url,pessoa);
+    return this.httpClient.post<Pessoa>(this.url,pessoa, 
+      {headers:{
+        'Accept':'application/json'}
+    });
   }
 
 }

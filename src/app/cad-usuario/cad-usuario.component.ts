@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
+import { PessoasService } from '../services/pessoas.service';
 
 @Component({
   selector: 'app-cad-usuario',
@@ -9,7 +10,7 @@ import { Pessoa } from '../model/pessoa';
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
-  constructor(){}
+  constructor(private pessoaService:PessoasService){}
 
   @Input() pessoa :Pessoa;
   @Output() update = new EventEmitter();
@@ -17,7 +18,15 @@ export class CadUsuarioComponent implements OnInit {
   @Input() id:number;
   @Output() updateId = new EventEmitter();
 
-  salvar(usuario:Usuario){
+  salvar(pessoa:Pessoa){
+
+    this.pessoaService.salvarPessoa(pessoa).subscribe((data)=>{
+      console.log(data);
+    },(error)=>{
+      console.log(error);
+    })
+
+
     this.update.emit(this.pessoa);
     this.updateId.emit(++this.id);
   }

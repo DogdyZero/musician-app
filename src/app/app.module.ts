@@ -115,7 +115,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    //HttpClientInMemoryWebApiModule.forRoot(DataService),
     // primeng imports
     InputTextModule,
     ButtonModule,
