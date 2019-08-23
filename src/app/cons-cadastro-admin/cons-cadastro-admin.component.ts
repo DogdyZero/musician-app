@@ -9,16 +9,16 @@ import { PessoasService } from '../services/pessoas.service';
   styleUrls: ['./cons-cadastro-admin.component.css']
 })
 export class ConsCadastroAdminComponent implements OnInit {
-  //pessoa = MemoryPessoa;
-  pessoa :Pessoa[];
-  constructor(private pessoasService:PessoasService) { }
+  pessoa = MemoryPessoa;
+  
+  constructor(/*private pessoasService:PessoasService*/) { }
 
   ngOnInit() {
-    this.pessoasService.getPessoas().subscribe(
+    /*this.pessoasService.getPessoas().subscribe(
       (data)=>{
         this.pessoa=data;
       }
-    );
+    );*/
   }
 
 }

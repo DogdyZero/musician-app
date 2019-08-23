@@ -69,6 +69,11 @@ import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
+import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
+import { EditCadastroComponent } from './edit-cadastro/edit-cadastro.component';
+import { EditCartaoComponent } from './edit-cartao/edit-cartao.component';
+import { EditEnderecoComponent } from './edit-endereco/edit-endereco.component';
+import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +111,11 @@ import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
     ConfCompraComponent,
     ConfCadastroComponent,
     CadTelefoneComponent,
+    EditUsuarioComponent,
+    EditCadastroComponent,
+    EditCartaoComponent,
+    EditEnderecoComponent,
+    EditTelefoneComponent,
   ],
   imports: [
     BrowserModule,

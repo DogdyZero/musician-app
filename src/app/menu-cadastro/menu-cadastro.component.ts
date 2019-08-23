@@ -53,6 +53,7 @@ export class MenuCadastroComponent implements OnInit {
       this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
       pessoa.id=pessoa.usuario.id;
       this.pessoasService.salvarPessoa(pessoa).subscribe();
+      console.log(pessoa);
 
     }
   }

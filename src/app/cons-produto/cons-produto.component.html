@@ -9,6 +9,7 @@
                 <th>Preço</th>
                 <th>Quantidade em estoque</th>
                 <th></th>
+                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-inst>
@@ -21,6 +22,7 @@
                 <td>{{inst.preco}}</td>
                 <td>{{inst.quantidade}}</td>
                 <td><a routerLink="/edit_prod"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
+                <td><a><button name="btn_edit_prod" pButton type="button" icon="pi pi-trash" ></button></a></td>
             </tr>
         </ng-template>
     </p-table>

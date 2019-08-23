@@ -9,7 +9,7 @@
         <br>
         <div class="p-grid">
             <div class="p-col-12">
-                <span>Login:
+                <span>CPF:
                     <input name="usuario_user" [(ngModel)]="usuario.login" placeholder="Digite o seu login" class="p-col-12" id="float-input" type="text" pInputText>                
                 </span>
             </div>
@@ -28,7 +28,7 @@
             <button name="btn_login" style="margin: 0 auto;" (click)="logar(usuario)" pButton type="button" label="Entrar" class="ui-button-success"></button>
         </div>
         <h5 style="text-align: center; color: blue">
-            <a routerLink="/cadastro"> Ainda não é cadastrado? Cadastrar</a>
+            <a name="novo_user" routerLink="/cadastro"> Ainda não é cadastrado? Cadastrar</a>
         </h5>
        
     </p-card>

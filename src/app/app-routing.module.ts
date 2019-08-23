@@ -16,7 +16,7 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 import { ConfCompraComponent } from './conf-compra/conf-compra.component';
 import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
-
+import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 
 
 const routes: Routes = [
@@ -35,7 +35,8 @@ const routes: Routes = [
   { path : 'compra', component:CompraComponent},
   { path : 'edit_prod', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},
-  { path : 'conf_cadastro', component:ConfCadastroComponent}
+  { path : 'conf_cadastro', component:ConfCadastroComponent},
+  { path : 'edit_user', component:EditUsuarioComponent}
 
 ];
 

@@ -11,15 +11,31 @@
     <br>
     <div  class="p-grid ">
         <div class="p-col-2">
-            <span class="ui-float-label ">
-                <p-inputMask name="user_cpf" [(ngModel)]="pessoa.cpf"  mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
+            <span class="ui-float-label">
+                <p-inputMask [(ngModel)]="pessoa.cpf"  mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
                 <label for="float-input">CPF</label>
             </span>
         </div>
-        <p-radioButton class="p-col-2" name="genero" inputId="masculino" value="masculino" label="Masculino"></p-radioButton>
-        <p-radioButton class="p-col-2" name="genero" inputId="feminino" value="feminino" label="Feminino"></p-radioButton>
+        <p-radioButton class="p-col-2" name="generoM" inputId="masculino" value="masculino" label="Masculino"></p-radioButton>
+        <p-radioButton class="p-col-2" name="generoF" inputId="feminino" value="feminino" label="Feminino"></p-radioButton>
     
     </div>
+    <br>
+    <div  class="p-grid ">
+        <div class="p-col-2">
+            <span class="ui-float-label">
+                <p-inputMask [(ngModel)]="pessoa.rg"  mask="99.999.999-9" placeholder="99.999.999-9"></p-inputMask>
+                <label for="float-input">RG</label>
+            </span>
+        </div>
+        <div class="p-col-2">
+            <span class="ui-float-label">
+                <p-inputMask [(ngModel)]="pessoa.dataNascimento"  mask="99/99/9999" placeholder="dd/mm/yyyy"></p-inputMask>
+                <label for="float-input">Data de nascimento</label>
+            </span>
+        </div>
+    </div>
+    <br>
     <p-footer>
         <button name="btn_salvar" (click)="salvar(pessoa)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
     </p-footer>
