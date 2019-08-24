@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
 import { Router } from '@angular/router';
 import { PessoasService } from '../services/pessoas.service';
@@ -35,25 +34,34 @@ export class MenuCadastroComponent implements OnInit {
       this.router.navigate(['/fechamento']);
     }
   }
+  
   async updatePessoa(pessoa:Pessoa){
     if(this.id==this.totalCadastro){
+      console.log(pessoa);
 
-      for(let endereco of pessoa.endereco){
-        endereco.id=Math.floor((Math.random() * 200) + 10);
-        this.endercosService.salvarEndereco(endereco).subscribe();
-      }
+      this.pessoasService.salvarPessoa(pessoa).subscribe((data)=>{
+       // idPessoa = data.id;
+        console.log(data);
+      },(error)=>{
+        console.log(error);
+      });
+
+
+      //for(let endereco of pessoa.endereco){
+      //  this.endercosService.salvarEndereco(endereco).subscribe((data)=>{
+
+      //  });
+      //}
 
      
-      for(let cartao of pessoa.cartao){
-        cartao.id=Math.floor((Math.random() * 200) + 10);
-        this.cartoesService.salvarCartao(cartao).subscribe();
-      }
+      //for(let cartao of pessoa.cartao){
+      //  cartao.id=Math.floor((Math.random() * 200) + 10);
+      //  this.cartoesService.salvarCartao(cartao).subscribe();
+      //}
 
-      pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
-      this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
-      pessoa.id=pessoa.usuario.id;
-      this.pessoasService.salvarPessoa(pessoa).subscribe();
-      console.log(pessoa);
+      //pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
+      //this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
+      //pessoa.id=pessoa.usuario.id;
 
     }
   }

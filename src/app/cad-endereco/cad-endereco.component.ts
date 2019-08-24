@@ -1,6 +1,5 @@
 import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
-import {SelectItem, MenuItem} from 'primeng/api';
-import { Usuario } from '../model/usuario';
+import {SelectItem, MenuItem, ConfirmationService} from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
 import { Endereco } from '../model/endereco';
 import { Pessoa } from '../model/pessoa';
@@ -8,10 +7,12 @@ import { Pessoa } from '../model/pessoa';
 @Component({
   selector: 'app-cad-endereco',
   templateUrl: './cad-endereco.component.html',
-  styleUrls: ['./cad-endereco.component.css']
+  styleUrls: ['./cad-endereco.component.css'],
+  providers:[ConfirmationService]
 })
 export class CadEnderecoComponent implements OnInit {
-  constructor(private http:HttpClient) {}  
+  constructor(private http:HttpClient,
+    private confirmationService: ConfirmationService) {}  
   
   @Input() pessoa :Pessoa;
   @Output() update = new EventEmitter();
@@ -39,6 +40,24 @@ export class CadEnderecoComponent implements OnInit {
       this.enderecoCorreios=data;}) 
   }
   
+  cadastrarNovo(){
+    this.confirmationService.confirm({
+      message: 'Deseja cadastrar outro endereço?',
+      header: 'Confirmação',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        // limpar campos
+        this.endereco = new Endereco();
+      },
+      reject: () => {
+        // direcionar para a proxima tela
+        this.update.emit(this.pessoa);
+        this.updateId.emit(++this.id);    
+      }
+  });
+  }
+
+
   salvar(endereco:Endereco){   
     if(endereco.bairro==null){
       endereco.bairro = this.enderecoCorreios.bairro;
@@ -48,8 +67,8 @@ export class CadEnderecoComponent implements OnInit {
     endereco.tipoLogradouro=this.tipo;
     this.enderecos.push(endereco);
     this.pessoa.endereco = this.enderecos;
-    this.update.emit(this.pessoa);
-    this.updateId.emit(++this.id);
+    
+    this.cadastrarNovo();
   }
 
   ngOnInit() {

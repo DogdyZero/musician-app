@@ -11,7 +11,8 @@ export class UsuariosService  {
   constructor(private httpClient:HttpClient) { 
     
   }
-  url = 'api/usuarios';
+  url:string = 'http://localhost:8080/usuarios';
+  
   private usuarios:Usuario[]=[];
 
   usuario:Usuario;
@@ -44,9 +45,9 @@ export class UsuariosService  {
       if(usuario.login==u.login){
         this.usuario =u;
         console.log(u);
-        if(u.perfil.nome=='admin'){
+        if(u.perfil.nome=='ADMINISTRADOR'){
           return 'admin';
-        } else if(u.perfil.nome=='cliente'){
+        } else if(u.perfil.nome=='CLIENTE'){
           return 'cliente';
         } else {
           return 'Usuario não localizado';

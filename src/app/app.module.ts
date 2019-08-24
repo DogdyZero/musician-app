@@ -43,6 +43,12 @@ import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
 import { ConfCompraComponent } from './conf-compra/conf-compra.component';
 import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 import { DataService } from './data.service';
+import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
+import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
+import { EditCadastroComponent } from './edit-cadastro/edit-cadastro.component';
+import { EditCartaoComponent } from './edit-cartao/edit-cartao.component';
+import { EditEnderecoComponent } from './edit-endereco/edit-endereco.component';
+import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -68,12 +74,8 @@ import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
-import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
-import { EditCadastroComponent } from './edit-cadastro/edit-cadastro.component';
-import { EditCartaoComponent } from './edit-cartao/edit-cartao.component';
-import { EditEnderecoComponent } from './edit-endereco/edit-endereco.component';
-import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 @NgModule({
   declarations: [
@@ -123,7 +125,7 @@ import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    //HttpClientInMemoryWebApiModule.forRoot(DataService),
     // primeng imports
     InputTextModule,
     ButtonModule,
@@ -147,7 +149,8 @@ import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
     FieldsetModule,
     DialogModule,
     MenuModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
