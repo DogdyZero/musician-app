@@ -70,7 +70,11 @@ import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
+import { EditCadastroComponent } from './edit-cadastro/edit-cadastro.component';
+import { EditCartaoComponent } from './edit-cartao/edit-cartao.component';
+import { EditEnderecoComponent } from './edit-endereco/edit-endereco.component';
+import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +112,11 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     ConfCompraComponent,
     ConfCadastroComponent,
     CadTelefoneComponent,
+    EditUsuarioComponent,
+    EditCadastroComponent,
+    EditCartaoComponent,
+    EditEnderecoComponent,
+    EditTelefoneComponent,
   ],
   imports: [
     BrowserModule,
@@ -140,7 +149,6 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     DialogModule,
     MenuModule,
     ProgressSpinnerModule,
-    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

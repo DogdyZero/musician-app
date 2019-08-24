@@ -29,21 +29,13 @@ export class MenuAdminComponent implements OnInit {
           command: (data)=>{
             this.id=2;
           }},
-          {label: 'Endereços', icon: 'pi pi-briefcase',
+          {label: 'Pedidos', icon: 'pi pi-globe',
           command: (data)=>{
             this.id=3;
           }},
-          {label: 'Cartões', icon: 'pi pi-dollar',
-          command: (data)=>{
-            this.id=4;
-          }},
-          {label: 'Pedidos', icon: 'pi pi-globe',
-          command: (data)=>{
-            this.id=5;
-          }},
           {label: 'Trocas', icon: 'pi pi-undo',
           command: (data)=>{
-            this.id=6;
+            this.id=4;
           }}
       ];
       this.activeItem = this.items[0];

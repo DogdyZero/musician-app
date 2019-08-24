@@ -1,3 +1,10 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+    <div class="ui-inputgroup">
+        <button pButton type="button" label="Buscar"></button>
+        <input type="text" pInputText placeholder="Palavra chave">         
+    </div>
+ </div>
 <p-table [value]="instrumento">
         <ng-template pTemplate="header">
             <tr>
@@ -8,6 +15,7 @@
                 <th>Linha</th>
                 <th>Preço</th>
                 <th>Quantidade em estoque</th>
+                <th></th>
                 <th></th>
             </tr>
         </ng-template>
@@ -21,6 +29,7 @@
                 <td>{{inst.preco}}</td>
                 <td>{{inst.quantidade}}</td>
                 <td><a routerLink="/edit_prod"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
+                <td><a><button name="btn_edit_prod" pButton type="button" icon="pi pi-trash" ></button></a></td>
             </tr>
         </ng-template>
     </p-table>

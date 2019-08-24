@@ -39,6 +39,7 @@ export class MenuCadastroComponent implements OnInit {
   async updatePessoa(pessoa:Pessoa){
     if(this.id==this.totalCadastro){
 
+<<<<<<< HEAD
 //      for(let endereco of pessoa.endereco){
 //      endereco.id=Math.floor((Math.random() * 200) + 10);
 //        this.endercosService.salvarEndereco(endereco).subscribe();
@@ -56,6 +57,24 @@ export class MenuCadastroComponent implements OnInit {
       this.pessoasService.salvarPessoa(pessoa).subscribe((data)=>{
         console.log(data);
       })
+=======
+      for(let endereco of pessoa.endereco){
+        endereco.id=Math.floor((Math.random() * 200) + 10);
+        this.endercosService.salvarEndereco(endereco).subscribe();
+      }
+
+     
+      for(let cartao of pessoa.cartao){
+        cartao.id=Math.floor((Math.random() * 200) + 10);
+        this.cartoesService.salvarCartao(cartao).subscribe();
+      }
+
+      pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
+      this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
+      pessoa.id=pessoa.usuario.id;
+      this.pessoasService.salvarPessoa(pessoa).subscribe();
+      console.log(pessoa);
+>>>>>>> 99c7772ff710809ee005236635ab112c3775f6d0
 
     }
   }
