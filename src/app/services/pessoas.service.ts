@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pessoa } from '../model/pessoa';
+import { Telefone } from '../model/telefone';
 
 
 @Injectable({
@@ -21,8 +22,9 @@ export class PessoasService {
   getPessoa(id:number):Observable<Pessoa>{
     return this.httpClient.get<Pessoa>(`${this.url}/${id}`).pipe();
   }
-  salvarPessoa(pessoa:Pessoa):Observable<Pessoa>{
-    return this.httpClient.post<Pessoa>(this.url,pessoa, 
+  salvarPessoa(pessoa:Pessoa){
+    console.log(pessoa);    
+    return this.httpClient.post(this.url,pessoa,
       {headers:{
         'Accept':'application/json'}
     });

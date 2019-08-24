@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
 import { Router } from '@angular/router';
 import { PessoasService } from '../services/pessoas.service';
@@ -38,43 +37,31 @@ export class MenuCadastroComponent implements OnInit {
   
   async updatePessoa(pessoa:Pessoa){
     if(this.id==this.totalCadastro){
+      console.log(pessoa);
 
-<<<<<<< HEAD
-//      for(let endereco of pessoa.endereco){
-//      endereco.id=Math.floor((Math.random() * 200) + 10);
-//        this.endercosService.salvarEndereco(endereco).subscribe();
-//      }
-//
-//     
-//      for(let cartao of pessoa.cartao){
-//        cartao.id=Math.floor((Math.random() * 200) + 10);
-//        this.cartoesService.salvarCartao(cartao).subscribe();
-//      }
-//
-//      pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
-//      this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
-//      pessoa.id=pessoa.usuario.id;
       this.pessoasService.salvarPessoa(pessoa).subscribe((data)=>{
+       // idPessoa = data.id;
         console.log(data);
-      })
-=======
-      for(let endereco of pessoa.endereco){
-        endereco.id=Math.floor((Math.random() * 200) + 10);
-        this.endercosService.salvarEndereco(endereco).subscribe();
-      }
+      },(error)=>{
+        console.log(error);
+      });
+
+
+      //for(let endereco of pessoa.endereco){
+      //  this.endercosService.salvarEndereco(endereco).subscribe((data)=>{
+
+      //  });
+      //}
 
      
-      for(let cartao of pessoa.cartao){
-        cartao.id=Math.floor((Math.random() * 200) + 10);
-        this.cartoesService.salvarCartao(cartao).subscribe();
-      }
+      //for(let cartao of pessoa.cartao){
+      //  cartao.id=Math.floor((Math.random() * 200) + 10);
+      //  this.cartoesService.salvarCartao(cartao).subscribe();
+      //}
 
-      pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
-      this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
-      pessoa.id=pessoa.usuario.id;
-      this.pessoasService.salvarPessoa(pessoa).subscribe();
-      console.log(pessoa);
->>>>>>> 99c7772ff710809ee005236635ab112c3775f6d0
+      //pessoa.usuario.id=Math.floor((Math.random() * 200) + 10);
+      //this.usuariosService.salvarUsuario(pessoa.usuario).subscribe();
+      //pessoa.id=pessoa.usuario.id;
 
     }
   }

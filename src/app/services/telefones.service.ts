@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class TelefonesService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'api/cartoes';
+  url:string = 'http://localhost:8080/telefones';
+
 
   getTelefones():Observable<Telefone[]>{
     return this.httpClient.get<Telefone[]>(this.url);

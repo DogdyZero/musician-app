@@ -19,14 +19,6 @@ export class CadUsuarioComponent implements OnInit {
   @Output() updateId = new EventEmitter();
 
   salvar(pessoa:Pessoa){
-
-    this.pessoaService.salvarPessoa(pessoa).subscribe((data)=>{
-      console.log(data);
-    },(error)=>{
-      console.log(error);
-    })
-
-
     this.update.emit(this.pessoa);
     this.updateId.emit(++this.id);
   }
