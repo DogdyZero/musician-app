@@ -37,9 +37,9 @@ let instrumentos: Instrumento[] =[
 ]
 
 let usuarios:Usuario[] = [
-    {id:1,login:'douglas',senha:'douglas',perfil:{nome:'cliente'}},
-    {id:2,login:'diego',senha:'diego',perfil:{nome:'cliente'}},
-    {id:3,login:'giovanni',senha:'giovanni',perfil:{nome:'admin'}},  
+    {id:1,login:'douglas',senha:'douglas',perfil:'cliente'},
+    {id:2,login:'diego',senha:'diego',perfil:'cliente'},
+    {id:3,login:'giovanni',senha:'giovanni',perfil:'admin'},  
 ]
 
 let pessoas: Pessoa[] =[

@@ -60,8 +60,9 @@ export class CadEnderecoComponent implements OnInit {
 
   salvar(endereco:Endereco){   
     if(endereco.bairro==null){
+      endereco.logradouro = this.enderecoCorreios.logradouro;
       endereco.bairro = this.enderecoCorreios.bairro;
-      endereco.cidade = this.enderecoCorreios.cidade;
+      endereco.cidade = this.enderecoCorreios.localidade;
       endereco.estado = this.enderecoCorreios.uf;
     }
     endereco.tipoLogradouro=this.tipo;

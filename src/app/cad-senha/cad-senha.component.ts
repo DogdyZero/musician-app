@@ -21,7 +21,6 @@ export class CadSenhaComponent implements OnInit {
   @Output() updateId = new EventEmitter();
 
   usuario:Usuario = new Usuario();
-  perfil:Perfil = new Perfil();
 
   msgs: Message[] = [];
 
@@ -32,8 +31,7 @@ export class CadSenhaComponent implements OnInit {
     if(senha==senhaRepetida){
       //this.usuario.id =4;
       this.usuario.senha = senha;
-      this.perfil.nome ='cliente';
-      this.usuario.perfil = this.perfil;
+      this.usuario.perfil ='cliente';
       this.usuario.login = this.pessoa.cpf;
       this.pessoa.usuario = this.usuario;
       this.update.emit(this.pessoa);
