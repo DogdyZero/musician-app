@@ -40,14 +40,15 @@ export class UsuariosService  {
   async efetuarLogin(usuario:Usuario){
     this.usuario = await this.httpClient.post<Usuario>(this.url,usuario,
       {headers:{'Accept':'application/json'}}).toPromise();
-      console.log(this.usuario);
-
-        if(this.usuario.perfil==Perfil.ADMINISTRADOR){
+      let perfil = this.usuario.perfil.toString();
+        if(perfil==Perfil.ADMINISTRADOR){
           return 'admin';
-        } else if(this.usuario.perfil==Perfil.CLIENTE){
+        } else if(perfil==Perfil.CLIENTE){
+          console.log('cliente');
           return 'cliente';
         } else {
           return 'Usuario não localizado';
+
         }
     
 
