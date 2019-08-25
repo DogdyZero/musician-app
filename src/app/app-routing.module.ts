@@ -37,7 +37,7 @@ const routes: Routes = [
   { path : 'edit_prod', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent},
-  { path : 'edit_user', component:EditUsuarioComponent}
+  { path : 'edit_user/:id', component:EditUsuarioComponent}
 ];
 
 @NgModule({
