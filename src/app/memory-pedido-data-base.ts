@@ -5,6 +5,7 @@ import { Telefone } from './model/telefone';
 import { Usuario } from './model/usuario';
 import { Cartao } from './model/cartao';
 import { Endereco } from './model/endereco';
+import { Perfil } from './model/perfil.enum';
 
 let enderecos:Endereco[] = [
     {id:1,tipoLogradouro:'cobranca',logradouro: 'Rua das acacias', numero:111,complemento:null,bairro:'Cesar de Souza',cidade: 'Mogi das Cruzes',estado: 'SP',cep:'08710000'},
@@ -37,9 +38,9 @@ let instrumentos: Instrumento[] =[
 ]
 
 let usuarios:Usuario[] = [
-    {id:1,login:'douglas',senha:'douglas',perfil:'cliente'},
-    {id:2,login:'diego',senha:'diego',perfil:'cliente'},
-    {id:3,login:'giovanni',senha:'giovanni',perfil:'admin'},  
+    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE},
+    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE},
+    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR},  
 ]
 
 let pessoas: Pessoa[] =[
