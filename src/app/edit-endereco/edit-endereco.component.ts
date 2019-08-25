@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
 import { Endereco } from '../model/endereco';
+import { Pessoa } from '../model/pessoa';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Endereco } from '../model/endereco';
   styleUrls: ['./edit-endereco.component.css']
 })
 export class EditEnderecoComponent implements OnInit {
-
+  @Input() pessoa:Pessoa;
   constructor(private http:HttpClient) { }
   tiposEndereco: SelectItem[];
   tipo: string;

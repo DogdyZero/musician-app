@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {SelectItem, MenuItem} from 'primeng/api';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-edit-cartao',
@@ -7,7 +8,7 @@ import {SelectItem, MenuItem} from 'primeng/api';
   styleUrls: ['./edit-cartao.component.css']
 })
 export class EditCartaoComponent implements OnInit {
-
+  @Input() pessoa:Pessoa
   constructor() { }
   tipoBandeira: SelectItem[];
   selectedType: string;

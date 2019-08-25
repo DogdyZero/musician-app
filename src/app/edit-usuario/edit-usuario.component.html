@@ -11,14 +11,14 @@
     </ng-template>
 </p-tabMenu>
 <div *ngIf="id==0">
-    <app-edit-cadastro></app-edit-cadastro>
+    <app-edit-cadastro [pessoa]="pessoa"></app-edit-cadastro>
 </div>
 <div *ngIf="id==1">
-    <app-edit-cartao></app-edit-cartao>
+    <app-edit-cartao [pessoa]="pessoa"></app-edit-cartao>
 </div>
 <div *ngIf="id==2">
-    <app-edit-endereco></app-edit-endereco>
+    <app-edit-endereco [pessoa]="pessoa"></app-edit-endereco>
 </div>
 <div *ngIf="id==3">
-    <app-edit-telefone></app-edit-telefone>
+    <app-edit-telefone [pessoa]="pessoa"></app-edit-telefone>
 </div>

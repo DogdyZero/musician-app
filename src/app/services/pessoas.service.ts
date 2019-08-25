@@ -1,7 +1,7 @@
+import { Pessoa } from './../model/pessoa';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pessoa } from '../model/pessoa';
 import { Telefone } from '../model/telefone';
 
 
@@ -29,5 +29,11 @@ export class PessoasService {
         'Accept':'application/json'}
     });
   }
+  alterarPessoa(id:Number){
+    return this.httpClient.put(`${this.url}/${id}`,
+    {headers:{
+      'Accept':'application/json'}
+  });
+ }
 
 }

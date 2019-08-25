@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
+import { Router } from '@angular/router';
 import { PessoasService } from '../services/pessoas.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { PessoasService } from '../services/pessoas.service';
 })
 export class ConsCadastroComponent implements OnInit {
   @Input() pessoa: Pessoa;
-  constructor() { }
+  
+  constructor(private router:Router, private pessoaService : PessoasService) { }
+
+
 
   ngOnInit() {
 
