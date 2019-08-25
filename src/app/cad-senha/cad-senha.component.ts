@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Pessoa } from '../model/pessoa';
-import { Perfil } from '../model/perfil';
 import { Message } from 'primeng/api';
-import { PessoasService } from '../services/pessoas.service';
 import { UsuariosService } from '../services/usuarios.service';
+import { Perfil } from '../model/perfil.enum';
 
 @Component({
   selector: 'app-cad-senha',
@@ -31,7 +30,7 @@ export class CadSenhaComponent implements OnInit {
     if(senha==senhaRepetida){
       //this.usuario.id =4;
       this.usuario.senha = senha;
-      this.usuario.perfil ='cliente';
+      this.usuario.perfil =Perfil.CLIENTE;
       this.usuario.login = this.pessoa.cpf;
       this.pessoa.usuario = this.usuario;
       this.update.emit(this.pessoa);

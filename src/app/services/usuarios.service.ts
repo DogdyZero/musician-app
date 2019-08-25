@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../model/usuario';
 import { Observable, Subscriber } from 'rxjs';
+import { Perfil } from '../model/perfil.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -41,9 +42,9 @@ export class UsuariosService  {
       {headers:{'Accept':'application/json'}}).toPromise();
       console.log(this.usuario);
 
-        if(this.usuario.perfil=='ADMINISTRADOR'){
+        if(this.usuario.perfil==Perfil.ADMINISTRADOR){
           return 'admin';
-        } else if(this.usuario.perfil=='CLIENTE'){
+        } else if(this.usuario.perfil==Perfil.CLIENTE){
           return 'cliente';
         } else {
           return 'Usuario não localizado';

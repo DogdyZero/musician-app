@@ -39,8 +39,7 @@ export class MenuUsuarioComponent implements OnInit {
         console.log(this.pessoa);
       }
     )
-    setTimeout(() => {
-    }, 1000);
+
 
     //this.pessoaService.setPessoa(this.idPessoa);
     //this.pessoa = this.pessoaService.getPessoa();

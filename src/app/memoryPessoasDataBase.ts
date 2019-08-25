@@ -3,6 +3,7 @@ import { Endereco } from './model/endereco';
 import { Telefone } from './model/telefone';
 import { Usuario } from './model/usuario';
 import { Pessoa } from './model/pessoa';
+import { Perfil } from './model/perfil.enum';
 
 let cartoes:Cartao[] = [
     {id:1,bandeira:'mastercard',nomeCartao:'Douglas H L Gomes',numeroCartao:'123123123123',validade:'15-05-15',codSeguranca:123},
@@ -26,9 +27,9 @@ let telefones:Telefone[] =[
     {id:4,ddd:'11',numero:'44554455'},  
 ];
 let usuarios:Usuario[] = [
-    {id:1,login:'douglas',senha:'douglas',perfil:'cliente'},
-    {id:2,login:'diego',senha:'diego',perfil:'cliente'},
-    {id:3,login:'giovanni',senha:'giovanni',perfil:'admin'},  
+    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE},
+    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE},
+    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR},  
 ]
 
 export const MemoryPessoa:Pessoa[] =[
