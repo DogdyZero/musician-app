@@ -19,6 +19,7 @@ import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 
 
+
 const routes: Routes = [
   { path : '', component:MainComponent},
   { path : 'produto/:id', component:DescProdutoComponent},
@@ -37,7 +38,6 @@ const routes: Routes = [
   { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent},
   { path : 'edit_user', component:EditUsuarioComponent}
-
 ];
 
 @NgModule({
