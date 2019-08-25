@@ -37,23 +37,37 @@ export class UsuariosService  {
   }
 
   async efetuarLogin(usuario:Usuario){
+    this.usuario = await this.httpClient.post<Usuario>(this.url,usuario,
+      {headers:{'Accept':'application/json'}}).toPromise();
+      console.log(this.usuario);
 
-    this.usuarios = await this.httpClient.get<Usuario[]>(this.url).toPromise();
-    console.log(this.usuarios);
-    for(let u of this.usuarios){
-
-      if(usuario.login==u.login){
-        this.usuario =u;
-        console.log(u);
-        if(u.perfil.nome=='ADMINISTRADOR'){
+        if(this.usuario.perfil=='ADMINISTRADOR'){
           return 'admin';
-        } else if(u.perfil.nome=='CLIENTE'){
+        } else if(this.usuario.perfil=='CLIENTE'){
           return 'cliente';
         } else {
           return 'Usuario não localizado';
         }
-      }
-    } 
+    
+
+  //async efetuarLogin(usuario:Usuario){
+
+  //  this.usuarios = await this.httpClient.get<Usuario[]>(this.url).toPromise();
+  //  console.log(this.usuarios);
+  //  for(let u of this.usuarios){
+
+  //     if(usuario.login==u.login){
+  //      this.usuario =u;
+  //      console.log(u);
+  //      if(u.perfil.nome=='ADMINISTRADOR'){
+  //        return 'admin';
+  //      } else if(u.perfil.nome=='CLIENTE'){
+  //        return 'cliente';
+  //      } else {
+  //        return 'Usuario não localizado';
+  //      }
+  //    }
+  //  } 
       
 
     
