@@ -31,6 +31,7 @@ export class MenuUsuarioComponent implements OnInit {
     )
     this.pessoasService.getPessoa(this.idPessoa).subscribe(
       (data)=>{
+        console.log(data);
         this.pessoa =data;
 
         this.mostrarSpinner=false;

@@ -4,6 +4,6 @@ export class Usuario {
     id:number;
     login:string;
     senha:string;
-    perfil:Perfil;
+    perfil:string;
 
 }
