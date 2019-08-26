@@ -1,5 +1,6 @@
+import { Bandeira } from './../model/bandeira.enum';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import {SelectItem, MenuItem, ConfirmationService} from 'primeng/api';
+import {SelectItem, ConfirmationService} from 'primeng/api';
 import { Pessoa } from '../model/pessoa';
 import { Cartao } from '../model/cartao';
 
@@ -44,7 +45,7 @@ export class CadCartaoComponent implements OnInit {
 
 
   salvar(cartao:Cartao){
-    this.cartao.bandeira=this.selectedType;
+    this.cartao.Bandeira=this.selectedType;
     this.cartao = cartao;
     this.cartoes.push(this.cartao);
     this.pessoa.cartao = this.cartoes;
