@@ -41,8 +41,10 @@ export class MenuCadastroComponent implements OnInit {
 
       this.pessoasService.salvarPessoa(pessoa).subscribe((data)=>{
        // idPessoa = data.id;
+       this.router.navigate(['/conf_cadastro']);
         console.log(data);
       },(error)=>{
+        this.router.navigate(['/erro']);
         console.log(error);
       });
 
