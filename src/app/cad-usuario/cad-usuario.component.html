@@ -16,9 +16,13 @@
                 <label for="float-input">CPF</label>
             </span>
         </div>
-        <p-radioButton class="p-col-2" name="generoM" inputId="masculino" value="masculino" label="Masculino"></p-radioButton>
+
+        <div class="p-col-2">
+            <p-dropdown [options]="generos" [(ngModel)]="genero" placeholder="Genero"  [showClear]="true"></p-dropdown>
+        </div>
+        <!--<p-radioButton class="p-col-2" name="generoM" inputId="masculino" value="masculino" label="Masculino"></p-radioButton>
         <p-radioButton class="p-col-2" name="generoF" inputId="feminino" value="feminino" label="Feminino"></p-radioButton>
-    
+    -->
     </div>
     <br>
     <div  class="p-grid ">
@@ -30,7 +34,7 @@
         </div>
         <div class="p-col-2">
             <span class="ui-float-label">
-                <p-inputMask [(ngModel)]="pessoa.dataNascimento"  mask="99/99/9999" placeholder="dd/mm/yyyy"></p-inputMask>
+                <p-calendar [(ngModel)]="date6"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1930:2019"></p-calendar>                
                 <label for="float-input">Data de nascimento</label>
             </span>
         </div>

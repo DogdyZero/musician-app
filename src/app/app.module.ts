@@ -75,7 +75,7 @@ import {MenuModule} from 'primeng/menu';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -150,7 +150,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     DialogModule,
     MenuModule,
     ProgressSpinnerModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
