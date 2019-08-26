@@ -14,8 +14,13 @@ export class EditCadastroComponent implements OnInit {
   constructor(private pessoasService:PessoasService,private router:Router) { }
 
   async altPessoa(pessoa:Pessoa){
-      this.pessoasService.alterarPessoa(pessoa.id).subscribe((data)=>{
-        this.router.navigate(['/usuario/',this.pessoa.id]);
+    //criar uma copia do objeto
+
+    //let copyPessoa:Pessoa = new Pessoa();
+
+
+      this.pessoasService.alterarPessoa(pessoa).subscribe((data)=>{
+        this.router.navigate(['/usuario/',pessoa.id]);
         console.log(data);
       }, (error) => {
         console.log(error);

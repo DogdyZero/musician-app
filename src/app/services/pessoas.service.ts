@@ -29,8 +29,8 @@ export class PessoasService {
         'Accept':'application/json'}
     });
   }
-  alterarPessoa(id:Number){
-    return this.httpClient.put(`${this.url}/${id}`,
+  alterarPessoa(pessoa:Pessoa){
+    return this.httpClient.put(`${this.url}/${pessoa.id}`,pessoa,
     {headers:{
       'Accept':'application/json'}
   });
