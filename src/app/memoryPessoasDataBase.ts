@@ -1,3 +1,4 @@
+import { Status } from './model/status.enum';
 import { Cartao } from './model/cartao';
 import { Endereco } from './model/endereco';
 import { Telefone } from './model/telefone';
@@ -27,9 +28,9 @@ let telefones:Telefone[] =[
     {id:4,ddd:'11',numero:'44554455'},  
 ];
 let usuarios:Usuario[] = [
-    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE},
-    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE},
-    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR},  
+    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE,status: Status.ATIVO},
+    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE,status: Status.ATIVO},
+    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR,status: Status.ATIVO},  
 ]
 
 export const MemoryPessoa:Pessoa[] =[

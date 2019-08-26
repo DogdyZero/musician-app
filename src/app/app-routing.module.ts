@@ -17,6 +17,8 @@ import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 import { ConfCompraComponent } from './conf-compra/conf-compra.component';
 import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
+import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
+
 
 
 
@@ -37,7 +39,8 @@ const routes: Routes = [
   { path : 'edit_prod', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent},
-  { path : 'edit_user/:id', component:EditUsuarioComponent}
+  { path : 'edit_user/:id', component:EditUsuarioComponent},
+  { path : 'cons_cad/:id', component: ConsCadastroAdminComponent}
 ];
 
 @NgModule({

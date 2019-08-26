@@ -25,7 +25,7 @@ export class MenuAdminComponent implements OnInit {
           command:(data)=>{
             this.id=1;
           }},
-          {label: 'Usuarios', icon: 'pi pi-user',
+          {label: 'Usuarios / Clientes', icon: 'pi pi-user',
           command: (data)=>{
             this.id=2;
           }},

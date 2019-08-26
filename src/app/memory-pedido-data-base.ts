@@ -1,3 +1,4 @@
+import { Status } from './model/status.enum';
 import { Instrumento } from './model/instrumento';
 import { Pedido } from './model/pedido';
 import { Pessoa } from './model/pessoa';
@@ -38,9 +39,9 @@ let instrumentos: Instrumento[] =[
 ]
 
 let usuarios:Usuario[] = [
-    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE},
-    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE},
-    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR},  
+    {id:1,login:'douglas',senha:'douglas',perfil: Perfil.CLIENTE, status: Status.ATIVO},
+    {id:2,login:'diego',senha:'diego',perfil: Perfil.CLIENTE, status: Status.ATIVO},
+    {id:3,login:'giovanni',senha:'giovanni',perfil: Perfil.ADMINISTRADOR, status: Status.ATIVO},  
 ]
 
 let pessoas: Pessoa[] =[

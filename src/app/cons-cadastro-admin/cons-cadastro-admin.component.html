@@ -2,17 +2,19 @@
 <div class="ui-g ui-fluid">
     <div class="ui-g-12 ui-md-4">
     <div class="ui-inputgroup">
-        <button pButton type="button" label="Buscar"></button>
-        <input type="text" pInputText placeholder="Palavra chave">         
+        <button (click)="consultarId(id1.value)" pButton type="button" label="Buscar"></button>
+        <input #id1 type="text" style="width: 50px;" pInputText placeholder="Digite o ID">         
     </div>
  </div>
+ 
 <p-table [value]="pessoa">
         <ng-template pTemplate="header">
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>NOME</th>
                 <th>CPF</th>  
-                <th>RG</th>  
+                <th>RG</th>
+                <th></th>
                 <th></th>
             </tr>
         </ng-template>
@@ -22,7 +24,10 @@
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.cpf}}</td>
                 <td>{{pessoa.rg}}</td>
-                <td><button name="btn_del_user" pButton type="button" icon="pi pi-ban" ></button></td>
+                <td><button (click)="deletar(pessoa.id)" pButton type="button" style="width: 100px" label="Inativar" class="ui-button-danger"></button></td>
+                <td><button pButton type="button" style="width: 150px" label="tornar admin" class="ui-button-success"></button></td>
             </tr>
         </ng-template>
     </p-table>
+
+   
