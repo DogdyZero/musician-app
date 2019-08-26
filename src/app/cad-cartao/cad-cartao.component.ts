@@ -53,6 +53,11 @@ export class CadCartaoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tipoBandeira = [
+      {label: 'Elo', value: 'Elo'},
+      {label: 'Visa', value: 'Visa'},
+      {label: 'MasterCard', value: 'MasterCard'}
+    ];
   }
 
 }
