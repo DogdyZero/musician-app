@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryPessoa } from '../memoryPessoasDataBase';
 
 @Component({
   selector: 'app-cons-endereco-admin',
@@ -8,7 +7,7 @@ import { MemoryPessoa } from '../memoryPessoasDataBase';
 })
 export class ConsEnderecoAdminComponent implements OnInit {
   constructor() { }
-  pessoa = MemoryPessoa;
+  //pessoa = MemoryPessoa;
 
   ngOnInit() {
 

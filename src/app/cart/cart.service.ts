@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
-import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ export class CartService {
   constructor() { }
   instrumentos : Instrumento[] =[];
 
-  addList(idInstrumento : number){
+  /*addList(idInstrumento : number){
     for (let inst of MemoryProdutosDataBase){
       if(inst.id == idInstrumento){
         if(!this.checkIfAlreadyInList(idInstrumento)){
@@ -41,5 +40,5 @@ export class CartService {
   }
   getTotalInstrumentos(){
     return  this.instrumentos.length;
-  }
+  }*/
 }

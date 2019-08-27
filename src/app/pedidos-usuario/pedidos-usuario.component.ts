@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 
 @Component({
   selector: 'app-pedidos-usuario',
@@ -8,7 +7,7 @@ import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 })
 export class PedidosUsuarioComponent implements OnInit {
   selectedValue: string;
-  pedido = MemoryPedidoDataBase;
+  //pedido = MemoryPedidoDataBase;
   display: boolean = false;
 
   showDialog() {

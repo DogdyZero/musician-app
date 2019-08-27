@@ -13,4 +13,5 @@ export class Pessoa {
     telefone: Telefone[];
     endereco:Endereco[];
     cartao:Cartao[];
+    genero:String;
 }

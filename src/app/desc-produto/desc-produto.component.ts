@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
 import { Route, ActivatedRoute } from '@angular/router';
-import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
 import { DescProdutoService } from './desc-produto.service';
 
 @Component({
@@ -23,7 +22,7 @@ export class DescProdutoComponent implements OnInit {
         this.id = params['id'];
       }
     )
-    this.instrumento = this.descricao.getInstrumentoById(this.id);
+    //this.instrumento = this.descricao.getInstrumentoById(this.id);
   }
 
 }

@@ -45,7 +45,7 @@ export class CadCartaoComponent implements OnInit {
 
 
   salvar(cartao:Cartao){
-    this.cartao.Bandeira=this.selectedType;
+    //this.cartao.bandeira=this.selectedType;
     this.cartao = cartao;
     this.cartoes.push(this.cartao);
     this.pessoa.cartao = this.cartoes;

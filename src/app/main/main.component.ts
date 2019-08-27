@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
-import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +14,7 @@ export class MainComponent implements OnInit {
   }
   
   inst:Instrumento;
-  instrumento = MemoryProdutosDataBase;
+  //instrumento = MemoryProdutosDataBase;
   
   constructor() { }
 

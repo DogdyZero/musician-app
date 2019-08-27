@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
 import { Usuario } from '../model/usuario';
-import { MemoryPessoa } from '../memoryPessoasDataBase';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +11,14 @@ export class PessoaService {
 
   pessoa:Pessoa;
 
-  setPessoa(id:number){
+  /*setPessoa(id:number){
     for(let mem of MemoryPessoa){
       if(mem.usuario.id == id){
         this.pessoa = mem;
       }
     }
-  }
-  getPessoa(){
+  }*/
+  /*getPessoa(){
     return this.pessoa;
-  }
+  }*/
 }

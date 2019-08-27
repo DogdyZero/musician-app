@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
 
 @Component({
   selector: 'app-cons-produto',
@@ -7,7 +6,7 @@ import { MemoryProdutosDataBase } from '../memory-produtos-data-base';
   styleUrls: ['./cons-produto.component.css']
 })
 export class ConsProdutoComponent implements OnInit {
-  instrumento = MemoryProdutosDataBase;
+  //instrumento = MemoryProdutosDataBase;
   constructor() { }
 
   ngOnInit() {

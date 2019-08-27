@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryPessoa } from '../memoryPessoasDataBase';
 
 @Component({
   selector: 'app-cons-cartao-admin',
@@ -7,7 +6,6 @@ import { MemoryPessoa } from '../memoryPessoasDataBase';
   styleUrls: ['./cons-cartao-admin.component.css']
 })
 export class ConsCartaoAdminComponent implements OnInit {
-  pessoa = MemoryPessoa;
   constructor() { }
 
   ngOnInit() {

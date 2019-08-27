@@ -1,7 +1,7 @@
 <p-card header="Dados Cadastrais"  styleClass="ui-card-shadow">
         <div class="p-grid "> 
             <div class="p-col-5">
-                <span>Nome
+                <span><strong>Nome</strong>
                     <input [(ngModel)]="pessoa.nome" name="user_nome" class="p-col-12" id="float-input" type="text" pInputText> 
                 </span>
         
@@ -12,13 +12,14 @@
         <div  class="p-grid ">
             <div class="p-col-2">
                 <span class="ui-float-label">
-                    <p-inputMask [(ngModel)]="pessoa.cpf" mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
-                    <label for="float-input">CPF</label>
+                    <label for="float-input"><strong style="color: black">CPF</strong>
+                        <p>{{pessoa.cpf}}</p>
+                    </label>
                 </span>
             </div>
 
             <div class="p-col-2">
-                    <p-dropdown [options]="generos" [(ngModel)]="genero" placeholder="Genero"  [showClear]="true"></p-dropdown>
+                    <p-dropdown name="tp_gen" [options]="generos" [(ngModel)]="pessoa.genero" placeholder="Genero"  [showClear]="true"></p-dropdown>
             </div>
 
         </div>
@@ -26,15 +27,15 @@
         <div  class="p-grid ">
             <div class="p-col-2">
                 <span class="ui-float-label">
-                    <p-inputMask [(ngModel)]="pessoa.rg" mask="99.999.999-9" placeholder="99.999.999-9"></p-inputMask>
-                    <label for="float-input">RG</label>
+                    <label for="float-input"><strong style="color: black">RG</strong>
+                        <p>{{pessoa.rg}}</p>
+                    </label>
                 </span>
             </div>
             <div class="p-col-2">
-            <span class="ui-float-label">
-                <p-calendar [(ngModel)]="date6"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1930:2019"></p-calendar>                
-                <label for="float-input">Data de nascimento</label>
-            </span>
+                <span><strong>Data de nascimento</strong>
+                    <input [(ngModel)]="pessoa.dataNascimento" name="user_nome" class="p-col-12" id="float-input" type="text" pInputText> 
+                </span>
         </div>
         </div>
         <br>

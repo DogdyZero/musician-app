@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 import {SelectItem} from 'primeng/api';
 
 interface Status {
@@ -13,7 +12,7 @@ interface Status {
   styleUrls: ['./pedidos-admin.component.css']
 })
 export class PedidosAdminComponent implements OnInit {
-  pedido = MemoryPedidoDataBase;
+  //pedido = MemoryPedidoDataBase;
   status: SelectItem[];
   selectedStatus: Status;
 

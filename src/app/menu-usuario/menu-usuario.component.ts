@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { Pessoa } from '../model/pessoa';
-import { PessoaService } from './pessoa.service';
 import { ActivatedRoute } from '@angular/router';
 import { PessoasService } from '../services/pessoas.service';
 

@@ -1,20 +1,26 @@
-<p-card styleClass="ui-card-shadow">
-        <div class="p-grid">
-        <div class="p-col-1">
-            <span>DDD
-                <input name="ddd-tel" class="p-col-12" type="text" pInputText> 
-            </span>
-        </div>
-        <div class="p-col-3">
-                <span>Número
-                    <input name="numero-tel" class="p-col-12" type="text" pInputText> 
-                </span>
+<br>
+<button pButton type="button" label="Novo"></button>
+<p-accordion>
+    <p-accordionTab header="Telefone {{tel.id}}" *ngFor="let tel of pessoa.telefone">
+        <p-card styleClass="ui-card-shadow">
+            <div class="p-grid" >
+                <div class="p-col-1">
+                    <span>DDD
+                        <input [ngModel]="tel.ddd" name="ddd-tel" class="p-col-12" type="text" pInputText> 
+                    </span>
+                </div>
+                <div class="p-col-3">
+                    <span>Número
+                        <input [ngModel]="tel.numero" name="numero-tel" class="p-col-12" type="text" pInputText> 
+                    </span>
+                </div>
             </div>
-        </div>
-    
-           <p-footer>
-            <a >
-                <button name="btn_salvar" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
-            </a>
-        </p-footer>
-    </p-card>
+            
+            <p-footer>
+                <a >
+                    <button name="btn_salvar" (click)="alterarTelefone(tel)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
+                </a>
+            </p-footer>
+        </p-card>
+    </p-accordionTab>
+</p-accordion>

@@ -22,3 +22,5 @@
 <div *ngIf="id==3">
     <app-edit-telefone [pessoa]="pessoa"></app-edit-telefone>
 </div>
+<br>
+<button [routerLink]="['/usuario',pessoa.id]" style="float: right;width: 100px" pButton type="button" label="Voltar"></button>

@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   instrumento:Instrumento[];
  
   remove(id:number){
-    this.cartService.removeOfList(id);
+    //this.cartService.removeOfList(id);
   }
 
   comprar(){
@@ -40,9 +40,9 @@ export class CartComponent implements OnInit {
         this.id = params['id'];
       }
     )
-    this.cartService.addList(this.id);
+   // this.cartService.addList(this.id);
 
-    this.instrumento = this.cartService.getInstrumentos();
+    //this.instrumento = this.cartService.getInstrumentos();
 
     
   }

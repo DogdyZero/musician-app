@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class EditCadastroComponent implements OnInit {
   @Input() pessoa:Pessoa;
   generos:SelectItem[];
-
   genero:string;
   
   constructor(private pessoasService:PessoasService,private router:Router) { }
@@ -30,13 +29,16 @@ export class EditCadastroComponent implements OnInit {
         console.log(error);
       });
     }
-    en:any;
+    //en:any;
+
   ngOnInit() {
     this.generos = [
-      {label: 'feminino', value: 'feminino'},
-      {label: 'masculino', value: 'masculino'}
+      {label: 'Feminino', value: 'Feminino'},
+      {label: 'Masculino', value: 'Masculino'}
     ];
-    this.en = {
+      }
+
+    /*this.en = {
       firstDayOfWeek: 1,
       dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
       dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
@@ -45,7 +47,6 @@ export class EditCadastroComponent implements OnInit {
       monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
       today: 'Hoy',
       clear: 'Borrar'
-  };
-  }
+  };*/
 
 }

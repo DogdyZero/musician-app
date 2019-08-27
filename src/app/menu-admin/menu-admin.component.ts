@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Pessoa } from '../model/pessoa';
-import { MemoryPessoa } from '../memoryPessoasDataBase';
 
 @Component({
   selector: 'app-menu-admin',
@@ -12,7 +11,7 @@ export class MenuAdminComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   id=0;
-  pessoa = MemoryPessoa;
+  //pessoa = MemoryPessoa;
   constructor() { }
 
   ngOnInit() {

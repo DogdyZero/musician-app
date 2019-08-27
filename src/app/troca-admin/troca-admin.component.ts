@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 
 @Component({
   selector: 'app-troca-admin',
@@ -8,7 +7,7 @@ import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 })
 export class TrocaAdminComponent implements OnInit {
   
-  pedido = MemoryPedidoDataBase;
+  //pedido = MemoryPedidoDataBase;
   constructor() { }
 
   ngOnInit() {
