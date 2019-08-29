@@ -1,3 +1,4 @@
+import { Pedido } from './pedido';
 import { Telefone } from './telefone';
 import { Endereco } from './endereco';
 import { Cartao } from './cartao';
@@ -14,4 +15,5 @@ export class Pessoa {
     endereco:Endereco[];
     cartao:Cartao[];
     genero:String;
+    pedido:Pedido[];
 }

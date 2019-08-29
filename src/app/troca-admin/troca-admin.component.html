@@ -1,4 +1,4 @@
-<p-table [value]="pedido"  [paginator]="true" [rows]="10">
+<p-table [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>
             <th width="40">Id</th>
@@ -10,13 +10,13 @@
             <th></th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-ped>
+    <ng-template pTemplate="body">
         <tr style="text-align:center" >
-            <td width="40">{{ped.id}}</td>
-            <td>{{ped.cliente.nome}}</td>
-            <td><h5 *ngFor="let prod  of ped.produto">{{prod.nome}} {{prod.modelo}} {{prod.ano}}</h5></td>
-            <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
-            <td width="100">{{ped.data |date: 'dd/MM/yyyy'}}</td>
+            <td width="40">1</td>
+            <td>Giovanni</td>
+            <td><h5>produto 12 12</h5></td>
+            <td>20</td>
+            <td width="100">10/12/2019</td>
             <td>(Motivo)</td>
             <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" class="ui-button-success"></button> <p></p>
                 <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" class="ui-button-danger"></button>

@@ -22,14 +22,14 @@
             <app-cons-cadastro [pessoa]="pessoa"></app-cons-cadastro>
         </div>
         <div *ngIf="id==1">
-            <app-pedidos-usuario></app-pedidos-usuario>
+            <app-pedidos-usuario [pessoa]="pessoa"></app-pedidos-usuario>
         </div>
         <div *ngIf="id==2">
-                <app-cupom></app-cupom>
+                <app-cupom [pessoa]="pessoa"></app-cupom>
         </div>
         <div *ngIf="id==3">
             <br>
-            <app-alt-senha></app-alt-senha>
+            <app-alt-senha [pessoa]="pessoa"></app-alt-senha>
         </div>
 </div>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Pessoa } from './../model/pessoa';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cupom',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CupomComponent implements OnInit {
   //cupom = MemoryCupomDataBase;
+  @Input() pessoa:Pessoa;
   constructor() { }
 
   ngOnInit() {

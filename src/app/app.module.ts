@@ -77,6 +77,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {CalendarModule} from 'primeng/calendar';
 import { ErroComponent } from './erro/erro.component';
+import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { ErroComponent } from './erro/erro.component';
     EditEnderecoComponent,
     EditTelefoneComponent,
     ErroComponent,
+    DetalhePedidoComponent,
   ],
   imports: [
     BrowserModule,

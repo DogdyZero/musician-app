@@ -18,6 +18,8 @@ import { ConfCompraComponent } from './conf-compra/conf-compra.component';
 import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
 import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
+import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.component';
+
 
 import { ErroComponent } from './erro/erro.component';
 
@@ -36,13 +38,14 @@ const routes: Routes = [
   { path : 'alt_senha', component:AltSenhaComponent},
   { path : 'login', component:LoginComponent},
   { path : 'cart', component:CartComponent},
-  { path : 'compra', component:CompraComponent},
+  { path : 'compra/:id', component:CompraComponent},
   { path : 'edit_prod', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent},
   { path : 'edit_user/:id', component:EditUsuarioComponent},
   { path : 'cons_cad/:id', component: ConsCadastroAdminComponent},
-  { path : 'erro', component:ErroComponent}
+  { path : 'erro', component:ErroComponent},
+  { path : 'detalhes_pedido/:id', component:DetalhePedidoComponent}
 
 ];
 

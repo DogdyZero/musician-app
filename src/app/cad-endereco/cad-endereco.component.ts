@@ -14,6 +14,8 @@ export class CadEnderecoComponent implements OnInit {
   constructor(private http:HttpClient,
     private confirmationService: ConfirmationService) {}  
   
+  @Input() dispBtn: boolean = true;
+
   @Input() pessoa :Pessoa;
   @Output() update = new EventEmitter();
 

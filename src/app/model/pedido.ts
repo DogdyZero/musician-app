@@ -6,7 +6,7 @@ export class Pedido {
     cliente: Pessoa;
     produto: Instrumento[];
     frete: number;
-    valor: number;
+    total: number;
     data: Date;
     status: string;
 }

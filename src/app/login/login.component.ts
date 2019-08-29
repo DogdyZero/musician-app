@@ -24,20 +24,20 @@ export class LoginComponent implements OnInit {
     let resultado = await this.usuariosService.efetuarLogin(usuario);
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
-    } else if (resultado == 'cliente'){
+    } else if (resultado == usuario.login){
       
       /*if(this.cartService.getTotalInstrumentos()>0){
-        this.router.navigate(['/cart']);
+        this.router.navigate(['/cart']);*/
       }else {
         this.router.navigate(['/']);
       }
-    } else{
+    /* } else{
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Atenção', detail:'Login ou senha digitadas estão erradas'});    }*/
 
     
     }
-  }
+  
 
   ngOnInit() {
   }

@@ -13,6 +13,7 @@ import { Cartao } from '../model/cartao';
 export class CadCartaoComponent implements OnInit {
   constructor(private confirmationService: ConfirmationService) { }
 
+  @Input() dispBtn: boolean = true;
   @Input() pessoa :Pessoa;
   @Output() update = new EventEmitter();
 

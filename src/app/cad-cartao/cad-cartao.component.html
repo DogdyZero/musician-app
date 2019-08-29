@@ -41,6 +41,6 @@
     </div>
     <br>
     <p-footer>
-        <button name="btn_salvar" (click)="salvar(cartao)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
+        <button name="btn_salvar" *ngIf="dispBtn == true" (click)="salvar(cartao)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
     </p-footer>
 </p-card>
