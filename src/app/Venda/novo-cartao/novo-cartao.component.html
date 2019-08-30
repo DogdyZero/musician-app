@@ -1,0 +1,22 @@
+<p-card styleClass="ui-card-shadow" [style]="{width: '800px'}" >
+    <h1>PAGAMENTO</h1>
+    <div class="p-grid">
+        <div class="p-col-12">
+            <div class="ui-g-15" style="width:270px;margin-bottom:10px">
+                <div class="ui-g-12"><p-radioButton name="card1_compra" value="Option 1" label="Cartão terminado em: 0123" [(ngModel)]="val2" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="card2_compra" value="Option 2" label="Cartão terminado em: 3210" [(ngModel)]="val2  " inputId="opt2"></p-radioButton></div>
+            </div>
+        </div>
+        <button type="button" name="btn_novoCard_compra" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>
+    </div>
+</p-card>
+<br>
+
+<p-dialog header="Novo Cartão" [(visible)]="displayCard" [modal]="true" [responsive]="true" [style]="{width: '1150px', minWidth: '200px'}" [minY]="70" 
+         [baseZIndex]="10000">
+        <app-cad-cartao [dispBtn]="dispBtn"></app-cad-cartao>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="displayCard=false" label="Adicionar"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="displayCard=false" label="Cancelar" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>

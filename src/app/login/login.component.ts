@@ -1,7 +1,7 @@
+import { CartService } from './../Venda/cart/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Router } from '@angular/router';
-import { CartService } from '../cart/cart.service';
 import { Message } from 'primeng/api';
 import { UsuariosService } from '../services/usuarios.service';
 

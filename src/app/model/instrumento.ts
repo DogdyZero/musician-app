@@ -8,6 +8,7 @@ export class Instrumento {
     linha:string;
     ano:string;
     preco:number;
+    precoCusto:number;
     tipo:CategoriaInstrumento;
     marca:Marca;
     pathImage:string;

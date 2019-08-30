@@ -1,5 +1,6 @@
 export class Endereco {
     id:number;
+    apelido:String;
     cep:string;
     tipoLogradouro:string;
     logradouro:string;

@@ -1,26 +1,24 @@
-import { NgModule } from '@angular/core';
+import { ConsCadastroAdminComponent } from './Consulta/cons-cadastro-admin/cons-cadastro-admin.component';
+import { EditUsuarioComponent } from './Edit/edit-usuario/edit-usuario.component';
+import { ConfCadastroComponent } from './Cadastro/conf-cadastro/conf-cadastro.component';
+import { ConfCompraComponent } from './Venda/conf-compra/conf-compra.component';
+import { EditProdutoComponent } from './Edit/edit-produto/edit-produto.component';
+import { MenuUsuarioComponent } from './Menu/menu-usuario/menu-usuario.component';
+import { MenuAdminComponent } from './Menu/menu-admin/menu-admin.component';
+import { CompraComponent } from './Venda/compra/compra.component';
+import { CartComponent } from './Venda/cart/cart.component';
+import { MenuCadastroComponent } from './Menu/menu-cadastro/menu-cadastro.component';
+import { CadEnderecoComponent } from './Cadastro/cad-endereco/cad-endereco.component';
+import { AltSenhaComponent } from './Edit/alt-senha/alt-senha.component';
+import { CadCartaoComponent } from './Cadastro/cad-cartao/cad-cartao.component';
+import { CadUsuarioComponent } from './Cadastro/cad-usuario/cad-usuario.component';
+import { CadProdutoComponent } from './Cadastro/cad-produto/cad-produto.component';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { CadProdutoComponent } from './cad-produto/cad-produto.component';
-import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
-import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
-import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { LoginComponent } from './login/login.component';
-import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
-import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
-import { CartComponent } from './cart/cart.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
-import { CompraComponent } from './compra/compra.component';
-import { MenuAdminComponent } from './menu-admin/menu-admin.component';
-import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
-import { EditProdutoComponent } from './edit-produto/edit-produto.component';
-import { ConfCompraComponent } from './conf-compra/conf-compra.component';
-import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
-import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
-import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
 import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.component';
-
-
 import { ErroComponent } from './erro/erro.component';
 
 
