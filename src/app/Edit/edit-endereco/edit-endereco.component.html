@@ -12,6 +12,13 @@
             <br>
             <div class="p-grid ">
                 <div class="p-col-2">
+                    <span class="ui-float-label">Apelido
+                        <input name="logradouro_end" class="p-col-11" [(ngModel)]="endereco.apelido" type="text" placeholder="Apelido do endereço" pInputText> 
+                    </span>
+                </div>
+            </div>
+            <div class="p-grid ">
+                <div class="p-col-2">
                     <span class="ui-float-label">
                         <p-inputMask name="cep_end" [(ngModel)]="end.cep" #cep mask="99999-999" placeholder="99999-999"></p-inputMask>
                         <label for="float-input">Cep</label>
