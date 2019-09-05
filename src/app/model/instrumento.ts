@@ -1,17 +1,21 @@
+import { Status } from './status.enum';
+import { Pedido } from './pedido';
 import { CategoriaInstrumento } from './categoria-instrumento';
-import { Marca } from './marca';
 
 export class Instrumento {
     id:number;
+    preco:number;
+    ean:string;
     nome:string;
     modelo:string;
-    linha:string;
-    ano:string;
-    preco:number;
-    precoCusto:number;
-    tipo:CategoriaInstrumento;
-    marca:Marca;
+    ano:Date;
+    marca:String;
     pathImage:string;
     descricao:string;
     quantidade:number;
+    pedido:Pedido;
+    categoriaProduto:CategoriaInstrumento;
+    status:Status;
+    dimensao:string;
+    codigoBarrras:string;
 }

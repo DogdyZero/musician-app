@@ -1,3 +1,4 @@
+import { ProdutosService } from './../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Instrumento } from '../model/instrumento';
 
@@ -8,6 +9,7 @@ import { Instrumento } from '../model/instrumento';
 })
 export class MainComponent implements OnInit {
   instEnable=false;
+  produto: Instrumento[];
   detalhes(inst : Instrumento){
     this.inst = inst;
     this.instEnable=true;
@@ -16,9 +18,14 @@ export class MainComponent implements OnInit {
   inst:Instrumento;
   //instrumento = MemoryProdutosDataBase;
   
-  constructor() { }
+  constructor(private produtoService:ProdutosService) { }
 
   ngOnInit() {
+    this.produtoService.getProdutos().subscribe(
+      (data)=>{
+        this.produto=data;
+      }
+    );
   }
 
 }

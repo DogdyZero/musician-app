@@ -2,14 +2,15 @@
 <p-card>
     <p-header>
         <h1>Detalhes do pedido</h1>
-        <p>Nome do cliente: {{pessoa.nome}}</p>
-        <p>..................</p>
-        <p>..................</p>
-        <p>..................</p>
     </p-header>
+    <p>Nome do cliente: {{pessoa.nome}}</p>
+    <p>Cartao:</p>
+    <p>Endereço:</p>
+    <p>Valor Total:</p>
+    <br>
+    <button pButton type="button" label="Cancelar pedido" class="ui-button-danger"></button>
 </p-card>
 <br>
-<button pButton type="button" label="Cancelar pedido" class="ui-button-danger"></button>
 <p-table [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>

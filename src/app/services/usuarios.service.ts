@@ -33,7 +33,7 @@ export class UsuariosService  {
   getUsuarios():Observable<Usuario[]>{
     return this.httpClient.get<Usuario[]>(this.url);
   }
-  getUsuarioId(id:Number){
+  getUsuarioId(id:Number):Observable<Usuario>{
     return this.httpClient.get<Usuario>(`${this.url}/${id}`).pipe();
   }
   salvarUsuario(usuario:Usuario){

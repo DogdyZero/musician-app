@@ -35,7 +35,7 @@ const routes: Routes = [
   { path : 'cad_endereco', component:CadEnderecoComponent},
   { path : 'alt_senha', component:AltSenhaComponent},
   { path : 'login', component:LoginComponent},
-  { path : 'cart', component:CartComponent},
+  //{ path : 'cart/:id', component:CartComponent},
   { path : 'compra/:id', component:CompraComponent},
   { path : 'edit_prod', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},

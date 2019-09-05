@@ -20,11 +20,11 @@ export class CartComponent implements OnInit {
   }
 
   comprar(){
-    let resultado = this.usuariosService.getUsuario();
+    let resultado = this.usuariosService.getUsuarioId(this.id);
     if(resultado ==null){
       this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['/compra']);
+      this.router.navigate(['/compra',this.id]);
     }
   }
 
