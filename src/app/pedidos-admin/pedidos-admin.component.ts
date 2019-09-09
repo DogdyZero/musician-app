@@ -1,3 +1,4 @@
+import { Pedido } from './../model/pedido';
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 
@@ -15,6 +16,7 @@ export class PedidosAdminComponent implements OnInit {
   //pedido = MemoryPedidoDataBase;
   status: SelectItem[];
   selectedStatus: Status;
+  pedido: Pedido[] = [];
 
   constructor() {
     this.status = [
@@ -27,6 +29,17 @@ export class PedidosAdminComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.pedido = [
+      {
+          id: 1,
+          cliente: null,
+          produto: null,
+          frete: 100,
+          total: null,
+          data: null,
+          status: null
+      }
+    ];
   }
 
 }

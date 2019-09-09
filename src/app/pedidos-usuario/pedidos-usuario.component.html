@@ -12,7 +12,7 @@
     <ng-template pTemplate="body" let-ped>
         <tr style="text-align:center" >
             <td>{{ped.id}}</td>
-            <td><h4 *ngFor="let prod of ped.produto">{{prod.nome}} {{prod.modelo}} {{prod.ano}}</h4></td>
+            <td><h4 *ngFor="let prod of ped.produto">{{ped.prod.nome}} {{prod.modelo}} {{prod.ano}}</h4></td>
             <td>{{ped.frete + ped.total}}</td>
             <td>{{ped.data |date: 'dd/MM/yyyy'}}</td>
             <td><p-button [routerLink]="['/detalhes_pedido',pessoa.id]" icon="pi pi-list" iconPos="left" label="Detalhes"></p-button></td>

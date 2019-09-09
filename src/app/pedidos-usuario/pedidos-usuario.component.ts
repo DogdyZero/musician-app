@@ -21,6 +21,17 @@ export class PedidosUsuarioComponent implements OnInit {
         this.pedido=data;
       }
     );
+    this.pedido = [
+      {
+          id: 1,
+          cliente: null,
+          produto: null,
+          frete: 100,
+          total: null,
+          data: null,
+          status: null
+      },
+    ];
   }
 
 }

@@ -28,6 +28,7 @@ export class DescProdutoComponent implements OnInit {
         this.produto=data;
       }
     );
+
   }
 
 }

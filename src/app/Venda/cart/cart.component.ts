@@ -1,3 +1,4 @@
+import { ProdutosService } from './../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -31,6 +32,7 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService : CartService,
     private usuariosService :UsuariosService,
+    private  produtoService: ProdutosService,
     private router:Router,
     private activatedRoute : ActivatedRoute) { }
 
@@ -40,6 +42,11 @@ export class CartComponent implements OnInit {
         this.id = params['id'];
       }
     )
+    this.produtoService.getProdutoById(this.id).subscribe(
+      (data)=>{
+        this.inst=data;
+      }
+    );
    // this.cartService.addList(this.id);
 
     //this.instrumento = this.cartService.getInstrumentos();

@@ -8,6 +8,7 @@ import { Component, OnInit, Output } from '@angular/core';
 export class NovoCartaoComponent implements OnInit {
   selectedCard: string;
   displayCard: boolean = false;
+  selectedCard2: string;
   @Output() dispBtn: Boolean;
 
   constructor() { }

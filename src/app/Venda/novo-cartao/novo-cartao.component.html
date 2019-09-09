@@ -3,8 +3,8 @@
     <div class="p-grid">
         <div class="p-col-12">
             <div class="ui-g-15" style="width:270px;margin-bottom:10px">
-                <div class="ui-g-12"><p-radioButton name="card1_compra" value="Option 1" label="Cartão terminado em: 0123" [(ngModel)]="val2" inputId="opt1"></p-radioButton></div>
-                <div class="ui-g-12"><p-radioButton name="card2_compra" value="Option 2" label="Cartão terminado em: 3210" [(ngModel)]="val2  " inputId="opt2"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="card1_compra" value="Option 1" label="Cartão terminado em: 0123" [(ngModel)]="selectedCard" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="card2_compra" value="Option 2" label="Cartão terminado em: 3210" [(ngModel)]="selectedCard2" inputId="opt2"></p-radioButton></div>
             </div>
         </div>
         <button type="button" name="btn_novoCard_compra" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>

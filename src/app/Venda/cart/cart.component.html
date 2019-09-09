@@ -3,14 +3,15 @@
 <h2>Carrinho de compras</h2>
 <p-card styleClass="ui-card-shadow">
     <div class="p-grid">
-        <div class="p-col-7" *ngFor="let inst of instrumento">
-            <p-card id="card">
+        <div class="p-col-7" >
+                <!-- *ngFor="let inst of instrumento" -->
+        <p-card id="card">
                 <div class="p-grid">
                     <div class="p-col-2">
                         <img src="{{inst.pathImage}}">
                     </div>
                     <div class="p-col-3">
-                        <label><strong>{{inst.nome}} {{inst.modelo}} {{inst.ano}}</strong></label><br><br>
+                        <label><strong>Guitarra Slash</strong></label><br><br>
                             <p>{{inst.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
                     </div>
                     <div id="qnt" class="p-col-3">
