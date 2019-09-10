@@ -1,6 +1,5 @@
 import { Instrumento } from './instrumento';
-export class CategoriaInstrumento {
+export class ItemProduto {
     id:number;
-    tipo:string;
     produto:Instrumento;
 }

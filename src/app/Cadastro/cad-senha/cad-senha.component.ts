@@ -32,7 +32,7 @@ export class CadSenhaComponent implements OnInit {
       this.usuario.senha = senha;
       this.usuario.perfil =Perfil.CLIENTE;
       this.usuario.login = this.pessoa.cpf;
-      this.pessoa.usuario = this.usuario;
+      //this.pessoa.usuario = this.usuario;
       this.update.emit(this.pessoa);
       this.updateId.emit(++this.id);
     } else {

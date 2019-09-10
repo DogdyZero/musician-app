@@ -1,4 +1,5 @@
 import { Bandeira } from './bandeira.enum';
+import { Status } from './status.enum';
 
 export class Cartao {
     id:number;
@@ -7,4 +8,6 @@ export class Cartao {
     validade:string;
     codSeguranca:number;
     bandeira:Bandeira;
+    preferencial:Boolean;
+    status:Status; 
 }

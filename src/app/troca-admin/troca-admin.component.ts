@@ -29,7 +29,7 @@ export class TrocaAdminComponent implements OnInit {
       {
           id: 1,
           cliente: null,
-          produto: null,
+          itemProduto: null,
           frete: 100,
           total: null,
           data: null,
