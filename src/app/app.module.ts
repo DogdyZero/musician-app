@@ -47,7 +47,7 @@ import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { CupomComponent } from './cupom/cupom.component';
-import { DataService } from './data.service';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -80,6 +80,7 @@ import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.componen
 import { ResumoCompraComponent } from './Venda/resumo-compra/resumo-compra.component';
 import { NovaEntregaComponent } from './Venda/nova-entrega/nova-entrega.component';
 import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -145,6 +146,7 @@ import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
     InputMaskModule,
     RadioButtonModule,
     CardModule,
+    MultiSelectModule,
     KeyFilterModule,
     SelectButtonModule,
     InputTextareaModule,
@@ -153,6 +155,7 @@ import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
     StepsModule,
     AccordionModule,
     ChartModule,
+    CheckboxModule,
     MessagesModule,
     MessageModule,
     FieldsetModule,

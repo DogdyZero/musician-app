@@ -19,8 +19,7 @@
     <br>
     <p style="color: black; font-size: 18px"><strong>Cupom</strong></p>
             <span class="ui-float-label">
-                <input name="cupom_compra" placeholder="Código do cupom" pKeyFilter="alphanum" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
-                &nbsp;<p-button name="btn_cupom_compra" label="Ok"></p-button>
+                <p-multiSelect [options]="cupom" [(ngModel)]="selectedCupom" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
             </span>
     <hr>
     <br>
