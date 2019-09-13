@@ -1,0 +1,59 @@
+<app-header></app-header>
+<p-card>
+    <p-header>
+        <h1>Detalhes do pedido</h1>
+    </p-header>
+    <p>Nome do cliente:</p>
+    <p>Cartao:</p>
+    <p>Endereço:</p>
+    <p>Valor Total:</p>
+    <br>
+    <button pButton type="button" label="Cancelar pedido" class="ui-button-danger"></button>
+</p-card>
+<br>
+<p-table [value]="pedido" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Produto</th>
+            <th>Valor</th>  
+            <th>Frete</th>
+            <th>Data</th> 
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ped>
+        <tr style="text-align:center">
+            <td>{{ped.id}}</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>Entregue</td>
+            <td><button name="btn_troca" type="button" (click)="showDialog()" pButton icon="pi pi-sort-alt" label="Solicitar troca"></button></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
+
+
+
+
+
+<p-dialog header="Selecione o motivo de troca" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+         [baseZIndex]="10000">
+         <div class="ui-g" style="width:250px;margin-bottom:10px">
+                <div class="ui-g-12"><p-radioButton name="group1" value="TamanhoErrado" label="Produto diferente do comprado" [(ngModel)]="val1" inputId="opt1"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="group1" value="DefeitoFabricação" label="Defeito de fabricação" [(ngModel)]="val1" inputId="opt2"></p-radioButton></div>
+                <div class="ui-g-12"><p-radioButton name="group1" value="Arrependimento" label="Arrependimento" [(ngModel)]="val1" inputId="opt3"></p-radioButton></div>
+            </div>        
+        <p-footer>
+            <button name="btn_conf_troca" type="button" pButton icon="pi pi-check" (click)="display=false" label="Confirmar"></button>
+            <button name="btn_cancelar_troca" type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancelar" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<button [routerLink]="['/usuario',pessoa.id]" style="float: right;width: 100px" pButton type="button" label="Voltar"></button>
+

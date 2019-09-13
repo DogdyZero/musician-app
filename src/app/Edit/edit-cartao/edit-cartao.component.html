@@ -1,0 +1,51 @@
+<br>
+<button pButton type="button" label="Novo"></button>
+
+<p-accordion>
+    <p-accordionTab header="Cartão terminado em ****{{card.numeroCartao.substring(14)}}" *ngFor="let card of pessoa.cartao">
+        <p-card styleClass="ui-card-shadow">
+            <div class="p-grid">
+                <div class="p-col-5">
+                    <h4 class="first">Selecione abaixo a bandeira no qual deseja utilizar</h4>
+                    <p>Bandeira Selecionada: <span style="font-weight: bold">{{selectedType}}</span></p>
+                    <p-selectButton name="tp_card" [options]="tipoBandeira" [(ngModel)]="selectedType"></p-selectButton>
+                </div>
+            </div>
+            <br>
+            <div class="p-grid">
+                <div class="p-col-5">
+                    <span>Nome do titular:
+                        <input [(ngModel)]="card.nomeCartao" name="nome_card" placeholder="Nome impresso como no cartão" type="text" class="p-col-10" id="float-input" pInputText>
+                    </span>
+                </div>
+            </div>
+            <br>
+            
+            <div class="p-grid">
+                <div class="p-col-5">
+                    <span>Número do cartão: <br> 
+                        <p-inputMask [(ngModel)]="card.numeroCartao" name="num_card" mask="9999 9999 9999 9999" pKeyFilter="num" placeholder="0000 0000 0000 0000"></p-inputMask>
+                    </span>
+                </div>
+            </div>
+            <br>
+            
+            <div class="p-grid">
+                <div class="p-col-2">
+                    <span>Validade: <br>
+                        <p-inputMask [(ngModel)]="card.validade" name="val_card" mask="99/99" pKeyFilter="num" placeholder="MM/AAAA"></p-inputMask>
+                    </span>
+                </div>
+                <div class="p-col-2">
+                    <span>CVV: <br>
+                        <input [(ngModel)]="card.codSeguranca" name="cvv_card" type="text" pKeyFilter="num" class="p-col-5" id="float-input" maxlength="3" placeholder="3 Dígitos" pInputText>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <p-footer>
+                <button name="btn_edt" (click)="editCartao(card)" pButton type="button" label="Salvar" icon="pi pi-check" style="margin-right: .25em"></button>
+            </p-footer>
+        </p-card>
+    </p-accordionTab>
+</p-accordion>

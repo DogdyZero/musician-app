@@ -1,4 +1,4 @@
-<p-table [value]="pedido"  [paginator]="true" [rows]="10">
+<p-table [paginator]="true" [rows]="10" [value]="pedido">
     <ng-template pTemplate="header">
         <tr>
             <th width="40">Id</th>
@@ -12,15 +12,32 @@
     </ng-template>
     <ng-template pTemplate="body" let-ped>
         <tr style="text-align:center" >
-            <td width="40">{{ped.id}}</td>
-            <td>{{ped.cliente.nome}}</td>
-            <td><h5 *ngFor="let prod  of ped.produto">{{prod.nome}} {{prod.modelo}} {{prod.ano}}</h5></td>
-            <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
-            <td width="100">{{ped.data |date: 'dd/MM/yyyy'}}</td>
+            <td width="40">1</td>
+            <td>(dados)</td>
+            <td><h5>(dados)</h5></td>
+            <td>(dados)</td>
+            <td width="100">(dados)</td>
             <td>(Motivo)</td>
-            <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" class="ui-button-success"></button> <p></p>
-                <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" class="ui-button-danger"></button>
+            <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" (click)="confirmarTroca()" class="ui-button-success"></button> <p></p>
+                <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" (click)="recusarTroca()" class="ui-button-danger"></button>
             </td>
         </tr>
     </ng-template>
 </p-table>
+
+
+<p-dialog header="Confirmada" [(visible)]="display" [modal]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+[maximizable]="true" [baseZIndex]="10000">
+    <p>Troca efetuada com sucesso!</p>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Entendido"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Recusada" [(visible)]="display2" [modal]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+[maximizable]="true" [baseZIndex]="10000">
+    <p>Troca recusada!</p>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="display2=false" label="Entendido"></button>
+    </p-footer>
+</p-dialog>

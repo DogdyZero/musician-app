@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MemoryCupomDataBase } from '../memory-cupom-data-base';
+import { Pessoa } from './../model/pessoa';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cupom',
@@ -7,7 +7,8 @@ import { MemoryCupomDataBase } from '../memory-cupom-data-base';
   styleUrls: ['./cupom.component.css']
 })
 export class CupomComponent implements OnInit {
-  cupom = MemoryCupomDataBase;
+  //cupom = MemoryCupomDataBase;
+  @Input() pessoa:Pessoa;
   constructor() { }
 
   ngOnInit() {

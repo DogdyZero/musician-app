@@ -27,4 +27,11 @@ export class CartoesService {
     let cartoes:Cartao[] = await this.httpClient.get<Cartao[]>(this.url).toPromise();
     return cartoes.length ;
   }
+
+  alterarCartao(cartao:Cartao){
+    return this.httpClient.put(`${this.url}/${cartao.id}`,cartao,
+    {headers:{
+      'Accept':'application/json'}
+  });
+  }
 }

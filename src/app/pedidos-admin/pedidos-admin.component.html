@@ -1,25 +1,23 @@
 <p-table [value]="pedido"  [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>
-            <th width="40">Id</th>
+            <th>Id</th>
             <th>Cliente</th>
+            <th>Produtos</th>
             <th>Valor</th>  
-            <th width="75">Frete</th>
-            <th>Total</th>
-            <th width="100">Data</th> 
-            <th>Status</th>
+            <th>Frete</th>
+            <th>Data</th> 
             <th>Alterar status</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-ped>
         <tr style="text-align:center" >
             <td width="40">{{ped.id}}</td>
-            <td>{{ped.cliente.nome}}</td>
-            <td>{{ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
-            <td width="75">{{ped.frete |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
-            <td>{{ped.frete + ped.valor |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
-            <td width="100">{{ped.data |date: 'dd/MM/yyyy'}}</td>
-            <td>{{ped.status}}</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
+            <td>(dados)</td>
             <td><p-dropdown [options]="status" [(ngModel)]="selectedStatus"></p-dropdown></td>
         </tr>
     </ng-template>

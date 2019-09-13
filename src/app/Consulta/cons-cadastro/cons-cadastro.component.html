@@ -1,0 +1,32 @@
+<p-card styleClass="ui-card-shadow">
+        <p-header>
+            <h1>Meus dados</h1>
+        </p-header>
+    <div class="p-grid">
+        <div class="p-col-6">
+            <label><strong>Nome:</strong>
+                <p>{{pessoa.nome}}</p>
+            </label>
+            <br>
+            <label><strong>Cpf:</strong>
+                <p>{{pessoa.cpf}}</p>
+            </label>
+            <br>
+            <label><strong>Rg:</strong>
+                <p>{{pessoa.rg}}</p>
+            </label>
+            <br>
+            <label><strong>Telefones:</strong>
+                <p *ngFor="let tel of pessoa.telefone">({{tel.ddd}}) {{tel.numero}}</p>
+            </label>
+            <br>
+            <label><strong>Endereços:</strong>
+                <br>
+                <p *ngFor="let end of pessoa.endereco">{{end.cep}} - {{end.logradouro}}, {{end.bairro}}, {{end.numero}} - {{end.estado}} ({{end.tipoLogradouro}})</p>
+            </label>
+        </div>
+    </div>
+    <p-footer>
+         <a [routerLink]="['/edit_user',pessoa.id]"><button pButton type="button" label="Editar dados" icon="pi pi-pencil" style="margin-right: .25em"></button></a>
+    </p-footer>
+</p-card>

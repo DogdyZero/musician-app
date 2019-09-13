@@ -19,7 +19,7 @@ export class PessoasService {
     return this.httpClient.get<Pessoa[]>(this.url);
   }
   
-  getPessoa(id:number):Observable<Pessoa>{
+  getPessoa(id:number){
     return this.httpClient.get<Pessoa>(`${this.url}/${id}`).pipe();
   }
   salvarPessoa(pessoa:Pessoa){
@@ -35,5 +35,11 @@ export class PessoasService {
       'Accept':'application/json'}
   });
  }
+ 
+ deletarPessoa(id:number): Observable<{}>{
+  return this.httpClient.delete(`${this.url}/${id}`).pipe();
+}
+
+
 
 }
