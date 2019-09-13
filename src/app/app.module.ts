@@ -1,54 +1,53 @@
+import { EditProdutoComponent } from './Edit/edit-produto/edit-produto.component';
+import { EditEstoqueComponent } from './Edit/edit-estoque/edit-estoque.component';
+import { ConfCompraComponent } from './Venda/conf-compra/conf-compra.component';
+import { ConfCadastroComponent } from './Cadastro/conf-cadastro/conf-cadastro.component';
+import { CadTelefoneComponent } from './Cadastro/cad-telefone/cad-telefone.component';
+import { EditUsuarioComponent } from './Edit/edit-usuario/edit-usuario.component';
+import { EditCadastroComponent } from './Edit/edit-cadastro/edit-cadastro.component';
+import { EditCartaoComponent } from './Edit/edit-cartao/edit-cartao.component';
+import { EditEnderecoComponent } from './Edit/edit-endereco/edit-endereco.component';
+import { MenuUsuarioComponent } from './Menu/menu-usuario/menu-usuario.component';
+import { CadEnderecoComponent } from './Cadastro/cad-endereco/cad-endereco.component';
+import { CompraComponent } from './Venda/compra/compra.component';
+import { ConsCartaoAdminComponent } from './Consulta/cons-cartao-admin/cons-cartao-admin.component';
+import { ConsCadastroAdminComponent } from './Consulta/cons-cadastro-admin/cons-cadastro-admin.component';
+import { ConsEnderecoAdminComponent } from './Consulta/cons-endereco-admin/cons-endereco-admin.component';
+import { ConsProdutoComponent } from './Consulta/cons-produto/cons-produto.component';
+import { MenuProdutoComponent } from './Menu/menu-produto/menu-produto.component';
+import { ConsCartaoComponent } from './Consulta/cons-cartao/cons-cartao.component';
+import { MenuAdminComponent } from './Menu/menu-admin/menu-admin.component';
+import { CartComponent } from './Venda/cart/cart.component';
+import { MenuCadastroComponent } from './Menu/menu-cadastro/menu-cadastro.component';
+import { ConsEnderecoComponent } from './Consulta/cons-endereco/cons-endereco.component';
+import { ConsCadastroComponent } from './Consulta/cons-cadastro/cons-cadastro.component';
+import { CadSenhaComponent } from './Cadastro/cad-senha/cad-senha.component';
+import { AltSenhaComponent } from './Edit/alt-senha/alt-senha.component';
+import { CadCartaoComponent } from './Cadastro/cad-cartao/cad-cartao.component';
+import { CadUsuarioComponent } from './Cadastro/cad-usuario/cad-usuario.component';
+import { CadProdutoComponent } from './Cadastro/cad-produto/cad-produto.component';
+import { EditTelefoneComponent } from './Edit/edit-telefone/edit-telefone.component';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePt);
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadProdutoComponent } from './cad-produto/cad-produto.component';
-import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
-import { CadCartaoComponent } from './cad-cartao/cad-cartao.component';
-import { AltSenhaComponent } from './alt-senha/alt-senha.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { LoginComponent } from './login/login.component';
-import { CadSenhaComponent } from './cad-senha/cad-senha.component';
-import { ConsCadastroComponent } from './cons-cadastro/cons-cadastro.component';
-import { ConsEnderecoComponent } from './cons-endereco/cons-endereco.component';
-import { MenuCadastroComponent } from './menu-cadastro/menu-cadastro.component';
-import { CartComponent } from './cart/cart.component';
-import { MenuAdminComponent } from './menu-admin/menu-admin.component';
-import { ConsCartaoComponent } from './cons-cartao/cons-cartao.component';
-import { MenuProdutoComponent } from './menu-produto/menu-produto.component';
-import { ConsProdutoComponent } from './cons-produto/cons-produto.component';
-import { ConsEnderecoAdminComponent } from './cons-endereco-admin/cons-endereco-admin.component';
-import { ConsCadastroAdminComponent } from './cons-cadastro-admin/cons-cadastro-admin.component';
-import { ConsCartaoAdminComponent } from './cons-cartao-admin/cons-cartao-admin.component';
 import { PedidosAdminComponent } from './pedidos-admin/pedidos-admin.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { PedidosUsuarioComponent } from './pedidos-usuario/pedidos-usuario.component';
 import { TrocaAdminComponent } from './troca-admin/troca-admin.component';
-import { CompraComponent } from './compra/compra.component';
 import { MainComponent } from './main/main.component';
-import { CadEnderecoComponent } from './cad-endereco/cad-endereco.component';
 import { HeaderComponent } from './header/header.component';
-import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { CupomComponent } from './cupom/cupom.component';
-import { EditProdutoComponent } from './edit-produto/edit-produto.component';
-import { EditEstoqueComponent } from './edit-estoque/edit-estoque.component';
-import { ConfCompraComponent } from './conf-compra/conf-compra.component';
-import { ConfCadastroComponent } from './conf-cadastro/conf-cadastro.component';
-import { DataService } from './data.service';
-import { CadTelefoneComponent } from './cad-telefone/cad-telefone.component';
-import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
-import { EditCadastroComponent } from './edit-cadastro/edit-cadastro.component';
-import { EditCartaoComponent } from './edit-cartao/edit-cartao.component';
-import { EditEnderecoComponent } from './edit-endereco/edit-endereco.component';
-import { EditTelefoneComponent } from './edit-telefone/edit-telefone.component';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 // primeng modules
 import {InputTextModule} from 'primeng/inputtext';
@@ -77,6 +76,11 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {CalendarModule} from 'primeng/calendar';
 import { ErroComponent } from './erro/erro.component';
+import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.component';
+import { ResumoCompraComponent } from './Venda/resumo-compra/resumo-compra.component';
+import { NovaEntregaComponent } from './Venda/nova-entrega/nova-entrega.component';
+import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -120,6 +124,10 @@ import { ErroComponent } from './erro/erro.component';
     EditEnderecoComponent,
     EditTelefoneComponent,
     ErroComponent,
+    DetalhePedidoComponent,
+    ResumoCompraComponent,
+    NovaEntregaComponent,
+    NovoCartaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,6 +146,7 @@ import { ErroComponent } from './erro/erro.component';
     InputMaskModule,
     RadioButtonModule,
     CardModule,
+    MultiSelectModule,
     KeyFilterModule,
     SelectButtonModule,
     InputTextareaModule,
@@ -146,6 +155,7 @@ import { ErroComponent } from './erro/erro.component';
     StepsModule,
     AccordionModule,
     ChartModule,
+    CheckboxModule,
     MessagesModule,
     MessageModule,
     FieldsetModule,

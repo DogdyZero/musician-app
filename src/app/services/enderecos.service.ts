@@ -22,4 +22,11 @@ export class EnderecosService {
     return this.httpClient.post<Endereco>(this.url,endereco);
   }
 
+  alterarEndereco(endereco:Endereco){
+    return this.httpClient.put(`${this.url}/${endereco.id}`,endereco,
+    {headers:{
+      'Accept':'application/json'}
+  });
+
+  }
 }

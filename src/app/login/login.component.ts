@@ -1,7 +1,7 @@
+import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Router } from '@angular/router';
-import { CartService } from '../cart/cart.service';
 import { Message } from 'primeng/api';
 import { UsuariosService } from '../services/usuarios.service';
 
@@ -24,19 +24,21 @@ export class LoginComponent implements OnInit {
     let resultado = await this.usuariosService.efetuarLogin(usuario);
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
-    } else if (resultado == 'cliente'){
+    
+    //else if (resultado == usuario.login){
       
-      if(this.cartService.getTotalInstrumentos()>0){
-        this.router.navigate(['/cart']);
+      /*if(this.cartService.getTotalInstrumentos()>0){
+        this.router.navigate(['/cart']);*/
       }else {
         this.router.navigate(['/']);
       }
-    } else{
+    /* } else{
       this.msgs = [];
-      this.msgs.push({severity:'error', summary:'Atenção', detail:'Login ou senha digitadas estão erradas'});    }
+      this.msgs.push({severity:'error', summary:'Atenção', detail:'Login ou senha digitadas estão erradas'});    }*/
 
     
     }
+  
 
   ngOnInit() {
   }

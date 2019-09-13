@@ -1,6 +1,6 @@
+import { Usuario } from './../model/usuario';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../model/usuario';
 import { Observable, Subscriber } from 'rxjs';
 import { Perfil } from '../model/perfil.enum';
 
@@ -33,14 +33,20 @@ export class UsuariosService  {
   getUsuarios():Observable<Usuario[]>{
     return this.httpClient.get<Usuario[]>(this.url);
   }
+  getUsuarioId(id:Number):Observable<Usuario>{
+    return this.httpClient.get<Usuario>(`${this.url}/${id}`).pipe();
+  }
   salvarUsuario(usuario:Usuario){
     return this.httpClient.post<Usuario>(this.url,usuario);
+  }
+  deletarUsuario(id:number): Observable<{}>{
+    return this.httpClient.delete(`${this.url}/${id}`).pipe();
   }
 
   async efetuarLogin(usuario:Usuario){
     this.usuario = await this.httpClient.post<Usuario>(this.url,usuario,
       {headers:{'Accept':'application/json'}}).toPromise();
-      let perfil = this.usuario.perfil.toString();
+      let perfil = this.usuario.perfil;
         if(perfil==Perfil.ADMINISTRADOR){
           return 'admin';
         } else if(perfil==Perfil.CLIENTE){

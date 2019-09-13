@@ -1,0 +1,10 @@
+#sum{
+    position: relative;
+    left: 825px;
+    bottom: 495px;
+    background-color: grey;
+    height: 800px;
+}
+hr{
+    border: solid blue 1px;
+}

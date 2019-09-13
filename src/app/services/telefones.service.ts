@@ -22,4 +22,10 @@ export class TelefonesService {
   salvarTelefone(telefone:Telefone):Observable<Telefone>{
     return this.httpClient.post<Telefone>(this.url,telefone);
   }
+  alterarTelefone(telefone:Telefone){
+    return this.httpClient.put(`${this.url}/${telefone.id}`,telefone,
+    {headers:{
+      'Accept':'application/json'}
+  });
+  }
 }

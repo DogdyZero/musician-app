@@ -1,5 +1,5 @@
+import { Pedido } from './../model/pedido';
 import { Component, OnInit } from '@angular/core';
-import { MemoryPedidoDataBase } from '../memory-pedido-data-base';
 import {SelectItem} from 'primeng/api';
 
 interface Status {
@@ -13,9 +13,10 @@ interface Status {
   styleUrls: ['./pedidos-admin.component.css']
 })
 export class PedidosAdminComponent implements OnInit {
-  pedido = MemoryPedidoDataBase;
+  //pedido = MemoryPedidoDataBase;
   status: SelectItem[];
   selectedStatus: Status;
+  pedido: Pedido[] = [];
 
   constructor() {
     this.status = [
@@ -28,6 +29,17 @@ export class PedidosAdminComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.pedido = [
+      {
+          id: 1,
+          cliente: null,
+          itemProduto: null,
+          frete: 100,
+          total: null,
+          data: null,
+          status: null
+      }
+    ];
   }
 
 }

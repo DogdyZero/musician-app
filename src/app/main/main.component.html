@@ -2,21 +2,21 @@
 <br>
 <div class="p-grid" *ngIf="instEnable==false">
     
-    <div class="p-col-4" *ngFor="let inst of instrumento">
+    <div class="p-col-4" *ngFor="let prod of produto">
         <div >
-            <p-card header="{{inst.nome}} {{inst.marca.nome}}" subheader="modelo {{inst.modelo}}" styleClass="ui-card-shadow">
+            <p-card header="{{prod.nome}} {{prod.marca}}" subheader="modelo {{prod.modelo}}" styleClass="ui-card-shadow">
                 <p-header class="text-center">
-                    <img  src="{{inst.pathImage}}">
+                    <img  src="{{prod.pathImage}}">
                 </p-header>
                 <div class="p-grid p-dir-col">
                     <div class="p-col">
-                        Preço: {{inst.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}
+                        Preço: {{prod.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}
                     </div>
                 </div>
                 <p-footer>
                     <div class="p-grid">
-                        <a [routerLink]="['produto',inst.id]">                        
-                            <button name="{{inst.nome}}{{inst.id}}" pButton type="button" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
+                        <a [routerLink]="['produto',prod.id]">                        
+                            <button name="{{prod.nome}}{{prod.id}}" pButton type="button" label="detalhes" icon="pi pi-check" style="margin-right: .25em"></button>
                         </a>
                     </div>
                 </p-footer>
