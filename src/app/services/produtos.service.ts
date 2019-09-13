@@ -20,4 +20,23 @@ export class ProdutosService {
   getProdutoById(id:number){
     return this.httpClient.get<Instrumento>(`${this.url}/${id}`).pipe();
   }
+
+  salvarProduto(instrumento:Instrumento){
+    console.log(instrumento);    
+    return this.httpClient.post(this.url,instrumento,
+      {headers:{
+        'Accept':'application/json'}
+    });
+  }
+
+  alterarProduto(instrumento:Instrumento){
+    return this.httpClient.put(`${this.url}/${instrumento.id}`,instrumento,
+    {headers:{
+      'Accept':'application/json'}
+  });
+ }
+
+ inativarProduto(id:number): Observable<{}>{
+  return this.httpClient.delete(`${this.url}/${id}`).pipe();
+}
 }

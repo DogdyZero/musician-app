@@ -1,4 +1,4 @@
-import { CartService } from './../Venda/cart/cart.service';
+import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { Router } from '@angular/router';
@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     let resultado = await this.usuariosService.efetuarLogin(usuario);
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
-    } else if (resultado == usuario.login){
+    
+    //else if (resultado == usuario.login){
       
       /*if(this.cartService.getTotalInstrumentos()>0){
         this.router.navigate(['/cart']);*/
