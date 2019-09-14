@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
     } else if (resultado == usuario.login){
-      
       /*if(this.cartService.getTotalInstrumentos()>0){
         this.router.navigate(['/cart']);*/
       }else {
