@@ -3,6 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {SelectItem, ConfirmationService} from 'primeng/api';
 import { Pessoa } from '../../model/pessoa';
 import { Cartao } from '../../model/cartao';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-cad-cartao',
@@ -14,7 +15,7 @@ export class CadCartaoComponent implements OnInit {
   constructor(private confirmationService: ConfirmationService) { }
 
   @Input() dispBtn: boolean = true;
-  @Input() pessoa :Pessoa;
+  @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
 
   @Input() id:number;
@@ -38,7 +39,7 @@ export class CadCartaoComponent implements OnInit {
       },
       reject: () => {
         // direcionar para a proxima tela
-        this.update.emit(this.pessoa);
+        this.update.emit(this.usuario);
         this.updateId.emit(++this.id);    
       }
   });
@@ -49,7 +50,7 @@ export class CadCartaoComponent implements OnInit {
     //this.cartao.bandeira=this.selectedType;
     this.cartao = cartao;
     this.cartoes.push(this.cartao);
-    this.pessoa.cartao = this.cartoes;
+    this.usuario.pessoa.cartao = this.cartoes;
 
     this.cadastrarNovo();
   }

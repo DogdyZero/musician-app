@@ -12,19 +12,23 @@ import { PessoasService } from '../../services/pessoas.service';
 export class CadUsuarioComponent implements OnInit {
   constructor(private pessoaService:PessoasService){}
 
-  @Input() pessoa :Pessoa;
+  @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
 
   @Input() id:number;
   @Output() updateId = new EventEmitter();
+
+  pessoa:Pessoa = new Pessoa();
 
   generos:SelectItem[];
 
   genero:string;
 
   salvar(pessoa:Pessoa){
-    this.update.emit(this.pessoa);
+    this.usuario.pessoa = pessoa;
+    this.update.emit(this.usuario);
     this.updateId.emit(++this.id);
+    console.log(this.usuario);
   }
 
   en:any;

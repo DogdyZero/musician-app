@@ -7,6 +7,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { TelefonesService } from '../../services/telefones.service';
 import { CartoesService } from '../../services/cartoes.service';
 import { EnderecosService } from '../../services/enderecos.service';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-menu-cadastro',
@@ -16,14 +17,10 @@ import { EnderecosService } from '../../services/enderecos.service';
 export class MenuCadastroComponent implements OnInit {
   constructor(
     private usuariosService:UsuariosService,
-    private telefonesService:TelefonesService,
-    private endercosService:EnderecosService,
-    private cartoesService:CartoesService,
-    private pessoasService:PessoasService,
     private router:Router) { }
   
   items: MenuItem[];
-  pessoa: Pessoa =new Pessoa();
+  usuario: Usuario =new Usuario();
   id=0;
   totalCadastro =4;;
   activeIndex: number;
@@ -35,14 +32,12 @@ export class MenuCadastroComponent implements OnInit {
     }
   }
   
-  async updatePessoa(pessoa:Pessoa){
+  async updateUsuario(usuario:Usuario){
     if(this.id==this.totalCadastro){
-      console.log(pessoa);
 
-      this.pessoasService.salvarPessoa(pessoa).subscribe((data)=>{
+      this.usuariosService.salvarUsuario(usuario).subscribe((data)=>{
        // idPessoa = data.id;
        this.router.navigate(['/conf_cadastro']);
-        console.log(data);
       },(error)=>{
         this.router.navigate(['/erro']);
         console.log(error);

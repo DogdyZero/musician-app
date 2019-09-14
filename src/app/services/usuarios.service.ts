@@ -44,7 +44,7 @@ export class UsuariosService  {
   }
 
   async efetuarLogin(usuario:Usuario){
-    this.usuario = await this.httpClient.post<Usuario>(this.url,usuario,
+    this.usuario = await this.httpClient.post<Usuario>(this.url+'/login',usuario,
       {headers:{'Accept':'application/json'}}).toPromise();
       let perfil = this.usuario.perfil;
         if(perfil==Perfil.ADMINISTRADOR){

@@ -3,6 +3,7 @@ import {SelectItem, MenuItem, ConfirmationService} from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
 import { Endereco } from '../../model/endereco';
 import { Pessoa } from '../../model/pessoa';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-cad-endereco',
@@ -16,7 +17,7 @@ export class CadEnderecoComponent implements OnInit {
   
   @Input() dispBtn: boolean = true;
 
-  @Input() pessoa :Pessoa;
+  @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
 
   @Input() id:number;
@@ -53,7 +54,7 @@ export class CadEnderecoComponent implements OnInit {
       },
       reject: () => {
         // direcionar para a proxima tela
-        this.update.emit(this.pessoa);
+        this.update.emit(this.usuario);
         this.updateId.emit(++this.id);    
       }
   });
@@ -69,7 +70,7 @@ export class CadEnderecoComponent implements OnInit {
     }
     endereco.tipoLogradouro=this.tipo;
     this.enderecos.push(endereco);
-    this.pessoa.endereco = this.enderecos;
+    this.usuario.pessoa.endereco = this.enderecos;
     
     this.cadastrarNovo();
   }

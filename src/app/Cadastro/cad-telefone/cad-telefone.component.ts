@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Telefone } from '../../model/telefone';
 import { Pessoa } from '../../model/pessoa';
 import { ConfirmationService } from 'primeng/api';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-cad-telefone',
@@ -13,7 +14,7 @@ import { ConfirmationService } from 'primeng/api';
 export class CadTelefoneComponent implements OnInit {
 
   constructor(private confirmationService: ConfirmationService) {}  
-  @Input() pessoa :Pessoa;
+  @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
 
   @Input() id:number;
@@ -34,7 +35,7 @@ export class CadTelefoneComponent implements OnInit {
       },
       reject: () => {
         // direcionar para a proxima tela
-        this.update.emit(this.pessoa);
+        this.update.emit(this.usuario);
         this.updateId.emit(++this.id);    
       }
   });
@@ -43,7 +44,7 @@ export class CadTelefoneComponent implements OnInit {
 
   salvar(telefone:Telefone){  
     this.telefones.push(telefone);
-    this.pessoa.telefone = this.telefones;
+    this.usuario.pessoa.telefone = this.telefones;
     this.cadastrarNovo();
   }
 
