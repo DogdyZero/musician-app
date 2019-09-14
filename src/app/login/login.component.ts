@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     let resultado = await this.usuariosService.efetuarLogin(usuario);
     if(resultado == 'admin'){
       this.router.navigate(['/admin']);
+    } else if (resultado == usuario.login){
     
     //else if (resultado == usuario.login){
       

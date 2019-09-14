@@ -3,13 +3,14 @@
 <p-tabMenu  [model]="items" [activeItem]="activeItem">
     <ng-template pTemplate="item" let-item let-i="index">
         <div style="position: relative; text-align: center; min-width: 10em">
-            <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
-            <div  class="ui-menuitem-text">
-                {{item.label}}
+                <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
+                <div  class="ui-menuitem-text">
+                    {{item.label}}
+                </div>
             </div>
-        </div>
-    </ng-template>
-</p-tabMenu>
+        </ng-template>
+    </p-tabMenu>
+<button [routerLink]="['/usuario',pessoa.id]" style="float: right;bottom:35px;right:450px" pButton type="button" label="Voltar"></button>
 <div *ngIf="id==0">
     <app-edit-cadastro [pessoa]="pessoa"></app-edit-cadastro>
 </div>
@@ -23,4 +24,3 @@
     <app-edit-telefone [pessoa]="pessoa"></app-edit-telefone>
 </div>
 <br>
-<button [routerLink]="['/usuario',pessoa.id]" style="float: right;width: 100px" pButton type="button" label="Voltar"></button>
