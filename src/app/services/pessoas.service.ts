@@ -35,6 +35,7 @@ export class PessoasService {
       'Accept':'application/json'}
   });
  }
+ 
  deletarPessoa(id:number): Observable<{}>{
   return this.httpClient.delete(`${this.url}/${id}`).pipe();
 }

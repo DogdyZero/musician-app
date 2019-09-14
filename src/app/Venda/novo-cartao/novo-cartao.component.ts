@@ -6,9 +6,9 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./novo-cartao.component.css']
 })
 export class NovoCartaoComponent implements OnInit {
-  selectedCard: string;
+  //selectedCard: string;
   displayCard: boolean = false;
-  selectedCard2: string;
+  selectedCard: string[] = [];
   @Output() dispBtn: Boolean;
 
   constructor() { }

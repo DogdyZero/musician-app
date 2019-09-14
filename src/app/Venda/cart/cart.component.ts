@@ -1,9 +1,10 @@
+import { ItemProduto } from './../../model/item-produto';
 import { ProdutosService } from './../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Instrumento } from '../../model/instrumento';
-import { CartService } from './cart.service';
+import { CartService } from '../../services/cart.service';
 import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class CartComponent implements OnInit {
   id:number;
   inst:Instrumento;
-  instrumento:Instrumento[];
+  ItemProduto:ItemProduto[];
  
   remove(id:number){
     //this.cartService.removeOfList(id);
@@ -45,6 +46,11 @@ export class CartComponent implements OnInit {
     this.produtoService.getProdutoById(this.id).subscribe(
       (data)=>{
         this.inst=data;
+      }
+    )
+    this.cartService.getProdutos().subscribe(
+      (data)=>{
+        this.ItemProduto=data;
       }
     );
    // this.cartService.addList(this.id);
