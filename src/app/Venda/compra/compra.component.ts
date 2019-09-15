@@ -1,3 +1,4 @@
+import { Pedido } from './../../model/pedido';
 import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -6,7 +7,10 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./compra.component.css']
 })
 export class CompraComponent implements OnInit {
- 
+  valorTotal:number;
+  //valorCompra:number;
+  sum = 0;
+  //pedido:Pedido;
 
 
   constructor() { }
@@ -18,6 +22,10 @@ export class CompraComponent implements OnInit {
       }
     )*/
 
+  }
+
+  totalCompra(event){
+    this.sum = event;
   }
 
   

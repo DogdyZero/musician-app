@@ -1,4 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Pedido } from './../../model/pedido';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nova-entrega',

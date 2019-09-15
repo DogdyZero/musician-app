@@ -35,7 +35,7 @@ export class CadTelefoneComponent implements OnInit {
       reject: () => {
         // direcionar para a proxima tela
         this.update.emit(this.pessoa);
-        this.updateId.emit(++this.id);    
+        this.updateId.emit(++this.id);
       }
   });
   }

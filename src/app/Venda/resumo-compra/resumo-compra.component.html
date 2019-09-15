@@ -20,16 +20,16 @@
     <p style="color: black; font-size: 18px"><strong>Cupom</strong></p>
             <span class="ui-float-label">
                 <p-multiSelect [options]="cupom" [(ngModel)]="selectedCupom" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                &nbsp;<p-button style="position: relative;bottom:10px;" name="btn_cupom_compra" (click)="totalPago()" label="Usar esses cupons"></p-button>
             </span>
     <hr>
     <br>
-    <span>Total: 
-            <strong style="text-align: right">R$ (Valor)</strong>
+    <span>Total pago: 
+            <strong style="text-align: right;">{{sum |currency:'BRL':'symbol':'0.2-2':'pt'}}</strong>
         </span>
     <br>
-    <div>
-        <a routerLink="/fechamento">
-            <button name="final_compra" style="float: right" pButton type="button" label="Finalizar compra" class="ui-button-success"></button>
-        </a>
-    </div>
+    <span>Total a pagar: 
+            <strong style="text-align: right;">R$ (Valor)</strong>
+        </span>
+    <br>
 </p-fieldset>

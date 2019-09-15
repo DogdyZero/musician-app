@@ -5,9 +5,14 @@
 
         <app-nova-entrega></app-nova-entrega>
         
-        <app-novo-cartao></app-novo-cartao>
+        <app-novo-cartao [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-novo-cartao>
         
-        <app-resumo-compra></app-resumo-compra>
+        <app-resumo-compra [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-resumo-compra>
+        <div>
+            <a routerLink="/fechamento">
+                <button name="final_compra" style="float: right;position: relative; bottom: 675px;right: 175px;" pButton type="button" label="Finalizar compra" class="ui-button-success"></button>
+            </a>
+        </div>
     </body>
 </html>
 
