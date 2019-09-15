@@ -1,6 +1,6 @@
 import { ProdutosService } from './../services/produtos.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Instrumento } from '../model/instrumento';
+import { Produto } from '../model/produto';
 import { Route, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Route, ActivatedRoute } from '@angular/router';
 })
 export class DescProdutoComponent implements OnInit {
   id:number;
-  produto: Instrumento;
+  produto: Produto;
  
   constructor(
     private produtoService :ProdutosService,

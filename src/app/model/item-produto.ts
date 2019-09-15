@@ -1,5 +1,5 @@
-import { Instrumento } from './instrumento';
+import { Produto } from './produto';
 export class ItemProduto {
     id:number;
-    produto:Instrumento;
+    produto:Produto;
 }

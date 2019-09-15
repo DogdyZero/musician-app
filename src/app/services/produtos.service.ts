@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Instrumento } from './../model/instrumento';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Produto } from '../model/produto';
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +13,23 @@ export class ProdutosService {
   url:string = "http://localhost:8080/produtos";
 
 
-  getProdutos():Observable<Instrumento[]>{
-    return this.httpClient.get<Instrumento[]>(this.url);
+  getProdutos():Observable<Produto[]>{
+    return this.httpClient.get<Produto[]>(this.url);
   }
 
   getProdutoById(id:number){
-    return this.httpClient.get<Instrumento>(`${this.url}/${id}`).pipe();
+    return this.httpClient.get<Produto>(`${this.url}/${id}`).pipe();
   }
 
-  salvarProduto(instrumento:Instrumento){
-    console.log(instrumento);    
-    return this.httpClient.post(this.url,instrumento,
+  salvarProduto(produto:Produto){
+    console.log(produto);    
+    return this.httpClient.post(this.url,produto,
       {headers:{
         'Accept':'application/json'}
     });
   }
 
-  alterarProduto(instrumento:Instrumento){
+  alterarProduto(instrumento:Produto){
     return this.httpClient.put(`${this.url}/${instrumento.id}`,instrumento,
     {headers:{
       'Accept':'application/json'}
