@@ -1,43 +1,44 @@
-import { Pedido } from './../model/pedido';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ItemProduto } from '../model/item-produto';
+import { Statusitem } from '../model/status-item.enum';
+import { ItemProdutoService } from '../services/item-produto.service';
 
 @Component({
   selector: 'app-troca-admin',
   templateUrl: './troca-admin.component.html',
   styleUrls: ['./troca-admin.component.css']
 })
-export class TrocaAdminComponent implements OnInit {
+export class TrocaAdminComponent implements OnInit ,OnDestroy{
   
-  //pedido = MemoryPedidoDataBase;
-
   display: boolean = false;
   display2: boolean = false;
-  pedido: Pedido[] = [];
+  itemProduto: ItemProduto[] = [];
 
-  constructor() { }
+  inscricao:Subscription;
+  constructor(private itemProdutoService:ItemProdutoService) { }
   
-  confirmarTroca() {
-      this.display = true;
+
+  confirmarTroca(idTroca:number) {
+    this.itemProdutoService.updateStatus(Statusitem.TROCA_APROVADA,idTroca).subscribe();
+    this.display = true;
   }
 
-  recusarTroca() {
+  recusarTroca(idTroca:number) {
+    this.itemProdutoService.updateStatus(Statusitem.TROCA_NEGADA,idTroca).subscribe();
     this.display2 = true;
 }
 
   ngOnInit() {
-    this.pedido = [
-      {
-          id: 1,
-          cliente: null,
-          itemProduto: null,
-          frete: 100,
-          total: null,
-          data: null,
-          status: null
+    this.inscricao = this.itemProdutoService.getItensToTrade().subscribe(
+      (data)=>{
+        this.itemProduto=data;
       }
-    ];
+    );
   }
 
-  
+  ngOnDestroy(){
+    this.inscricao.unsubscribe();
+  }
 
 }

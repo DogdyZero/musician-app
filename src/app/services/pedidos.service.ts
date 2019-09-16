@@ -1,7 +1,10 @@
-import { Pedido } from './../model/pedido';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Statusitem } from '../model/status-item.enum';
+import { Pedido } from './../model/pedido';
+import { ItemProduto } from '../model/item-produto';
+import { StatusPedido } from '../model/status-pedido.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +18,15 @@ export class PedidosService {
 
   getPedidos():Observable<Pedido[]>{
     return this.httpClient.get<Pedido[]>(this.url);
+  }
+  updateItemProduto(pedido:Pedido,id:number):Observable<Pedido>{
+    return this.httpClient.put<Pedido>(`${this.url}/${id}`,pedido);
+  }
+  updateStatus(status:StatusPedido,id:number):Observable<Pedido>{
+    let pedido:Pedido = new Pedido();
+    if(status!=null){
+      pedido.statusPedido = status;
+      return this.updateItemProduto(pedido,id);
+    }
   }
 }

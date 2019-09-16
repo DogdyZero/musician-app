@@ -1,25 +1,23 @@
-<p-table [paginator]="true" [rows]="10" [value]="pedido">
+<p-table [paginator]="true" [rows]="10" [value]="itemProduto">
     <ng-template pTemplate="header">
         <tr>
-            <th width="40">Id</th>
-            <th>Cliente</th>
+            <th >Id</th>
             <th>Produto(s)</th>
             <th>Valor Total</th>  
-            <th width="100">Data</th> 
-            <th>Motivo</th>
+            <th >Data</th> 
+            <th>Status</th>
             <th></th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-ped>
+    <ng-template pTemplate="body" let-item>
         <tr style="text-align:center" >
-            <td width="40">1</td>
-            <td>(dados)</td>
-            <td><h5>(dados)</h5></td>
-            <td>(dados)</td>
-            <td width="100">(dados)</td>
-            <td>(Motivo)</td>
-            <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" (click)="confirmarTroca()" class="ui-button-success"></button> <p></p>
-                <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" (click)="recusarTroca()" class="ui-button-danger"></button>
+            <td >{{item.id}}</td>
+            <td><h5>{{item.produto.nome}}</h5></td>
+            <td>{{item.valorProduto}}</td>
+            <td ></td>
+            <td>{{item.statusItem}}</td>
+            <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" (click)="confirmarTroca(item.id)" class="ui-button-success"></button> <p></p>
+                <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" (click)="recusarTroca(item.id)" class="ui-button-danger"></button>
             </td>
         </tr>
     </ng-template>

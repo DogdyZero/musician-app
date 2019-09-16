@@ -35,7 +35,6 @@ export class MenuUsuarioComponent implements OnInit {
 
         this.mostrarSpinner=false;
         this.mostrarTela=true;
-        console.log(this.pessoa);
       }
     )
 
