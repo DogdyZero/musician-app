@@ -1,21 +1,26 @@
-<p-card styleClass="ui-card-shadow" [style]="{width: '800px'}" >
-    <h1>PAGAMENTO</h1>
-    <div class="p-grid">
-        <div class="p-col-12">
-            <div class="ui-g-15" style="width:270px;margin-bottom:10px">
-                <div class="ui-g-12"><p-checkbox name="group1" value="card1" label="Cartão terminado em: 0123" [(ngModel)]="selectedCard" inputId="ny"></p-checkbox></div>
-                <div class="ui-g-12"><p-checkbox name="group1" value="card2" label="Cartão terminado em: 3210" [(ngModel)]="selectedCard" inputId="sf"></p-checkbox></div>            </div>
-        </div>
+    <p-card styleClass="ui-card-shadow" [style]="{width: '800px'}" >
+        <h1>PAGAMENTO</h1>
         <button type="button" name="btn_novoCard_compra" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>
-    </div>
-</p-card>
-<br>
-
-<p-dialog header="Novo Cartão" [(visible)]="displayCard" [modal]="true" [responsive]="true" [style]="{width: '1150px', minWidth: '200px'}" [minY]="70" 
-         [baseZIndex]="10000">
+        <h4>Escolha o(s) cartões que deseja utilizar no pagamento e digite seus respectivos valores de compra</h4>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="ui-g-12"><p-checkbox (onChange)="habilitar($event)" name="radio-card" id="check" label="Cartão terminado em: 1234" [(ngModel)]="selectedCard[0]"></p-checkbox></div>
+                <div class="ui-g-12"><input  pKeyFilter="money" placeholder="valor R$" type="text" size="10" style="height: 25px;" [(ngModel)]="valorCard[0]" pInputText></div>
+                <div class="ui-g-12"><p-checkbox name="radio-card" id="check" label="Cartão terminado em: 3210" [(ngModel)]="selectedCard[1]"></p-checkbox></div>
+                <div class="ui-g-12"><input pKeyFilter="money" placeholder="valor R$" type="text" size="10" style="height: 25px;" [(ngModel)]="valorCard[1]" pInputText ></div>
+            </div>
+        </div>
+        <br>
+        <div class="p-grid">
+            <button type="button" name="btn_Card_compra" (click)="totalPago()" pButton icon="pi pi-plus" label="Confirmar Dados de pagamento"></button>
+        </div>
+        </p-card>
+        <br>        
+        <p-dialog header="Novo Cartão" [(visible)]="displayCard" [modal]="true" [responsive]="true" [style]="{width: '1150px', minWidth: '200px'}" [minY]="70" 
+        [baseZIndex]="10000">
         <app-cad-cartao [dispBtn]="dispBtn"></app-cad-cartao>
         <p-footer>
             <button type="button" pButton icon="pi pi-check" (click)="displayCard=false" label="Adicionar"></button>
             <button type="button" pButton icon="pi pi-close" (click)="displayCard=false" label="Cancelar" class="ui-button-secondary"></button>
         </p-footer>
-</p-dialog>
+    </p-dialog>

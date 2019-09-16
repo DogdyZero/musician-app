@@ -1,4 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Pedido } from './../../model/pedido';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Pessoa } from '../../model/pessoa';
 
 @Component({
   selector: 'app-novo-cartao',
@@ -9,15 +11,39 @@ export class NovoCartaoComponent implements OnInit {
   //selectedCard: string;
   displayCard: boolean = false;
   selectedCard: string[] = [];
+  valorCard: number[] = [];
+  //teste:boolean;
+  @Input() sum:number;
   @Output() dispBtn: Boolean;
+  @Input() valorTotal:number;
+  @Output() valorCompra = new EventEmitter();
+  @Input() pessoa:Pessoa;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   showDialogCard() {
     this.displayCard = true;
     this.dispBtn = false;
   }
+
+  totalPago(){
+    this.valorCard.forEach(element => {
+        this.sum += parseInt(element.toString());
+    });
+    this.valorCard = [];
+    this.valorCompra.emit(this.sum);
+  }
+
+  habilitar(event){
+    /*if(this.teste == true){
+      this.teste = false;
+    }else{
+      this.teste = true;
+    }*/
+  }
+
 }

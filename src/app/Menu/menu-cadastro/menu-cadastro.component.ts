@@ -22,7 +22,7 @@ export class MenuCadastroComponent implements OnInit {
   items: MenuItem[];
   usuario: Usuario =new Usuario();
   id=0;
-  totalCadastro =4;;
+  totalCadastro =4;
   activeIndex: number;
 
   updateId(event){

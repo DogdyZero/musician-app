@@ -8,10 +8,10 @@
         <p-header>
             <h1>Detalhes do pedido</h1>
         </p-header>
-        <p>Nome do cliente:</p>
-        <p>Cartao:</p>
-        <p>Endereço:</p>
-        <p>Valor Total:</p>
+        <p>Nome do cliente: {{pessoa.nome}}</p>
+        <p>Cartao: 1234-1234-1234-1234</p>
+        <p>Endereço: Estrada Professor Walter ferraz, 201</p>
+        <p>Valor Total: R$ 1.000,00</p>
         <br>
         <button pButton type="button" label="Cancelar pedido" class="ui-button-danger"></button>
     </p-card>
@@ -48,7 +48,7 @@
                     <div class="ui-g-12"><p-radioButton name="group1" value="Arrependimento" label="Arrependimento" [(ngModel)]="val1" inputId="opt3"></p-radioButton></div>
                 </div>        
             <p-footer>
-                <button name="btn_conf_troca" type="button" pButton icon="pi pi-check" (click)="solicitarTroca()" label="Confirmar"></button>
+                <button [routerLink]="['/detalhes_pedido',pessoa.id]" name="btn_conf_troca" type="button" pButton icon="pi pi-check" (click)="solicitarTroca()" label="Confirmar"></button>
                 <button name="btn_cancelar_troca" type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancelar" class="ui-button-secondary"></button>
             </p-footer>
     </p-dialog>

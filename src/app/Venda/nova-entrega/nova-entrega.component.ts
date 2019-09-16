@@ -1,4 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Pedido } from './../../model/pedido';
+import { Component, OnInit, Output, Input } from '@angular/core';
+import { Pessoa } from '../../model/pessoa';
 
 @Component({
   selector: 'app-nova-entrega',
@@ -9,6 +11,7 @@ export class NovaEntregaComponent implements OnInit {
   selectedEnd: string;
   displayEnd: boolean = false;
   @Output() dispBtn: Boolean;
+  @Input() pessoa:Pessoa
   constructor() { }
 
   ngOnInit() {
