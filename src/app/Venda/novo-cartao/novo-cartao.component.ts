@@ -19,6 +19,7 @@ export class NovoCartaoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   showDialogCard() {
@@ -33,6 +34,5 @@ export class NovoCartaoComponent implements OnInit {
     this.valorCard = [];
     this.valorCompra.emit(this.sum);
   }
-
 
 }
