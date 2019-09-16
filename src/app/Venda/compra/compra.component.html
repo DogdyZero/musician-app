@@ -3,9 +3,9 @@
     <body>
         <app-header></app-header>
 
-        <app-nova-entrega></app-nova-entrega>
+        <app-nova-entrega [pessoa] ="pessoa"></app-nova-entrega>
         
-        <app-novo-cartao [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-novo-cartao>
+        <app-novo-cartao [pessoa] ="pessoa" [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-novo-cartao>
         
         <app-resumo-compra [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-resumo-compra>
         <div>

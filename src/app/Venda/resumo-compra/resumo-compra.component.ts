@@ -36,13 +36,13 @@ export class ResumoCompraComponent implements OnInit {
       }
     )*/
     
-    this.cupom = [
+    /*this.cupom = [
       {label:'R$10', value:{id:1, name: 'Desconto10', code: 'MSC10', valor: 10}},
       {label:'R$20', value:{id:2, name: 'Desconto20', code: 'MSC20', valor: 20}},
       {label:'R$30', value:{id:3, name: 'Desconto30', code: 'MSC30', valor: 30}},
       {label:'R$40', value:{id:4, name: 'Desconto40', code: 'MSC40', valor: 40}},
       {label:'R$50', value:{id:5, name: 'Desconto50', code: 'MSC50', valor: 50}}
-  ];
+  ];*/
 
   }
 

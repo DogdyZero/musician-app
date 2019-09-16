@@ -1,5 +1,6 @@
 import { Pedido } from './../../model/pedido';
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Pessoa } from '../../model/pessoa';
 
 @Component({
   selector: 'app-novo-cartao',
@@ -16,6 +17,7 @@ export class NovoCartaoComponent implements OnInit {
   @Output() dispBtn: Boolean;
   @Input() valorTotal:number;
   @Output() valorCompra = new EventEmitter();
+  @Input() pessoa:Pessoa;
 
   constructor() { }
 
