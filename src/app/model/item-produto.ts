@@ -1,5 +1,9 @@
-import { Instrumento } from './instrumento';
+import { Produto } from './produto';
+import { Statusitem } from './status-item.enum';
 export class ItemProduto {
     id:number;
-    produto:Instrumento;
+    produto:Produto;
+    quantidade:number;
+    valorProduto:number;
+    statusItem:Statusitem;
 }

@@ -3,6 +3,7 @@ import { PedidosService } from './../services/pedidos.service';
 import { Pedido } from './../model/pedido';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pedidos-usuario',
@@ -12,26 +13,12 @@ import { Router } from '@angular/router';
 export class PedidosUsuarioComponent implements OnInit {
   pedido: Pedido[] = [];
   @Input() pessoa:Pessoa;
+
+  inscricao:Subscription;
   
   constructor(private pedidoService:PedidosService,private router:Router) { }
 
   ngOnInit() {
-    this.pedidoService.getPedidos().subscribe(
-      (data)=>{
-        this.pedido=data;
-      }
-    );
-    this.pedido = [
-      {
-          id: 1,
-          cliente: null,
-          itemProduto: null,
-          frete: 100,
-          total: null,
-          data: null,
-          status: null
-      },
-    ];
   }
 
 }

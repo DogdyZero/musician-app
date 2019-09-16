@@ -1,14 +1,14 @@
+import { CarrinhoCompra } from './carrinho';
 import { StatusPedido } from './status-pedido.enum';
-import { ItemProduto } from './item-produto';
-import { Instrumento } from './instrumento';
-import { Pessoa } from './pessoa';
+import { Frete } from './frete';
 
 export class Pedido {
     id: number;
-    cliente: Pessoa;
-    itemProduto:ItemProduto[];
-    frete: number;
-    total: number;
-    data: Date;
-    status: StatusPedido;
+    // cliente: Pessoa;
+    carrinhoCompra:CarrinhoCompra;
+    frete: Frete;
+    // total: number;
+    // data: Date;
+    total:number;
+    statusPedido: StatusPedido;
 }

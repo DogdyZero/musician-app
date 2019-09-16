@@ -1,24 +1,21 @@
-<p-table [value]="pedido"  [paginator]="true" [rows]="10">
+<p-table [value]="pedidos"  [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>
             <th>Id</th>
-            <th>Cliente</th>
-            <th>Produtos</th>
             <th>Valor</th>  
-            <th>Frete</th>
             <th>Data</th> 
+            <th>Status</th> 
             <th>Alterar status</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-ped>
         <tr style="text-align:center" >
             <td width="40">{{ped.id}}</td>
+            <td>{{ped.total}}</td>
             <td>(dados)</td>
-            <td>(dados)</td>
-            <td>(dados)</td>
-            <td>(dados)</td>
-            <td>(dados)</td>
-            <td><p-dropdown [options]="status" [(ngModel)]="selectedStatus"></p-dropdown></td>
+            <td>{{ped.statusPedido}}</td>
+            <td><p-dropdown [options]="status" [(ngModel)]="selectedStatus" ></p-dropdown>
+            <button name="btn_troca" type="button" (click)="changeStatus(ped)" pButton icon="pi pi-check"></button></td>
         </tr>
     </ng-template>
 </p-table>

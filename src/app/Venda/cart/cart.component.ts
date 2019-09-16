@@ -3,7 +3,7 @@ import { ProdutosService } from './../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Instrumento } from '../../model/instrumento';
+import { Produto } from '../../model/produto';
 import { CartService } from '../../services/cart.service';
 import { UsuariosService } from '../../services/usuarios.service';
 
@@ -14,7 +14,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class CartComponent implements OnInit {
   id:number;
-  inst:Instrumento;
+  inst:Produto;
   ItemProduto:ItemProduto[];
  
   remove(id:number){

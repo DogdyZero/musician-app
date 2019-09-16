@@ -1,6 +1,6 @@
 import { ProdutosService } from './../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
-import { Instrumento } from '../model/instrumento';
+import { Produto } from '../model/produto';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +9,13 @@ import { Instrumento } from '../model/instrumento';
 })
 export class MainComponent implements OnInit {
   instEnable=false;
-  produto: Instrumento[];
-  detalhes(inst : Instrumento){
+  produto: Produto[];
+  detalhes(inst : Produto){
     this.inst = inst;
     this.instEnable=true;
   }
   
-  inst:Instrumento;
+  inst:Produto;
   //instrumento = MemoryProdutosDataBase;
   
   constructor(private produtoService:ProdutosService) { }

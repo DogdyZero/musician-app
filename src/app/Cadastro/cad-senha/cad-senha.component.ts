@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { Usuario } from '../../model/usuario';
-import { Pessoa } from '../../model/pessoa';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Message } from 'primeng/api';
-import { UsuariosService } from '../../services/usuarios.service';
 import { Perfil } from '../../model/perfil.enum';
+import { Usuario } from '../../model/usuario';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-cad-senha',
@@ -13,13 +12,11 @@ import { Perfil } from '../../model/perfil.enum';
 export class CadSenhaComponent implements OnInit {
   constructor(private usuariosService:UsuariosService) { }
   
-  @Input() pessoa :Pessoa;
+  @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
 
   @Input() id:number;
   @Output() updateId = new EventEmitter();
-
-  usuario:Usuario = new Usuario();
 
   msgs: Message[] = [];
 
@@ -31,9 +28,9 @@ export class CadSenhaComponent implements OnInit {
       //this.usuario.id =4;
       this.usuario.senha = senha;
       this.usuario.perfil =Perfil.CLIENTE;
-      this.usuario.login = this.pessoa.cpf;
-      //this.pessoa.usuario = this.usuario;
-      this.update.emit(this.pessoa);
+      this.usuario.login = this.usuario.pessoa.cpf;
+      this.usuario = this.usuario;
+      this.update.emit(this.usuario);
       this.updateId.emit(++this.id);
     } else {
       this.msgs = [];

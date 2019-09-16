@@ -1,8 +1,7 @@
 import { Status } from './status.enum';
-import { Pedido } from './pedido';
-import { CategoriaInstrumento } from './categoria-instrumento';
+import { CategoriaProduto } from './categoria';
 
-export class Instrumento {
+export class Produto {
     id:number;
     preco:number;
     ean:string;
@@ -13,8 +12,7 @@ export class Instrumento {
     pathImage:string;
     descricao:string;
     quantidade:number;
-    pedido:Pedido;
-    categoriaProduto:CategoriaInstrumento;
+    categoriaProduto:CategoriaProduto;
     status:Status;
     dimensao:string;
     codigoBarrras:string;
