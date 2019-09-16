@@ -11,6 +11,7 @@ export class NovoCartaoComponent implements OnInit {
   displayCard: boolean = false;
   selectedCard: string[] = [];
   valorCard: number[] = [];
+  //teste:boolean;
   @Input() sum:number;
   @Output() dispBtn: Boolean;
   @Input() valorTotal:number;
@@ -33,6 +34,14 @@ export class NovoCartaoComponent implements OnInit {
     });
     this.valorCard = [];
     this.valorCompra.emit(this.sum);
+  }
+
+  habilitar(event){
+    /*if(this.teste == true){
+      this.teste = false;
+    }else{
+      this.teste = true;
+    }*/
   }
 
 }
