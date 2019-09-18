@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from '../../model/produto';
 import { CartService } from '../../services/cart.service';
 import { UsuariosService } from '../../services/usuarios.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -14,50 +15,42 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class CartComponent implements OnInit {
   id:number;
-  inst:Produto;
-  ItemProduto:ItemProduto[];
- 
+  itemProduto:ItemProduto[]=[];
+
+  inscricao:Subscription;
+
   remove(id:number){
-    //this.cartService.removeOfList(id);
+    this.cartService.remove(id);
+  }
+  voltar(){
+    this.router.navigate(['/']);
   }
 
   comprar(){
-    let resultado = this.usuariosService.getUsuarioId(this.id);
+    let resultado = this.usuariosService.getUsuario();
     if(resultado ==null){
       this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['/compra',this.id]);
+      this.router.navigate(['/compra']);
     }
   }
 
   constructor(
     private cartService : CartService,
     private usuariosService :UsuariosService,
-    private  produtoService: ProdutosService,
     private router:Router,
     private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(
-      (params:any)=>{
-        this.id = params['id'];
-      }
-    )
-    this.produtoService.getProdutoById(this.id).subscribe(
-      (data)=>{
-        this.inst=data;
-      }
-    )
-    this.cartService.getProdutos().subscribe(
-      (data)=>{
-        this.ItemProduto=data;
-      }
-    );
-   // this.cartService.addList(this.id);
-
-    //this.instrumento = this.cartService.getInstrumentos();
-
-    
+    // this.activatedRoute.params.subscribe(
+    //   (params:any)=>{
+    //     this.id = params['id'];
+    //   }
+    // );
+    this.itemProduto = this.cartService.getitensProdutos();
+  }
+  ngOnDestroy(){
+    // this.inscricao.unsubscribe();
   }
 
 }

@@ -1,14 +1,16 @@
 <p-fieldset id="sum" [style]="{width: '350px'}">
-    <p-header style="color: red"><h3>Resumo da compra</h3></p-header>
+    <p-header  style="color: red"><h3>Resumo da compra</h3></p-header>
+    <div *ngFor="let i of item">
     <hr>
-    <h4>1x Guitarra Gbson</h4>
+    <h4>1x {{i.produto.nome}}</h4>
     <hr>
     <br>
     <span>Subtotal: 
-        <strong style="text-align: right">R$ 1.000,00</strong>
+        <strong style="text-align: right">R$ {{i.produto.preco}}</strong>
     </span>
     <hr>
     <br>
+</div>
     <p style="color: black; font-size: 18px"><strong>Frete</strong></p>
             <span class="ui-float-label">
                 <input name="frete_compra" placeholder="Digite seu CEP" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 

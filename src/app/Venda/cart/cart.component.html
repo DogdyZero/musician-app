@@ -2,17 +2,17 @@
 <br>
 <h2>Carrinho de compras</h2>
 <p-card styleClass="ui-card-shadow">
-    <div class="p-grid">
-        <div class="p-col-7" >
-                <!-- *ngFor="let inst of instrumento" -->
+    <div  class="p-grid">
+        <div class="p-col-7"*ngFor="let inst of itemProduto" >
+                
         <p-card id="card">
                 <div class="p-grid">
                     <div class="p-col-2">
-                        <img src="{{inst.pathImage}}">
+                        <img src="{{inst.produto.pathImage}}">
                     </div>
                     <div class="p-col-3">
-                        <label><strong>Guitarra Gbson</strong></label><br><br>
-                            <p>{{inst.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
+                        <label><strong>{{inst.produto.nome}} {{inst.produto.marca}}</strong></label><br><br>
+                            <p>{{inst.produto.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
                     </div>
                     <div id="qnt" class="p-col-3">
                         <span><strong>Quantidade:</strong><br>
@@ -30,9 +30,10 @@
         <a >
             <button name="btn_comprar_cart" (click)="comprar()" id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em;position: relative;bottom: 10px;"></button>
         </a>
-        <a routerLink="/" >
-            <button id="buy" name="btn_voltar_cart" pButton type="button" label="Escolher mais produtos" icon="pi pi-arrow-left" style="margin-right: .25em;background-color: grey;width: 200px;position: relative;right: 80px"></button>
+        <a >
+            <button id="buy" (click)="voltar()"  name="btn_voltar_cart" pButton type="button" label="Escolher mais produtos" icon="pi pi-arrow-left" style="margin-right: .25em;background-color: grey;width: 200px;position: relative;right: 80px"></button>
         </a>
         </p-footer>
 
 </p-card>
+

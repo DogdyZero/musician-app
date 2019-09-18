@@ -17,7 +17,7 @@ export class UsuariosService  {
   private usuarios:Usuario[]=[];
 
   usuario:Usuario;
-
+  idUsuario:number;
   getUsuario(){
     if(this.usuario==null){
       return null;
@@ -46,16 +46,18 @@ export class UsuariosService  {
   async efetuarLogin(usuario:Usuario){
     this.usuario = await this.httpClient.post<Usuario>(this.url+'/login',usuario,
       {headers:{'Accept':'application/json'}}).toPromise();
-      let perfil = this.usuario.perfil;
-        if(perfil==Perfil.ADMINISTRADOR){
-          return 'admin';
-        } else if(perfil==Perfil.CLIENTE){
-          console.log('cliente');
-          return 'cliente';
-        } else {
-          return 'Usuario não localizado';
-
-        }
+      if(this.usuario!=null){
+        let perfil = this.usuario.perfil;
+          if(perfil==Perfil.ADMINISTRADOR){
+            return 'admin';
+          } else if(perfil==Perfil.CLIENTE){
+            return 'cliente';
+          } else  {
+            return 'Usuario não localizado';
+          }
+      } else {
+        return 'Usuario não localizado';
+      }
     
 
   //async efetuarLogin(usuario:Usuario){

@@ -13,7 +13,7 @@
         <tr style="text-align:center" >
             <td >{{item.id}}</td>
             <td><h5>{{item.produto.nome}}</h5></td>
-            <td>{{item.valorProduto}}</td>
+            <td>{{item.valorProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td ></td>
             <td>{{item.statusItem}}</td>
             <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" (click)="confirmarTroca(item.id)" class="ui-button-success"></button> <p></p>
