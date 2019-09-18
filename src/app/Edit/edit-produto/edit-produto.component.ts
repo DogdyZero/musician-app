@@ -1,3 +1,6 @@
+import { ProdutosService } from './../../services/produtos.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Produto } from './../../model/produto';
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 
@@ -8,12 +11,31 @@ import {MenuItem} from 'primeng/api';
 })
 export class EditProdutoComponent implements OnInit {
 
+  edit:Boolean = true;
+  idProduto:number;
+  produto:Produto;
   items: MenuItem[];
   activeItem: MenuItem;
   id=0;
-  constructor() { }
+  constructor(
+    private activatedRoute:ActivatedRoute,
+    private produtosService:ProdutosService,
+    private router:Router,
+  ) { }
 
   ngOnInit() {
+
+    this.activatedRoute.params.subscribe(
+      (params:any)=>{
+        this.idProduto = params['id'];
+      }
+    )
+    this.produtosService.getProdutoById(this.idProduto).subscribe(
+      (data)=>{
+        console.log(data);
+        this.produto =data;
+      }
+    )
 
     this.items = [
       {label: 'Dados gerais', icon: 'pi pi-user-edit',
@@ -27,6 +49,12 @@ export class EditProdutoComponent implements OnInit {
       ];
 
     this.activeItem = this.items[0];
+  }
+
+  editProd(produto:Produto){
+    this.produtosService.alterarProduto(produto).subscribe((data)=>{
+      this.router.navigate(['/admin']);    
+    });
   }
 
 }

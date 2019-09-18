@@ -11,8 +11,8 @@
     </ng-template>
 </p-tabMenu>
 <div *ngIf="id==0">
-    <app-cad-produto></app-cad-produto>
+    <app-cad-produto [edit]="edit" [produto]="produto" (editProd)="editProd($event)"></app-cad-produto>
 </div>
 <div *ngIf="id==1">
-    <app-edit-estoque></app-edit-estoque>
+    <app-edit-estoque [produto]="produto" (editProd)="editProd($event)" ></app-edit-estoque>
 </div>
