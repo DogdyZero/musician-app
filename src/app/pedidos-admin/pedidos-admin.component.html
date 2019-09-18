@@ -11,7 +11,7 @@
     <ng-template pTemplate="body" let-ped>
         <tr style="text-align:center" >
             <td width="40">{{ped.id}}</td>
-            <td>{{ped.total}}</td>
+            <td>{{ped.total |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td>16/09/2019</td>
             <td>{{ped.statusPedido}}</td>
             <td><p-dropdown [options]="status" [(ngModel)]="selectedStatus" ></p-dropdown>

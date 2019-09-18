@@ -3,6 +3,8 @@ import { CuponsService } from './../../services/cupons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ItemProduto } from 'src/app/model/item-produto';
+import { CartService } from 'src/app/services/cart.service';
 
 interface Cupom {
   name: string,
@@ -23,13 +25,17 @@ export class ResumoCompraComponent implements OnInit {
   @Input() sum: number;
   cupom: SelectItem[];
   selectedCupom: Cupom[];
+  item:ItemProduto[]=[];
 
   constructor(private router:Router,
               private activatedRoute : ActivatedRoute,
-              private cuponsService : CuponsService) {
+              private cuponsService : CuponsService,
+              private carrinho:CartService) {
   }
 
   ngOnInit() {
+    this.item = this.carrinho.getitensProdutos();
+
     /*this.activatedRoute.params.subscribe(
       (params:any)=>{
         this.id = params['id'];

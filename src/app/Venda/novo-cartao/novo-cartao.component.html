@@ -3,11 +3,12 @@
         <button type="button" name="btn_novoCard_compra" (click)="showDialogCard()" pButton icon="pi pi-plus" label="Adicionar novo cartão"></button>
         <h4>Escolha o(s) cartões que deseja utilizar no pagamento e digite seus respectivos valores de compra</h4>
         <div class="p-grid">
-            <div class="p-col-12">
-                <div class="ui-g-12"><p-checkbox (onChange)="habilitar($event)" name="radio-card" id="check" label="Cartão terminado em: 1234" [(ngModel)]="selectedCard[0]"></p-checkbox></div>
+            <div class="p-col-12" *ngFor="let cartao of pessoa.cartao">
+                <div class="ui-g-12"><p-checkbox (onChange)="habilitar($event)" name="radio-card" id="check" label="Cartão terminado em: " [(ngModel)]="selectedCard[0]"></p-checkbox></div>
+                {{cartao.numeroCartao}}
                 <div class="ui-g-12"><input  pKeyFilter="money" placeholder="valor R$" type="text" size="10" style="height: 25px;" [(ngModel)]="valorCard[0]" pInputText></div>
-                <div class="ui-g-12"><p-checkbox name="radio-card" id="check" label="Cartão terminado em: 3210" [(ngModel)]="selectedCard[1]"></p-checkbox></div>
-                <div class="ui-g-12"><input pKeyFilter="money" placeholder="valor R$" type="text" size="10" style="height: 25px;" [(ngModel)]="valorCard[1]" pInputText ></div>
+                <!-- <div class="ui-g-12"><p-checkbox name="radio-card" id="check" label="Cartão terminado em: 3210" [(ngModel)]="selectedCard[1]"></p-checkbox></div>
+                <div class="ui-g-12"><input pKeyFilter="money" placeholder="valor R$" type="text" size="10" style="height: 25px;" [(ngModel)]="valorCard[1]" pInputText ></div> -->
             </div>
         </div>
         <br>
