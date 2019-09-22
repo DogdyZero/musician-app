@@ -5,6 +5,8 @@ import { SelectItem } from 'primeng/api';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ItemProduto } from 'src/app/model/item-produto';
 import { CartService } from 'src/app/services/cart.service';
+import { FreteService } from 'src/app/services/frete.service';
+import { Frete } from 'src/app/model/frete';
 
 interface Cupom {
   name: string,
@@ -21,20 +23,24 @@ interface Cupom {
 export class ResumoCompraComponent implements OnInit {
   @Input() valorTotal:number;
   @Output() valorCompra = new EventEmitter();
+  
   id:number;
   @Input() sum: number;
+  @Input() valorFrete:number=0;
   cupom: SelectItem[];
   selectedCupom: Cupom[];
   item:ItemProduto[]=[];
-
+  totalCompra:number=0;
   constructor(private router:Router,
               private activatedRoute : ActivatedRoute,
-              private cuponsService : CuponsService,
               private carrinho:CartService) {
   }
 
   ngOnInit() {
     this.item = this.carrinho.getitensProdutos();
+    this.item.forEach(element => {
+      this.totalCompra=this.totalCompra + (element.produto.preco*1);
+    });
 
     /*this.activatedRoute.params.subscribe(
       (params:any)=>{

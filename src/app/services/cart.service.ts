@@ -57,6 +57,10 @@ export class CartService {
       return true;
     }
   }
+  getCarrinho(){
+    this.carrinho.itemProduto = this.getitensProdutos();
+    return this.carrinho;
+  }
 
   salvarVenda(){
     let produto: Produto = new Produto();

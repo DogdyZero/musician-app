@@ -10,10 +10,11 @@ import { ItemProdutoService } from '../services/item-produto.service';
   styleUrls: ['./troca-admin.component.css']
 })
 export class TrocaAdminComponent implements OnInit ,OnDestroy{
-  
   display: boolean = false;
   display2: boolean = false;
   itemProduto: ItemProduto[] = [];
+
+  Statusitem=Statusitem;
 
   inscricao:Subscription;
   constructor(private itemProdutoService:ItemProdutoService) { }

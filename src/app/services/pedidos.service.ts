@@ -16,6 +16,18 @@ export class PedidosService {
   //url:string = 'api/pessoas';
   url:string = "http://localhost:8080/pedidos";
 
+  pedido:Pedido;
+
+  processarPedido(pedido:Pedido){
+    if(this.pedido==null){
+      this.pedido = new Pedido();
+    }
+    this.pedido=pedido;
+  }
+  getPreparedPedido(){
+    return this.pedido;
+  }
+
   getPedidos():Observable<Pedido[]>{
     return this.httpClient.get<Pedido[]>(this.url);
   }

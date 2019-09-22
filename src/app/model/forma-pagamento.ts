@@ -1,9 +1,7 @@
-import { Cupom } from './cupom';
-import { Cartao } from './cartao';
+import { TipoPagamento } from './tipo-pagamento';
 export class FormaPagamento {
     id:number;
-    cartao:Cartao[];
-    cupom:Cupom[];
+    tipoPagamento:TipoPagamento;
     saldo:number;
     pagoTudo:Boolean;
 }

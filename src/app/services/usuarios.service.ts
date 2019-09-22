@@ -43,6 +43,10 @@ export class UsuariosService  {
     return this.httpClient.delete(`${this.url}/${id}`).pipe();
   }
 
+  alterarUsuario(usuario:Usuario, id:number){
+    return this.httpClient.put<Usuario>(`${this.url}/${id}`,usuario);
+  }
+
   async efetuarLogin(usuario:Usuario){
     this.usuario = await this.httpClient.post<Usuario>(this.url+'/login',usuario,
       {headers:{'Accept':'application/json'}}).toPromise();

@@ -1,36 +1,25 @@
-<p-fieldset id="sum" [style]="{width: '350px'}">
-    <p-header  style="color: red"><h3>Resumo da compra</h3></p-header>
+<p-card header="Resumo Compra" styleClass="ui-card-shadow"  >
     <div *ngFor="let i of item">
+        <hr>
+        <h4>1x {{i.produto.nome}}</h4>
+        <span>valor: 
+            <strong style="text-align: right">R$ {{i.produto.preco}}</strong>
+        </span>
+        <hr>
+        <br>
+    </div>
     <hr>
-    <h4>1x {{i.produto.nome}}</h4>
-    <hr>
-    <br>
-    <span>Subtotal: 
-        <strong style="text-align: right">R$ {{i.produto.preco}}</strong>
+    <h4>Frete</h4>
+    <span>valor: 
+        <strong style="text-align: right">{{valorFrete |currency:'BRL':'symbol':'0.2-2':'pt'}}</strong>
     </span>
     <hr>
-    <br>
-</div>
-    <p style="color: black; font-size: 18px"><strong>Frete</strong></p>
-            <span class="ui-float-label">
-                <input name="frete_compra" placeholder="Digite seu CEP" pKeyFilter="num" id="float-input" type="text" size="20" maxlength="8" style="text-align: initial" pInputText> 
-                &nbsp;<p-button name="btn_frete_compra" label="Ok"></p-button>
-            </span>
-    <hr>
-    <br>
-    <p style="color: black; font-size: 18px"><strong>Cupom</strong></p>
-            <span class="ui-float-label">
-                <p-multiSelect [options]="cupom" [(ngModel)]="selectedCupom" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
-                &nbsp;<p-button style="position: relative;bottom:10px;" name="btn_cupom_compra" (click)="totalPago()" label="Usar esses cupons"></p-button>
-            </span>
-    <hr>
-    <br>
-    <span>Total pago: 
+        <span>Total pago: 
             <strong style="text-align: right;">{{sum |currency:'BRL':'symbol':'0.2-2':'pt'}}</strong>
         </span>
     <br>
     <span>Total a pagar: 
-            <strong style="text-align: right;">R$ 1.000,00</strong>
+            <strong style="text-align: right;">{{totalCompra+valorFrete |currency:'BRL':'symbol':'0.2-2':'pt'}}</strong>
         </span>
     <br>
-</p-fieldset>
+</p-card>

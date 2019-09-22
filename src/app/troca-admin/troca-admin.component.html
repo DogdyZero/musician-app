@@ -15,6 +15,7 @@
             <td><h5>{{item.produto.nome}}</h5></td>
             <td>{{item.valorProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td ></td>
+            <!-- <td>{{Statusitem[item.statusItem]}}</td> -->
             <td>{{item.statusItem}}</td>
             <td><button name="btn_aceitar_troca" style="width: 97px" pButton icon="pi pi-check" type="button" label="Aceitar" (click)="confirmarTroca(item.id)" class="ui-button-success"></button> <p></p>
                 <button name="btn_recusar_troca" pButton icon="pi pi-ban" type="button" label="Recusar" (click)="recusarTroca(item.id)" class="ui-button-danger"></button>

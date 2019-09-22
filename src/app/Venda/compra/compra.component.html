@@ -4,15 +4,33 @@
 </div>
 
 <div *ngIf="tela">
-    <app-nova-entrega [pessoa]="pessoa"></app-nova-entrega>
 
-    <app-novo-cartao [pessoa]="pessoa" [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-novo-cartao>
-
-    <app-resumo-compra [sum]="sum" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal"></app-resumo-compra>
-    <div>
-        <a routerLink="/fechamento">
-            <button name="final_compra" style="float: right;position: relative; bottom: 675px;right: 175px;" pButton type="button" label="Finalizar compra" class="ui-button-success"></button>
-        </a>
-</div>
-
-
+    <div class="p-grid nested-grid">
+        <div class="p-col-8">
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <div class="box">
+                        <app-nova-entrega [pessoa]="pessoa" (freteEvent)="valorFreteEvento($event)"></app-nova-entrega>
+                    </div>
+                </div>
+                <div class="p-col-12">
+                    <div class="box">
+                        <app-novo-cartao [pessoa]="pessoa" [sum]="sum" (valorCompra)="totalCompra($event)"
+                             [valorTotal]="valorTotal"></app-novo-cartao>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-col-4">
+            <div class="box box-stretched">
+                <app-resumo-compra [sum]="sum" [valorFrete]="valorFrete" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal">
+                </app-resumo-compra>
+                <div>
+                    <a routerLink="/fechamento">
+                        <button name="final_compra" (click)="comprar()" pButton type="button" label="Finalizar compra"
+                            class="ui-button-success"></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
