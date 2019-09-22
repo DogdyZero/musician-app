@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Produto } from './../../model/produto';
+import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {SelectItem} from 'primeng/api';
 
@@ -9,7 +10,11 @@ import {SelectItem} from 'primeng/api';
 })
 export class CadProdutoComponent implements OnInit {
   prodCategoria: SelectItem[];
-  
+
+  @Input() produto:Produto;
+  @Output() salvar = new EventEmitter()
+  @Output() editProd = new EventEmitter()
+  @Input() edit:boolean;
 
   ngOnInit() {
     this.prodCategoria = [
@@ -19,6 +24,14 @@ export class CadProdutoComponent implements OnInit {
       {label: 'Percussão', value: 'Percussão'},
       {label: 'Outros', value: 'Outros'}
   ];
+  }
+
+  saveProduto(){
+    this.salvar.emit(this.produto);
+  }
+
+  editProduto(){
+    this.editProd.emit(this.produto);
   }
 
 }

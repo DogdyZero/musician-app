@@ -29,8 +29,8 @@ export class ProdutosService {
     });
   }
 
-  alterarProduto(instrumento:Produto){
-    return this.httpClient.put(`${this.url}/${instrumento.id}`,instrumento,
+  alterarProduto(produto:Produto){
+    return this.httpClient.put(`${this.url}/${produto.id}`,produto,
     {headers:{
       'Accept':'application/json'}
   });

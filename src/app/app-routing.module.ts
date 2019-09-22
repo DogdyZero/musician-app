@@ -38,7 +38,7 @@ const routes: Routes = [
   { path : 'login', component:LoginComponent},
   { path : 'compra/:id', component:CompraComponent},
   { path : 'compra', component:CompraComponent},
-  { path : 'edit_prod', component:EditProdutoComponent},
+  { path : 'edit_prod/:id', component:EditProdutoComponent},
   { path : 'fechamento', component:ConfCompraComponent},
   { path : 'conf_cadastro', component:ConfCadastroComponent},
   { path : 'edit_user/:id', component:EditUsuarioComponent},

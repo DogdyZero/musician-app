@@ -1,35 +1,35 @@
 <div class="ui-g ui-fluid">
     <div class="ui-g-12 ui-md-4">
     <div class="ui-inputgroup">
-        <button pButton type="button" label="Buscar"></button>
-        <input type="text" pInputText placeholder="Palavra chave">         
+        <button (click)="byId()" pButton type="button" label="Buscar"></button>
+        <input [(ngModel)]="idProd" type="text" pInputText placeholder="Palavra chave">         
     </div>
  </div>
-<p-table [value]="instrumento">
+<p-table [value]="produto">
         <ng-template pTemplate="header">
             <tr>
-                <th>nome</th>
+                <th>ID</th>
+                <th>Nome</th>
                 <th>Marca</th>
                 <th>Ano</th>
-                <th>Tipo</th>
-                <th>Linha</th>
+                <!-- <th>Tipo</th> -->
                 <th>Preço</th>
                 <th>Quantidade em estoque</th>
                 <th></th>
                 <th></th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-inst>
+        <ng-template pTemplate="body" let-prod>
             <tr style="text-align:center">
-                <td>{{inst.nome}}</td>
-                <td>{{inst.marca.nome}}</td>
-                <td>{{inst.ano}}</td>
-                <td>{{inst.tipo.tipo}}</td>
-                <td>{{inst.linha}}</td>
-                <td>{{inst.preco}}</td>
-                <td>{{inst.quantidade}}</td>
-                <td><a routerLink="/edit_prod"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
-                <td><a><button name="btn_edit_prod" pButton type="button" icon="pi pi-trash" ></button></a></td>
+                <td>{{prod.id}}</td>
+                <td>{{prod.nome}}</td>
+                <td>{{prod.marca}}</td>
+                <td>{{prod.ano | date: 'yyyy'}}</td>
+                <!-- <td>{{inst.tipo.tipo}}</td> -->
+                <td>{{prod.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
+                <td>{{prod.quantidade}}</td>
+                <td><a [routerLink]="['/edit_prod',prod.id]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
+                <td><button name="btn_delete_prod" (click)="deletar(prod.id)" pButton type="button" icon="pi pi-trash" ></button></td>
             </tr>
         </ng-template>
     </p-table>

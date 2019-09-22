@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdutosService } from './../../services/produtos.service';
+import { Produto } from './../../model/produto';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-edit-estoque',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditEstoqueComponent implements OnInit {
   valorEstoque: string;
-  constructor() { }
+
+  @Input() produto: Produto;
+  @Output() editProd = new EventEmitter()
+
+  constructor(
+    private produtosService: ProdutosService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  editProduto(){
+    this.editProd.emit(this.produto);
   }
 
 }
