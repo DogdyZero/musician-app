@@ -5,6 +5,8 @@ import { PessoasService } from '../../services/pessoas.service';
 import { Subscription } from 'rxjs';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from 'src/app/model/usuario';
+import { FreteService } from 'src/app/services/frete.service';
+import { CompraService } from 'src/app/services/compra.service';
 
 @Component({
   selector: 'app-compra',
@@ -16,16 +18,25 @@ export class CompraComponent implements OnInit {
   //valorCompra:number;
   sum :number= 0;
   pessoa:Pessoa;
+  valorFrete:number;
+  entrega:boolean=true;
+  pagamento:false=false;
   //pedido:Pedido;
 
   spinner:boolean=true;
   tela:boolean=false;
   inscricao:Subscription;
 
+  comprar(){
+    this.compraService.efetivarCompra(this.pessoa);
+  }
+
   constructor(
     private activatedRoute:ActivatedRoute,
     private pessoasService:PessoasService,
-    private usuarioService:UsuariosService) { }
+    private usuarioService:UsuariosService,
+    private freteService:FreteService,
+    private compraService:CompraService) { }
   
   ngOnInit() {
     let usuario:Usuario = this.usuarioService.getUsuario();
@@ -43,7 +54,10 @@ export class CompraComponent implements OnInit {
     )
 
   }
-
+  valorFreteEvento(event:number){
+    this.valorFrete = event;
+    console.log(event);
+  }
   totalCompra(event){
     this.sum = event;
   }

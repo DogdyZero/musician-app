@@ -1,7 +1,7 @@
 export enum Statusitem{
-    TROCA_SOLICITADA,
-    TROCA_EM_ANALISE,
-    TROCA_APROVADA,
-    TROCA_REALIZADA,
-    TROCA_NEGADA
+    TROCA_SOLICITADA="troca solicitada",
+    TROCA_EM_ANALISE= "troca em análise",
+    TROCA_APROVADA = "troca aprovada",
+    TROCA_REALIZADA = "troca realizada",
+    TROCA_NEGADA= "troca negada"
 }
