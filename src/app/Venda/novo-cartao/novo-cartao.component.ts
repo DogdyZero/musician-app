@@ -36,6 +36,7 @@ export class NovoCartaoComponent implements OnInit {
   mostrarLabel:boolean=false;
 
   adicionar(){
+    console.log(this.valorTotal)
     this.mostrarLabel = false;
     this.itensLabel=[];
     if(this.opcao=='cartao'){

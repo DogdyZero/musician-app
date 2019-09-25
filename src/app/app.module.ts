@@ -81,6 +81,7 @@ import { ResumoCompraComponent } from './Venda/resumo-compra/resumo-compra.compo
 import { NovaEntregaComponent } from './Venda/nova-entrega/nova-entrega.component';
 import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import {SpinnerModule} from 'primeng/spinner';
 
 @NgModule({
   declarations: [
@@ -163,7 +164,8 @@ import {CheckboxModule} from 'primeng/checkbox';
     MenuModule,
     ProgressSpinnerModule,
     ConfirmDialogModule,
-    CalendarModule
+    CalendarModule,
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

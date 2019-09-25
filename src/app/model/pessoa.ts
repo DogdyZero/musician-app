@@ -5,15 +5,14 @@ import { Pedido } from './pedido';
 import { Telefone } from './telefone';
 import { Endereco } from './endereco';
 import { Cartao } from './cartao';
-//import { Usuario } from './usuario';
 
 export class Pessoa {
     id:number;
     nome:string;
     cpf:string;
     rg:string;
-    //usuario:Usuario;
-    dataAniversario:string;
+    genero:string;
+    dataAniversario:Date;
     email:string;
     telefone: Telefone[];
     cartao:Cartao[];
@@ -22,5 +21,4 @@ export class Pessoa {
     compra:Compra[];
     cumpom:Cupom[];
     troca:Troca[];
-    //genero:String;
 }

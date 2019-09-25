@@ -42,6 +42,17 @@ export class CartService {
   getitensProdutos(){
     return this.itensProdutos;
   }
+  updateQtdItemCompra(itens:ItemProduto[]){
+    this.itensProdutos.forEach(itemService => {
+      itens.forEach(itemTela => {
+        if(itemTela.id==itemService.id){
+          itemService.quantidade = itemTela.quantidade;
+        }
+      });
+    });
+    console.log(this.itensProdutos);
+  }
+
   remove(id:number){
     for(let inst of this.itensProdutos){
       if(id==inst.id){
@@ -62,22 +73,7 @@ export class CartService {
     return this.carrinho;
   }
 
-  salvarVenda(){
-    let produto: Produto = new Produto();
-    let itemProduto: ItemProduto = new ItemProduto();
-    itemProduto.produto = produto;
-
-    let itensProdutos:ItemProduto[]=[];
-    itensProdutos.push(itemProduto);
-    let carrinho:CarrinhoCompra = new CarrinhoCompra();
-    carrinho.itemProduto = itensProdutos;
-    let ped:Pedido = new Pedido();
-    ped.carrinhoCompra = carrinho;
-    let pedidos: Pedido[] =[];
-
-    this.usuario.pessoa.pedido.push(ped);
-  }
-
+ 
   url:string = "http://localhost:8080/carrinho";
 
 

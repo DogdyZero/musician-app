@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
   }
 
   comprar(){
+    this.cartService.updateQtdItemCompra(this.itemProduto);
     let resultado = this.usuariosService.getUsuario();
     if(resultado ==null){
       this.router.navigate(['/login']);
