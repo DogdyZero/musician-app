@@ -82,6 +82,7 @@ import { NovaEntregaComponent } from './Venda/nova-entrega/nova-entrega.componen
 import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import {SpinnerModule} from 'primeng/spinner';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -165,7 +166,8 @@ import {SpinnerModule} from 'primeng/spinner';
     ProgressSpinnerModule,
     ConfirmDialogModule,
     CalendarModule,
-    SpinnerModule
+    SpinnerModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

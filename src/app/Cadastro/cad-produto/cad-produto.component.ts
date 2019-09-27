@@ -1,12 +1,13 @@
 import { Produto } from './../../model/produto';
 import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {SelectItem} from 'primeng/api';
+import {SelectItem, MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-cad-produto',
   templateUrl: './cad-produto.component.html',
-  styleUrls: ['./cad-produto.component.css']
+  styleUrls: ['./cad-produto.component.css'],
+  providers:[MessageService]
 })
 export class CadProdutoComponent implements OnInit {
   prodCategoria: SelectItem[];
@@ -16,6 +17,17 @@ export class CadProdutoComponent implements OnInit {
   @Output() editProd = new EventEmitter()
   @Input() edit:boolean;
 
+  uploadedFiles: any[] = [];
+  arquivo:File;
+  constructor(private messageService: MessageService) {}
+
+  onUpload(event) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+    this.arquivo=this.uploadedFiles[0];
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+  }
   ngOnInit() {
     this.prodCategoria = [
       {label: 'Corda', value: 'Corda'},
@@ -27,11 +39,19 @@ export class CadProdutoComponent implements OnInit {
   }
 
   saveProduto(){
-    this.salvar.emit(this.produto);
+    // this.arquivo=this.uploadedFiles[0];
+    // console.log(this.arquivo);
+    // if(this.arquivo!=null){
+    //   this.produto.arquivo = this.arquivo;
+    // }
+    // this.salvar.emit(this.produto);
+    console.log(this.arquivo)
+
   }
 
   editProduto(){
-    this.editProd.emit(this.produto);
+    console.log(this.arquivo)
+    // this.editProd.emit(this.produto);
   }
 
 }
