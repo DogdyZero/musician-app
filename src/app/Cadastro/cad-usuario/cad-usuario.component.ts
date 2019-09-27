@@ -21,32 +21,34 @@ export class CadUsuarioComponent implements OnInit {
   pessoa:Pessoa = new Pessoa();
 
   generos:SelectItem[];
-
+  data:Date;
   genero:string;
 
   salvar(pessoa:Pessoa){
+    console.log(this.data)
+    pessoa.dataAniversario =this.data;
+    pessoa.genero=this.genero;
     this.usuario.pessoa = pessoa;
     this.update.emit(this.usuario);
     this.updateId.emit(++this.id);
-    console.log(this.usuario);
   }
 
-  en:any;
+  pt:any;
  
   ngOnInit() {
     this.generos = [
       {label: 'feminino', value: 'feminino'},
       {label: 'masculino', value: 'masculino'}
     ];
-    this.en = {
+    this.pt = {
       firstDayOfWeek: 1,
-      dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
-      dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
-      dayNamesMin: [ "D","L","M","X","J","V","S" ],
-      monthNames: [ "enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre" ],
-      monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
-      today: 'Hoy',
-      clear: 'Borrar'
+      dayNames: [ "domingo","segunda","terça","quarta","quinta","sexta","sábado" ],
+      dayNamesShort: [ "dom","seg","ter","qua","qui","sex","sáb" ],
+      dayNamesMin: [ "D","S","T","Q","Q","S","S" ],
+      monthNames: [ "janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembr" ],
+      monthNamesShort: [ "jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez" ],
+      today: 'Hoje',
+      clear: 'Limpar'
   };
   }
 

@@ -1,9 +1,9 @@
 <p-card header="Resumo Compra" styleClass="ui-card-shadow"  >
     <div *ngFor="let i of item">
         <hr>
-        <h4>1x {{i.produto.nome}}</h4>
+        <h4>{{i.quantidade}}x {{i.produto.nome}}</h4>
         <span>valor: 
-            <strong style="text-align: right">R$ {{i.produto.preco}}</strong>
+            <strong style="text-align: right">R$ {{i.valorProduto*i.quantidade |currency:'BRL':'symbol':'0.2-2':'pt'}}</strong>
         </span>
         <hr>
         <br>

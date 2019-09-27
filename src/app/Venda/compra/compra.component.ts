@@ -1,12 +1,12 @@
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pessoa } from './../../model/pessoa';
-import { Component, OnInit, Output } from '@angular/core';
-import { PessoasService } from '../../services/pessoas.service';
 import { Subscription } from 'rxjs';
-import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from 'src/app/model/usuario';
-import { FreteService } from 'src/app/services/frete.service';
+import { CartService } from 'src/app/services/cart.service';
 import { CompraService } from 'src/app/services/compra.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
+import { PessoasService } from '../../services/pessoas.service';
+import { Pessoa } from './../../model/pessoa';
 
 @Component({
   selector: 'app-compra',
@@ -20,8 +20,9 @@ export class CompraComponent implements OnInit {
   pessoa:Pessoa;
   valorFrete:number;
   entrega:boolean=true;
-  pagamento:false=false;
+  pagamento:boolean=false;
   //pedido:Pedido;
+  total:number=0;
 
   spinner:boolean=true;
   tela:boolean=false;
@@ -35,8 +36,8 @@ export class CompraComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private pessoasService:PessoasService,
     private usuarioService:UsuariosService,
-    private freteService:FreteService,
-    private compraService:CompraService) { }
+    private compraService:CompraService,
+    private carrinho:CartService) { }
   
   ngOnInit() {
     let usuario:Usuario = this.usuarioService.getUsuario();
@@ -52,14 +53,22 @@ export class CompraComponent implements OnInit {
         this.tela=true;
       }
     )
+    let item = this.carrinho.getitensProdutos();
+    item.forEach(element => {
+      this.total=this.total + (element.valorProduto*element.quantidade*1);
+    });
 
   }
   valorFreteEvento(event:number){
     this.valorFrete = event;
-    console.log(event);
   }
   totalCompra(event){
     this.sum = event;
+    if(this.valorFrete!=0){
+      if(this.total+this.valorFrete==this.sum){
+        this.pagamento=true;
+      }
+    }
   }
 
   ngOnDestroy(){

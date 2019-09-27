@@ -25,7 +25,7 @@ export class CadCartaoComponent implements OnInit {
   cartoes:Cartao[] = [];
   
   tipoBandeira: SelectItem[];
-  selectedType: string;
+  selectedType: Bandeira;
   selectedTypes: string[] = ['Elo', 'MasterCard'];
 
   cadastrarNovo(){
@@ -47,20 +47,21 @@ export class CadCartaoComponent implements OnInit {
 
 
   salvar(cartao:Cartao){
-    //this.cartao.bandeira=this.selectedType;
     cartao.type='cartao';
     this.cartao = cartao;
+    this.cartao.bandeira = this.selectedType
     this.cartoes.push(this.cartao);
     this.usuario.pessoa.cartao = this.cartoes;
-
+    console.log(cartao)
     this.cadastrarNovo();
   }
 
+
   ngOnInit() {
     this.tipoBandeira = [
-      {label: 'Elo', value: 'Elo'},
-      {label: 'Visa', value: 'Visa'},
-      {label: 'MasterCard', value: 'MasterCard'}
+      {label:'Hypercard',value:Bandeira.HYPERCARD },
+      {label:'Visa' , value: Bandeira.VISA},
+      {label:'Mastercard', value:  Bandeira.MASTERCARD}
     ];
   }
 

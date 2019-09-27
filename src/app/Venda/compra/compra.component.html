@@ -25,7 +25,7 @@
             <div class="box box-stretched">
                 <app-resumo-compra [sum]="sum" [valorFrete]="valorFrete" (valorCompra)="totalCompra($event)" [valorTotal]="valorTotal">
                 </app-resumo-compra>
-                <div>
+                <div *ngIf="pagamento">
                     <a routerLink="/fechamento">
                         <button name="final_compra" (click)="comprar()" pButton type="button" label="Finalizar compra"
                             class="ui-button-success"></button>

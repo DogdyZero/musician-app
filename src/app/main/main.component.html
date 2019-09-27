@@ -6,7 +6,7 @@
         <div >
             <p-card header="{{prod.nome}} {{prod.marca}}" subheader="modelo {{prod.modelo}}" styleClass="ui-card-shadow">
                 <p-header class="text-center">
-                    <img  src="{{prod.pathImage}}">
+                    <img  [src]="prod.imagemString">
                 </p-header>
                 <div class="p-grid p-dir-col">
                     <div class="p-col">

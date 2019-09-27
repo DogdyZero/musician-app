@@ -39,7 +39,7 @@ export class ResumoCompraComponent implements OnInit {
   ngOnInit() {
     this.item = this.carrinho.getitensProdutos();
     this.item.forEach(element => {
-      this.totalCompra=this.totalCompra + (element.produto.preco*1);
+      this.totalCompra=this.totalCompra + (element.valorProduto*element.quantidade*1);
     });
 
     /*this.activatedRoute.params.subscribe(

@@ -16,4 +16,6 @@ export class Produto {
     status:Status;
     dimensao:string;
     codigoBarrras:string;
+    imagemString:string;
+    arquivo:File;
 }
