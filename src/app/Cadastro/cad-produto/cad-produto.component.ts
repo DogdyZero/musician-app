@@ -2,6 +2,7 @@ import { Produto } from './../../model/produto';
 import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {SelectItem, MessageService} from 'primeng/api';
+import { resolve } from 'url';
 
 @Component({
   selector: 'app-cad-produto',
@@ -38,20 +39,26 @@ export class CadProdutoComponent implements OnInit {
   ];
   }
 
-  saveProduto(){
-    // this.arquivo=this.uploadedFiles[0];
-    // console.log(this.arquivo);
-    // if(this.arquivo!=null){
-    //   this.produto.arquivo = this.arquivo;
-    // }
-    // this.salvar.emit(this.produto);
-    console.log(this.arquivo)
+  async saveProduto(file) {
+    let resultBase64 = await new Promise((resolve) => {
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => resolve(fileReader.result);
+        fileReader.readAsDataURL(this.arquivo);
+    });
 
+    this.produto.imagemString = resultBase64 as string;
+    this.salvar.emit(this.produto)
   }
+    
+  async editProduto(){
+   let resultBase64 = await new Promise((resolve) => {
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => resolve(fileReader.result);
+        fileReader.readAsDataURL(this.arquivo);
+    });
 
-  editProduto(){
-    console.log(this.arquivo)
-    // this.editProd.emit(this.produto);
+    this.produto.imagemString = resultBase64 as string;
+    this.editProd.emit(this.produto)
   }
 
 }
