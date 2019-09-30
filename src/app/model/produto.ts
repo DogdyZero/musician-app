@@ -17,5 +17,4 @@ export class Produto {
     dimensao:string;
     codigoBarrras:string;
     imagemString:string;
-    arquivo:File;
 }

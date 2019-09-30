@@ -83,6 +83,7 @@ import { NovoCartaoComponent } from './Venda/novo-cartao/novo-cartao.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import {SpinnerModule} from 'primeng/spinner';
 import {FileUploadModule} from 'primeng/fileupload';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -167,7 +168,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     ConfirmDialogModule,
     CalendarModule,
     SpinnerModule,
-    FileUploadModule
+    FileUploadModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
