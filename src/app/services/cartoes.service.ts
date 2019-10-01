@@ -29,9 +29,6 @@ export class CartoesService {
   }
 
   alterarCartao(cartao:Cartao){
-    return this.httpClient.put(`${this.url}/${cartao.id}`,cartao,
-    {headers:{
-      'Accept':'application/json'}
-  });
+    return this.httpClient.put(`${this.url}/${cartao.id}`,cartao);
   }
 }

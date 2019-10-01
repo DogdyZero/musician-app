@@ -13,19 +13,15 @@ export class EditTelefoneComponent implements OnInit {
   @Input() pessoa:Pessoa
   constructor(private telefonesService:TelefonesService,private router:Router) { }
 
-  async alterarTelfone(telefone:Telefone){
-    //criar uma copia do objeto
-
-    //let copyPessoa:Pessoa = new Pessoa();
-
-
-      this.telefonesService.alterarTelefone(telefone).subscribe((data)=>{
-        this.router.navigate(['/usuario/',this.pessoa.id]);
-        console.log(data);
-      }, (error) => {
-        console.log(error);
-      });
-    }
+  alterarTelefone(telefone:Telefone){
+    console.log(telefone)
+    this.telefonesService.alterarTelefone(telefone).subscribe((data)=>{
+      this.router.navigate(['/usuario/',this.pessoa.id]);
+      console.log(data);
+    }, (error) => {
+      console.log(error);
+    });
+  }
 
   ngOnInit() {
   }

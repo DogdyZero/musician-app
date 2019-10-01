@@ -2,7 +2,7 @@
     <div class="p-grid">
         <div class="p-col-5">
             <span>Digite sua senha antiga: <br>
-                <input placeholder="Senha antiga" type="password" class="p-col-7" id="float-input" pInputText>
+                <input placeholder="Senha antiga" #senhaAntiga type="password" class="p-col-7" id="float-input" pInputText>
             </span>
         </div>
     </div>
@@ -10,21 +10,21 @@
     <div class="p-grid">
         <div class="p-col-5">
             <span>Digite a nova senha: <br>
-                <input name="nova_senha1" placeholder="Nova senha" class="p-col-7" type="password" pPassword />
+                <input #novaSenha name="nova_senha1" placeholder="Nova senha" class="p-col-7" type="password" pPassword />
             </span>
         </div>
     </div>
     <div class="p-grid">
         <div class="p-col-5">
-                <input name="nova_senha2" placeholder="Digite novamente" class="p-col-7" type="password" pPassword />
+                <input #novaSenha2 name="nova_senha2" placeholder="Digite novamente" class="p-col-7" type="password" pPassword />
         </div>
     </div>
 
 
 
         <p-footer>
-            <a href="/usuario/1">
-                <button name="btn_salvar" pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
+            <a >
+                <button name="btn_salvar" (click)="alterarSenha(senhaAntiga.value,novaSenha.value,novaSenha2.value)"pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
             </a>
             <button name="btn_cancelar" pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
         </p-footer>
