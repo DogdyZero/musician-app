@@ -20,7 +20,7 @@ export class EditCartaoComponent implements OnInit {
     //criar uma copia do objeto
 
     //let copyPessoa:Pessoa = new Pessoa();
-
+    console.log(cartao)
 
       this.cartaoService.alterarCartao(cartao).subscribe((data)=>{
         this.router.navigate(['/usuario/',this.pessoa.id]);

@@ -15,6 +15,8 @@ export class EditUsuarioComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   id=0;
+  tela:boolean=false;
+  spinner:boolean=true;
   constructor(private activatedRoute :ActivatedRoute,
     private pessoasService:PessoasService) { }
 
@@ -26,8 +28,9 @@ export class EditUsuarioComponent implements OnInit {
     )
     this.pessoasService.getPessoa(this.idPessoa).subscribe(
       (data)=>{
-        console.log(data);
         this.pessoa =data;
+        this.tela=true;
+        this.spinner=false;
       }
     )
 

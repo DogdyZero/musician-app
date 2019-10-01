@@ -23,9 +23,6 @@ export class TelefonesService {
     return this.httpClient.post<Telefone>(this.url,telefone);
   }
   alterarTelefone(telefone:Telefone){
-    return this.httpClient.put(`${this.url}/${telefone.id}`,telefone,
-    {headers:{
-      'Accept':'application/json'}
-  });
+    return this.httpClient.put(`${this.url}/${telefone.id}`,telefone);
   }
 }
