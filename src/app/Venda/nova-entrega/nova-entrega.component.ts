@@ -31,6 +31,10 @@ export class NovaEntregaComponent implements OnInit {
     let pessoa = this.usuario.pessoa;
     this.pessoasService.alterarPessoa(pessoa).subscribe();
     this.displayEnd=false;
+    pessoa.endereco.forEach(end => {
+      let obj={label:end.logradouro, value:end.id}
+      this.enderecosLabel.push(obj);
+    });    
   }
 
   salvar(){

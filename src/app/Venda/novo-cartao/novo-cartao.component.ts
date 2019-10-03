@@ -31,6 +31,10 @@ export class NovoCartaoComponent implements OnInit {
     let pessoa = this.usuario.pessoa;
     this.pessoasService.alterarPessoa(pessoa).subscribe();
     this.displayCard=false;
+    pessoa.cartao.forEach(cartao => {
+      let obj={label:cartao.numeroCartao, value:cartao.id}
+      this.itensLabel.push(obj);
+    });
   }
   opcoesLabel:SelectItem[]=[]
   opcao:string;
