@@ -1,14 +1,14 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { Pessoa } from '../../model/pessoa';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { Pagamento } from 'src/app/model/pagamento';
-import { FormaPagamento } from 'src/app/model/forma-pagamento';
 import { Cartao } from 'src/app/model/cartao';
-import { PedidosService } from 'src/app/services/pedidos.service';
-import { Pedido } from 'src/app/model/pedido';
-import { TipoPagamento } from 'src/app/model/tipo-pagamento';
 import { Cupom } from 'src/app/model/cupom';
+import { FormaPagamento } from 'src/app/model/forma-pagamento';
+import { TipoPagamento } from 'src/app/model/tipo-pagamento';
 import { FormaPagamentoService } from 'src/app/services/forma-pagamento.service';
+import { Pessoa } from '../../model/pessoa';
+import { Usuario } from 'src/app/model/usuario';
+import { PessoasService } from 'src/app/services/pessoas.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-novo-cartao',
@@ -26,7 +26,12 @@ export class NovoCartaoComponent implements OnInit {
   @Input() valorTotal:number;
   @Output() valorCompra = new EventEmitter();
   @Input() pessoa:Pessoa;
-
+  usuario:Usuario;
+  updateUsuario(usuario:Usuario){
+    let pessoa = this.usuario.pessoa;
+    this.pessoasService.alterarPessoa(pessoa).subscribe();
+    this.displayCard=false;
+  }
   opcoesLabel:SelectItem[]=[]
   opcao:string;
 
@@ -84,13 +89,16 @@ export class NovoCartaoComponent implements OnInit {
     this.formaPagamentoService.updateFormaPagamentoList(forma);
   }
 
-  constructor(private formaPagamentoService:FormaPagamentoService) { }
+  constructor(private usuariosService:UsuariosService,
+    private pessoasService:PessoasService,
+    private formaPagamentoService:FormaPagamentoService) { }
 
   ngOnInit() {
     this.opcoesLabel=[
       {label:'Cartão',value:'cartao'},
       {label:'Cupom',value:'cupom'}
     ]
+    this.usuario = this.usuariosService.getUsuario();
 
     // let cartoes:Cartao[];
     // cartoes = this.pessoa.cartao;

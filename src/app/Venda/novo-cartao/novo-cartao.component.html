@@ -37,10 +37,6 @@
 </p-card>
 <p-dialog header="Novo Cartão" [(visible)]="displayCard" [modal]="true" [responsive]="true"
     [style]="{width: '1150px', minWidth: '200px'}" [minY]="70" [baseZIndex]="10000">
-    <app-cad-cartao [dispBtn]="dispBtn"></app-cad-cartao>
-    <p-footer>
-        <button type="button" pButton icon="pi pi-check" (click)="displayCard=false" label="Adicionar"></button>
-        <button type="button" pButton icon="pi pi-close" (click)="displayCard=false" label="Cancelar"
-            class="ui-button-secondary"></button>
-    </p-footer>
+    <app-cad-cartao [usuario]="usuario" (update)="updateUsuario($event)"
+        ></app-cad-cartao>
 </p-dialog>
