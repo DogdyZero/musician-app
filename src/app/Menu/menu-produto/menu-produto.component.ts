@@ -10,25 +10,34 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuProdutoComponent implements OnInit {
 
-  edit:Boolean=false;
-  
-  produto:Produto = new Produto();
+  edit: Boolean = false;
+  newProd: Boolean = false;
+
+  produto: Produto = new Produto();
   constructor(
-    private router:Router,
-    private produtosService:ProdutosService,
+    private router: Router,
+    private produtosService: ProdutosService,
   ) { }
 
   ngOnInit() {
   }
 
-  salvarProduto(produto:Produto){
-    this.produtosService.salvarProduto(produto).subscribe((data) =>{
+  salvarProduto(produto: Produto) {
+    this.produtosService.salvarProduto(produto).subscribe((data) => {
       this.router.navigate(['/']);
-    },(error) =>{
+      this.newProd = false;
+    }, (error) => {
       this.router.navigate(['/']);
       console.log(error);
     });
-
   }
 
-}
+    cancelarProd(event: Event){
+      this.newProd = false;
+    }
+
+    cadastrarNovo(){
+      this.newProd = true;
+    }
+
+  }

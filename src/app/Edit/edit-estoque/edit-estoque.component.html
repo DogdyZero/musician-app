@@ -1,13 +1,25 @@
-<p-card header="Lançamento:" styleClass="ui-card-shadow">
-        <div class="pp-grid">
-            <div class="p-col-5">
-                    <input pInputText pKeyFilter="num" [(ngModel)]="produto.quantidade" min="0" type="text">
-            </div>
+<p-card header="Estoque" styleClass="ui-card-shadow">
+    <div class="p-grid">
+        <div class="p-col-5">
+            <input pInputText pKeyFilter="num" [(ngModel)]="produto.quantidade" min="0" type="text">
         </div>
-        <!-- <p-radioButton class="p-col-2" name="estoque" inputId="Entrada" value="Entrada" label="Entrada"></p-radioButton>
+    </div>
+    <!-- <p-radioButton class="p-col-2" name="estoque" inputId="Entrada" value="Entrada" label="Entrada"></p-radioButton>
         <p-radioButton class="p-col-2" name="estoque" inputId="Saida" value="Saída" label="Saida"></p-radioButton> -->
-        <p-footer>
-                <button name="btn_salvar_estoque" (click)="editProduto()" pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
-            <button name="btn_cancelar_estoque" pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
-        </p-footer>
-    </p-card>
+</p-card>
+<br>
+<p-card header="Preço de venda" styleClass="ui-card-shadow">
+    <div class="p-grid">
+        <div class="p-col-5">
+                <input pInputText pKeyFilter="money" [(ngModel)]="produto.preco" min="0" type="text">
+        </div>
+    </div>
+    <!-- <p-radioButton class="p-col-2" name="estoque" inputId="Entrada" value="Entrada" label="Entrada"></p-radioButton>
+            <p-radioButton class="p-col-2" name="estoque" inputId="Saida" value="Saída" label="Saida"></p-radioButton> -->
+    <p-footer>
+        <button name="btn_salvar_estoque" (click)="editProduto()" pButton type="button" label="Save" icon="pi pi-check"
+            style="margin-right: .25em"></button>
+        <button name="btn_cancelar_estoque" (click)="cancelCad()" pButton type="button" label="Cancel"
+            icon="pi pi-times" class="ui-button-secondary"></button>
+    </p-footer>
+</p-card>

@@ -1,8 +1,8 @@
-<p-accordion>
-    <p-accordionTab [selected]="true" header="Cadastrar Novo Produto">
-        <app-cad-produto [edit]="edit" [produto] = "produto" (salvar) = "salvarProduto($event)" ></app-cad-produto>
-    </p-accordionTab>
-    <p-accordionTab header="Consultar Produtos Cadastrados">
-        <app-cons-produto></app-cons-produto>
-    </p-accordionTab>
-</p-accordion>
+<br>
+<button *ngIf="!newProd" pButton type="button" (click)="cadastrarNovo()" label="Novo Produto"></button>
+<div *ngIf="newProd">
+    <app-cad-produto [edit]="edit" [produto]="produto" (cancel)="cancelarProd($event)" (salvar)="salvarProduto($event)"></app-cad-produto>
+</div>
+<div *ngIf="!newProd">
+    <app-cons-produto></app-cons-produto>
+</div>
