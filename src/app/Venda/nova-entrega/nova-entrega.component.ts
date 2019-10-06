@@ -4,6 +4,9 @@ import { Endereco } from 'src/app/model/endereco';
 import { Frete } from 'src/app/model/frete';
 import { FreteService } from 'src/app/services/frete.service';
 import { Pessoa } from '../../model/pessoa';
+import { Usuario } from 'src/app/model/usuario';
+import { PessoasService } from 'src/app/services/pessoas.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-nova-entrega',
@@ -16,10 +19,23 @@ export class NovaEntregaComponent implements OnInit {
   @Output() dispBtn: Boolean;
   @Input() pessoa:Pessoa
   @Output() freteEvent= new EventEmitter();
-  constructor(private freteService:FreteService) { }
+  constructor(private pessoasService:PessoasService,
+    private usuariosService: UsuariosService,
+    private freteService:FreteService) { }
 
   enderecosLabel:SelectItem[]=[];
   endereco:string;
+  usuario:Usuario;
+
+  updateUsuario(usuario:Usuario){
+    let pessoa = this.usuario.pessoa;
+    this.pessoasService.alterarPessoa(pessoa).subscribe();
+    this.displayEnd=false;
+    pessoa.endereco.forEach(end => {
+      let obj={label:end.logradouro, value:end.id}
+      this.enderecosLabel.push(obj);
+    });    
+  }
 
   salvar(){
     let frete:Frete =new Frete();
@@ -32,6 +48,7 @@ export class NovaEntregaComponent implements OnInit {
 
 
   ngOnInit() {
+    this.usuario = this.usuariosService.getUsuario();
     let enderecos:Endereco[];
     enderecos = this.pessoa.endereco;
     for(let end of enderecos){
