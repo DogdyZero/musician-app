@@ -18,7 +18,5 @@ export class Pessoa {
     cartao:Cartao[];
     endereco:Endereco[];
     pedido:Pedido[];
-    compra:Compra[];
     cumpom:Cupom[];
-    troca:Troca[];
 }

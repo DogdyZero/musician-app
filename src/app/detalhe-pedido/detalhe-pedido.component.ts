@@ -1,11 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SelectItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { ItemProduto } from '../model/item-produto';
-import { Statusitem } from '../model/status-item.enum';
+import { Pedido } from '../model/pedido';
+import { StatusItem } from '../model/status-item.enum';
+import { Troca } from '../model/troca';
 import { ItemProdutoService } from '../services/item-produto.service';
+import { PedidosService } from '../services/pedidos.service';
+import { UsuariosService } from '../services/usuarios.service';
 import { Pessoa } from './../model/pessoa';
-import { PessoasService } from './../services/pessoas.service';
 
 @Component({
   selector: 'app-detalhe-pedido',
@@ -13,48 +17,62 @@ import { PessoasService } from './../services/pessoas.service';
   styleUrls: ['./detalhe-pedido.component.css']
 })
 export class DetalhePedidoComponent implements OnInit, OnDestroy {
+  StatusItem=StatusItem;
   display: boolean = false;
   selectedValue: string;
   pessoa:Pessoa;
+  pedido:Pedido;
   itensProdutos:ItemProduto[]=[];
   spinner:boolean = true;
   tela:boolean=false;
+  opcoesTroca:SelectItem[];
+  opcao: string;
+
   constructor(
-    private pessoasService:PessoasService,
+    private pedidoService:PedidosService,
+    private usuariosService:UsuariosService,
     private itemProdutoService:ItemProdutoService, 
     private route:Router, 
     private activatedRoute:ActivatedRoute) { }
 
   inscricao :Subscription;
-  idTroca:number;
+  idItem:number;
   showDialog(id:number) {
-    this.idTroca = id;
-      this.display = true;
+    this.idItem = id;
+    this.display = true;
   }
-  solicitarTroca(){
-    this.itemProdutoService.updateStatus(Statusitem.TROCA_SOLICITADA,this.idTroca).subscribe();
+  solicitarTroca(descricao:string){
+    let troca = new Troca();
+    troca.descricaoProblema = descricao;
+    troca.statusItem =StatusItem.TROCA_SOLICITADA;
+    let itemProduto:ItemProduto = new ItemProduto();
+    itemProduto.troca = troca;
+    this.itemProdutoService.updateStatus(itemProduto,this.idItem).subscribe();
     this.display=false;
   }
 
   ngOnInit() {
-    let idPessoa:number;
+    let usuario = this.usuariosService.getUsuario();
+    this.pessoa = usuario.pessoa;
+    let id:number;
     this.activatedRoute.params.subscribe(
       (params:any)=>{
-        idPessoa = params['id'];
+        id = params['id'];
       }
     )
-    this.inscricao = this.pessoasService.getPessoa(idPessoa).subscribe(
+    this.inscricao = this.pedidoService.getPedido(id).subscribe(
       (data)=>{
-        this.pessoa=data;
-        for(let ped of this.pessoa.pedido){
-          for(let item of ped.carrinhoCompra.itemProduto){
-            this.itensProdutos.push(item);
-          }
-        }
+        this.pedido = data;
         this.spinner=false;
         this.tela=true;
       }
     )
+    this.opcoesTroca = [
+      {label: 'Correspondência', value: 'Correspondência'},
+      {label: 'Defeito de fabricação', value: 'Defeito de fabricação'},
+      {label: 'Arrependimento', value: 'Arrependimento'},
+      {label: 'Outros Motivos', value: 'Outros Motivos'}
+    ];
   }
   ngOnDestroy(){
     this.inscricao.unsubscribe();

@@ -1,4 +1,4 @@
 export enum OrigemCupom {
-    TROCA = 'Troca', 
-    PROMOCIONAL = 'Promocional'
+    TROCA , 
+    PROMOCIONAL
 }

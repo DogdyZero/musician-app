@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Statusitem } from '../model/status-item.enum';
-import { Pedido } from './../model/pedido';
-import { ItemProduto } from '../model/item-produto';
 import { StatusPedido } from '../model/status-pedido.enum';
+import { Pedido } from './../model/pedido';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +24,9 @@ export class PedidosService {
   }
   getPreparedPedido(){
     return this.pedido;
+  }
+  getPedido(id:number):Observable<Pedido>{
+    return this.httpClient.get<Pedido>(`${this.url}/${id}`);
   }
 
   getPedidos():Observable<Pedido[]>{
