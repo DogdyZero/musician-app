@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ItemProduto } from '../model/item-produto';
-import { Statusitem } from '../model/status-item.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +19,13 @@ export class ItemProdutoService {
       return this.httpClient.put<ItemProduto>(`${this.url}/${id}`,item);
   }
   
-  updateStatus(status:Statusitem,id:number):Observable<ItemProduto>{
-    let item:ItemProduto = new ItemProduto();
-    if(status!=null){
-        item.statusItem = status;
-      return this.updateItemProduto(item,id);
-    }
+  updateStatus(itemProduto:ItemProduto,id:number):Observable<ItemProduto>{
+      return this.updateItemProduto(itemProduto,id);
   }
+  async updateStatusSinc(item:ItemProduto,id:number){
+      await this.httpClient.put<ItemProduto>(`${this.url}/${id}`,item).toPromise();
+  
+  }
+
+  
 }

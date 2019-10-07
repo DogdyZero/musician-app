@@ -15,10 +15,11 @@ export class UsuariosService  {
   url:string = 'http://localhost:8080/usuarios';
   
   private usuarios:Usuario[]=[];
-
+  session = sessionStorage;
   usuario:Usuario;
   idUsuario:number;
   getUsuario(){
+    // this.session.setItem()
     if(this.usuario==null){
       return null;
     } else{
