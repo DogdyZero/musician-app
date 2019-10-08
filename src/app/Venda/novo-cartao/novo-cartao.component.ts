@@ -43,9 +43,9 @@ export class NovoCartaoComponent implements OnInit {
   item:string;
 
   mostrarLabel:boolean=false;
-
+  cupom:boolean=true;
   adicionar(){
-    console.log(this.valorTotal)
+    this.cupom=false;
     this.mostrarLabel = false;
     this.itensLabel=[];
     if(this.opcao=='cartao'){
@@ -57,10 +57,11 @@ export class NovoCartaoComponent implements OnInit {
         }
       }
     } else if (this.opcao=='cupom'){
-      let cupons = this.pessoa.cumpom;
-      for(let cupom of cupons){
+      for(let cupom of this.pessoa.cupom){
         if(cupom!=null){
           let obj={label:cupom.codigo+' '+cupom.valor, value:cupom.id}
+          this.valorCard[0]=cupom.valor;
+          this.cupom=true;
           this.itensLabel.push(obj);
         }
       }
@@ -86,7 +87,6 @@ export class NovoCartaoComponent implements OnInit {
     } else if(this.opcao=='cupom'){
       let cupom: TipoPagamento = new Cupom();
       cupom.id = parseInt(this.item);
-    
       forma.tipoPagamento=cupom;
     }
     
@@ -103,7 +103,6 @@ export class NovoCartaoComponent implements OnInit {
       {label:'Cupom',value:'cupom'}
     ]
     this.usuario = this.usuariosService.getUsuario();
-
     // let cartoes:Cartao[];
     // cartoes = this.pessoa.cartao;
     // for(let cart of cartoes){
