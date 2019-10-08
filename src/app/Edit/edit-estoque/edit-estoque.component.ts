@@ -13,6 +13,7 @@ export class EditEstoqueComponent implements OnInit {
 
   @Input() produto: Produto;
   @Output() editProd = new EventEmitter()
+  @Output() cancel = new EventEmitter()
 
   constructor(
     private produtosService: ProdutosService,
@@ -24,6 +25,9 @@ export class EditEstoqueComponent implements OnInit {
 
   editProduto(){
     this.editProd.emit(this.produto);
+  }
+  async cancelCad(){
+    this.cancel.emit(null);
   }
 
 }

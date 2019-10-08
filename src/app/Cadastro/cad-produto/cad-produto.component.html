@@ -48,8 +48,6 @@
             </ul> -->
         </ng-template>
     </p-fileUpload>
-
-
 </p-card>
 
 <br>
@@ -78,7 +76,7 @@
 </p-card>
 <br>
 
-<p-card header="Preço" styleClass="ui-card-shadow">
+<p-card *ngIf="edit==false" header="Preço" styleClass="ui-card-shadow">
     <div class="p-grid">
         <div class="p-col-1">
             <span>Venda:
@@ -117,7 +115,7 @@
             icon="pi pi-check" style="margin-right: .25em"></button>
         <button *ngIf="edit==true" name="btn_edit" (click)="editProduto()" pButton type="button" label="Edit"
             icon="pi pi-check" style="margin-right: .25em"></button>
-        <button name="btn_cancelar" pButton type="button" label="Cancel" icon="pi pi-times"
+        <button (click)="cancelCad()" name="btn_cancelar" pButton type="button" label="Cancel" icon="pi pi-times"
             class="ui-button-secondary"></button>
     </p-footer>
 </p-card>

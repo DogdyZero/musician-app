@@ -15,7 +15,8 @@
                 <!-- <th>Tipo</th> -->
                 <th>Preço</th>
                 <th>Quantidade em estoque</th>
-                <th></th>
+                <th>Editar descrição</th>
+                <th>Editar itens de venda</th>
                 <th></th>
             </tr>
         </ng-template>
@@ -28,7 +29,8 @@
                 <!-- <td>{{inst.tipo.tipo}}</td> -->
                 <td>{{prod.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
                 <td>{{prod.quantidade}}</td>
-                <td><a [routerLink]="['/edit_prod',prod.id]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
+                <td><a [routerLink]="['/edit_prod',prod.id,1]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
+                <td><a [routerLink]="['/edit_prod',prod.id,2]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-chart-bar" ></button></a></td>
                 <td><button name="btn_delete_prod" (click)="deletar(prod.id)" pButton type="button" icon="pi pi-trash" ></button></td>
             </tr>
         </ng-template>

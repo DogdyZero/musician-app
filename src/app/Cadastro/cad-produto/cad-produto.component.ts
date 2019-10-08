@@ -15,6 +15,7 @@ export class CadProdutoComponent implements OnInit {
 
   @Input() produto:Produto;
   @Output() salvar = new EventEmitter()
+  @Output() cancel = new EventEmitter()
   @Output() editProd = new EventEmitter()
   @Input() edit:boolean;
 
@@ -48,6 +49,10 @@ export class CadProdutoComponent implements OnInit {
 
     this.produto.imagemString = resultBase64 as string;
     this.salvar.emit(this.produto)
+  }
+
+  async cancelCad(){
+    this.cancel.emit(null);
   }
     
   async editProduto(){

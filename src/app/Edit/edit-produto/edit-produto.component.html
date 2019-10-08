@@ -10,9 +10,9 @@
         </div>
     </ng-template>
 </p-tabMenu>
-<div *ngIf="id==0">
-    <app-cad-produto [edit]="edit" [produto]="produto" (editProd)="editProd($event)"></app-cad-produto>
+<div *ngIf="editTp">
+        <app-cad-produto [edit]="edit" [produto]="produto" (editProd)="editProd($event)" (cancel)="cancelEdit($event)" ></app-cad-produto>
 </div>
-<div *ngIf="id==1">
-    <app-edit-estoque [produto]="produto" (editProd)="editProd($event)" ></app-edit-estoque>
+<div *ngIf="!editTp">
+        <app-edit-estoque [produto]="produto" (editProd)="editProd($event)" (cancel)="cancelEdit($event)"></app-edit-estoque>
 </div>
