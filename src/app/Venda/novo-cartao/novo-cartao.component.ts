@@ -59,7 +59,7 @@ export class NovoCartaoComponent implements OnInit {
     } else if (this.opcao=='cupom'){
       for(let cupom of this.pessoa.cupom){
         if(cupom!=null){
-          let obj={label:cupom.codigo+' '+cupom.valor, value:cupom.id}
+          let obj={label:cupom.codigo+' - R$'+cupom.valor, value:cupom.id + ' ' + cupom.valor}
           this.valorCard[0]=cupom.valor;
           this.cupom=true;
           this.itensLabel.push(obj);
@@ -70,8 +70,16 @@ export class NovoCartaoComponent implements OnInit {
   }
 
   processar(){
-    this.valorCard.forEach(element => {
-        this.sum += parseInt(element.toString());
+    if(this.opcao == 'cupom'){
+      this.valorCard = [];
+      console.log("typeof this.item: ");
+      console.log("Valor: " + this.item);
+      var result = this.item.split(" ");
+      this.valorCard.push(parseFloat(result[1]));
+      result = [];
+    }
+    this.valorCard.forEach(element => { 
+      this.sum += parseFloat(element.toString());
     });
     this.valorCard = [];
     this.valorCompra.emit(this.sum);
