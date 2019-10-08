@@ -25,7 +25,9 @@
                     [showClear]="true"></p-dropdown>
             </div>
             <div class="box">
-                <input pKeyFilter="money" placeholder="valor R$" type="text" size="10" [(ngModel)]="valorCard[0]"
+                <input *ngIf="cupom"  disabled pKeyFilter="money" placeholder="valor R$" type="text" size="10" [(ngModel)]="valorCard[0] " 
+                    pInputText>
+                <input *ngIf="!cupom" pKeyFilter="money" placeholder="valor R$" type="text" size="10" [(ngModel)]="valorCard[0]"
                     pInputText>
                 <div class="box">
                     <button type="button" name="btn_Card_compra" (click)="processar()" pButton icon="pi pi-plus"
