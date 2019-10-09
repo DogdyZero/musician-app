@@ -1,7 +1,7 @@
-import { ItemProduto } from './item-produto';
+import { Produto } from './produto';
 export class Estoque {
     id:number;
-    item:ItemProduto;
+    produto:Produto;
     quantidadeProduto:number;
     dataEntrada:Date;
     dataVenda:Date;

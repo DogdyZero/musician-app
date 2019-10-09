@@ -78,26 +78,33 @@
 
 <p-card *ngIf="edit==false" header="Preço" styleClass="ui-card-shadow">
     <div class="p-grid">
-        <div class="p-col-1">
-            <span>Venda:
-                <input [(ngModel)]="produto.preco" name="preco_prod" placeholder="R$" pInputText pKeyFilter="money"
-                    type="text">
-            </span>
+        <button *ngIf="edit==false" name="btn_calcular" (click)="calcular(custo.value, margem.value)" pButton type="button" label="Calcular" ></button>
+        <div class="p-col-2">
+            <div class="p-col-12">
+                <span>Custo:
+                    <input #custo name="preco_prod" placeholder="R$" pInputText pKeyFilter="money"
+                        type="text">
+                </span>
+            </div>
+            <div class="p-col-12">
+                <span>Margem de Lugro:
+                    <input #margem name="preco_custo_prod" placeholder="R$" pInputText pKeyFilter="money" type="text"> 
+                </span>
+            </div>
+            <div class="p-col-12">
+                <span>Valor Venda:
+                    <input [(ngModel)]="valorFinal" name="preco_custo_prod" placeholder="R$" pInputText pKeyFilter="money" type="text"> 
+                </span>
+            </div>
+
         </div>
     </div>
-    <!-- <div class="p-grid">
-        <div class="p-col-1">
-            <span>Custo:
-                <input name="preco_custo_prod" placeholder="R$" pInputText pKeyFilter="money" type="text"> 
-            </span>
-        </div>
-    </div> -->
 </p-card>
 <br>
 <p-card *ngIf="edit==false" header="Quantidade" styleClass="ui-card-shadow">
     <div class="p-grid">
         <div class="p-col-1">
-            <input [(ngModel)]="produto.quantidade" name="quantidade_prod" class="p-col-12" id="float-inout" pInputText
+            <input  name="quantidade_prod" class="p-col-12" id="float-inout" pInputText
                 pKeyFilter="num" type="text" pInputText>
         </div>
     </div>
@@ -106,8 +113,8 @@
 <p-card header="Descrição" styleClass="ui-card-shadow">
     <div class="p-grid">
         <div class="p-col-1">
-            <textarea [(ngModel)]="produto.descricao" name="desc_prod" rows="25" cols="80" pInputTextarea
-                autoResize="autoResize"></textarea>
+            <textarea [(ngModel)]="produto.descricao" name="desc_prod" rows="10" cols="60" pInputTextarea
+                ></textarea>
         </div>
     </div>
     <p-footer>
