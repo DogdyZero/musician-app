@@ -1,9 +1,9 @@
 import { Status } from './status.enum';
 import { CategoriaProduto } from './categoria';
+import { GrupoPrecificacao } from './grupo-precificacao';
 
 export class Produto {
     id:number;
-    preco:number;
     ean:string;
     nome:string;
     modelo:string;
@@ -11,8 +11,8 @@ export class Produto {
     marca:String;
     pathImage:string;
     descricao:string;
-    quantidade:number;
     categoriaProduto:CategoriaProduto;
+    grupoPrecificacao:GrupoPrecificacao;
     status:Status;
     dimensao:string;
     codigoBarrras:string;

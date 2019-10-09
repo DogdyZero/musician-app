@@ -1,8 +1,7 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MessageService, SelectItem } from 'primeng/api';
+import { GrupoPrecificacao } from 'src/app/model/grupo-precificacao';
 import { Produto } from './../../model/produto';
-import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {SelectItem, MessageService} from 'primeng/api';
-import { resolve } from 'url';
 
 @Component({
   selector: 'app-cad-produto',
@@ -18,7 +17,8 @@ export class CadProdutoComponent implements OnInit {
   @Output() cancel = new EventEmitter()
   @Output() editProd = new EventEmitter()
   @Input() edit:boolean;
-
+  grupo: GrupoPrecificacao = new GrupoPrecificacao();
+  valorFinal:number = this.grupo.custoCompra*this.grupo.margemLucroEstimada;
   uploadedFiles: any[] = [];
   arquivo:File;
   constructor(private messageService: MessageService) {}
@@ -30,7 +30,21 @@ export class CadProdutoComponent implements OnInit {
     this.arquivo=this.uploadedFiles[0];
     this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
+
+  calcular(custo:number,margem:number){
+    let a = custo;
+    let b = margem;
+    let s =a*(b/100);
+    let r = Number(custo)+Number(s);
+    this.valorFinal=r;
+
+    this.grupo.custoCompra = custo;
+    this.grupo.margemLucroEstimada = b;
+    this.grupo.valorFinalProduto = this.valorFinal;
+
+  }
   ngOnInit() {
+    // this.valorFinal = 0;
     this.prodCategoria = [
       {label: 'Corda', value: 'Corda'},
       {label: 'Sopro', value: 'Sopro'},
@@ -46,7 +60,8 @@ export class CadProdutoComponent implements OnInit {
         fileReader.onload = (e) => resolve(fileReader.result);
         fileReader.readAsDataURL(this.arquivo);
     });
-
+    this.grupo.valorFinalProduto =  this.valorFinal;
+    this.produto.grupoPrecificacao = this.grupo;
     this.produto.imagemString = resultBase64 as string;
     this.salvar.emit(this.produto)
   }
