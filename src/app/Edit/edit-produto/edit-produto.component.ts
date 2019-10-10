@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from './../../model/produto';
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import { EstoqueService } from 'src/app/services/estoque.service';
+import { Estoque } from 'src/app/model/estoque';
 
 @Component({
   selector: 'app-edit-produto',
@@ -21,6 +23,7 @@ export class EditProdutoComponent implements OnInit {
   constructor(
     private activatedRoute:ActivatedRoute,
     private produtosService:ProdutosService,
+    private estoqueService:EstoqueService,
     private router:Router,
   ) { }
 
@@ -69,6 +72,7 @@ export class EditProdutoComponent implements OnInit {
 
   editProd(produto:Produto){
     this.produtosService.alterarProduto(produto).subscribe((data)=>{
+      let estoque:Estoque = new Estoque();
       this.router.navigate(['/admin']);    
     });
   }
