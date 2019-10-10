@@ -14,5 +14,5 @@
         <app-cad-produto [edit]="edit" [produto]="produto" (editProd)="editProd($event)" (cancel)="cancelEdit($event)" ></app-cad-produto>
 </div>
 <div *ngIf="!editTp">
-        <app-edit-estoque [produto]="produto" (editProd)="editProd($event)" (cancel)="cancelEdit($event)"></app-edit-estoque>
+        <app-edit-estoque [idProduto]="idProduto" (editEstq)="editEstq($event)" (editProd)="editProd($event)" (cancel)="cancelEdit($event)"></app-edit-estoque>
 </div>

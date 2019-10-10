@@ -14,4 +14,12 @@ export class EstoqueService {
   salvarEstoque(estoque:Estoque):Observable<Estoque>{
     return this.httpClient.post<Estoque>(this.url,estoque);
   }
+
+  alterarEstoque(estoque:Estoque){
+    return this.httpClient.put(`${this.url}/${estoque.id}`,estoque,
+    {headers:{
+      'Accept':'application/json'}
+  });
+  }
+
 }
