@@ -27,7 +27,7 @@
                 <td>{{prod.marca}}</td>
                 <td>{{prod.ano | date: 'yyyy'}}</td>
                 <!-- <td>{{inst.tipo.tipo}}</td> -->
-                <td>{{prod.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
+                <td>{{prod.grupoPrecificacao.valorFinalProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
                 <td>{{prod.quantidade}}</td>
                 <td><a [routerLink]="['/edit_prod',prod.id,1]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-pencil" ></button></a></td>
                 <td><a [routerLink]="['/edit_prod',prod.id,2]"><button name="btn_edit_prod" pButton type="button" icon="pi pi-chart-bar" ></button></a></td>
