@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Produto } from '../model/produto';
+import { Estoque } from '../model/estoque';
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +15,19 @@ export class ProdutosService {
 
 
   getProdutos():Observable<Produto[]>{
-    return this.httpClient.get<Produto[]>(this.url);
+    return this.httpClient.get<Produto[]>(`${this.url}/disponiveis`);
+  }
+  getProdutoEstoque(id:number):Observable<Estoque>{
+    return this.httpClient.get<Estoque>(`${this.url}/${id}/estoque`)
   }
 
   getProdutoById(id:number){
     return this.httpClient.get<Produto>(`${this.url}/${id}`).pipe();
   }
 
-  salvarProduto(produto:Produto){
+  salvarProduto(produto:Produto):Observable<Produto>{
     console.log(produto);    
-    return this.httpClient.post(this.url,produto,
+    return this.httpClient.post<Produto>(this.url,produto,
       {headers:{
         'Accept':'application/json'}
     });
