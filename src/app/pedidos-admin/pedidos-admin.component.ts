@@ -26,9 +26,12 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   constructor(private pedidosService: PedidosService) { }
   
   changeStatus(pedido:Pedido){
-    this.pedidosService.updateStatus(this.checkStatus(),pedido.id).subscribe();
+    this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();
+    window.location.reload(true);
   }
-  checkStatus(){
+  checkStatus(pedido:Pedido){
+    console.log(pedido.statusPedido.valueOf());
+    this.selectedStatus = pedido.statusPedido.valueOf();
     if(this.selectedStatus.code=='AP'){
       return StatusPedido.AGUARDANDO_APROVACAO;
     } else if(this.selectedStatus.code=='ES'){
@@ -55,7 +58,15 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
             this.pedidos=data;
           }
         );
-      } 
+
+      this.pedidos.forEach(element => {
+          console.log(element.statusPedido.valueOf())
+        }
+      );
+
+      
+    } 
+    
       
     ngOnDestroy(){
       this.inscricao.forEach(i =>i.unsubscribe()); 
