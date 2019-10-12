@@ -37,8 +37,9 @@
         </div>
     </div>
 </p-card>
+<br>
+
 <p-dialog header="Novo Cartão" [(visible)]="displayCard" [modal]="true" [responsive]="true"
     [style]="{width: '1150px', minWidth: '200px'}" [minY]="70" [baseZIndex]="10000">
-    <app-cad-cartao [usuario]="usuario" (update)="updateUsuario($event)"
-        ></app-cad-cartao>
+    <app-cad-cartao [usuario]="usuario" (update)="updateUsuario($event)"></app-cad-cartao>
 </p-dialog>

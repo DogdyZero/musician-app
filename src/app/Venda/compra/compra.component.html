@@ -15,7 +15,7 @@
                 </div>
                 <div class="p-col-12">
                     <div class="box">
-                        <app-novo-cartao [pessoa]="pessoa" [sum]="sum" (valorCompra)="totalCompra($event)"
+                        <app-novo-cartao [cups]="cups" [pessoa]="pessoa" [sum]="sum" (valorCompra)="totalCompra($event)"
                              [valorTotal]="valorTotal"></app-novo-cartao>
                     </div>
                 </div>
@@ -34,3 +34,4 @@
             </div>
         </div>
     </div>
+    <button pButton type="button" label="Refazer pagamentos" (click)="again()" class="ui-button-danger"></button>

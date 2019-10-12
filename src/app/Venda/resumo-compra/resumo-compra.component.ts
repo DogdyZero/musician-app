@@ -31,6 +31,7 @@ export class ResumoCompraComponent implements OnInit {
   selectedCupom: Cupom[];
   item:ItemProduto[]=[];
   totalCompra:number=0;
+  
   constructor(private router:Router,
               private activatedRoute : ActivatedRoute,
               private carrinho:CartService) {
