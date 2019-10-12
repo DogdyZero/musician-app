@@ -31,7 +31,8 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   }
   checkStatus(pedido:Pedido){
     console.log(pedido.statusPedido.valueOf());
-    this.selectedStatus = pedido.statusPedido.valueOf();
+    // @ts-ignore
+    this.selectedStatus = pedido.statusPedido;
     if(this.selectedStatus.code=='AP'){
       return StatusPedido.AGUARDANDO_APROVACAO;
     } else if(this.selectedStatus.code=='ES'){
