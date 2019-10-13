@@ -17,6 +17,7 @@ export class CompraComponent implements OnInit {
   valorTotal:number;
   //valorCompra:number;
   sum :number= 0;
+  cups :string[] = [];
   pessoa:Pessoa;
   valorFrete:number;
   entrega:boolean=true;
@@ -69,6 +70,11 @@ export class CompraComponent implements OnInit {
         this.pagamento=true;
       }
     }
+  }
+  again(){
+    this.sum = 0;
+    this.cups = [];
+    this.pagamento = false;
   }
 
   ngOnDestroy(){

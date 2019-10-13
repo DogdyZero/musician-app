@@ -21,6 +21,7 @@ export class NovoCartaoComponent implements OnInit {
   selectedCard: string[] = [];
   valorCard: number[] = [];
   //teste:boolean;
+  @Input()cups :string[] = [];
   @Input() sum:number;
   @Output() dispBtn: Boolean;
   @Input() valorTotal:number;
@@ -72,11 +73,21 @@ export class NovoCartaoComponent implements OnInit {
   processar(){
     if(this.opcao == 'cupom'){
       this.valorCard = [];
-      console.log("typeof this.item: ");
-      console.log("Valor: " + this.item);
+      var exstCup = new Boolean(false);
       var result = this.item.split(" ");
-      this.valorCard.push(parseFloat(result[1]));
-      result = [];
+      this.cups.forEach(element => {
+        if(result[0] == element){
+          alert("Esse cupom ja foi utilizado!");
+          exstCup = true;
+        }
+      });
+      if(exstCup == false){
+        console.log("typeof this.item: ");
+        console.log("Valor: " + this.item);
+        this.valorCard.push(parseFloat(result[1]));
+        this.cups.push(result[0]);
+        result = [];
+      }
     }
     this.valorCard.forEach(element => { 
       this.sum += parseFloat(element.toString());
@@ -86,6 +97,7 @@ export class NovoCartaoComponent implements OnInit {
     this.salvar();
     this.mostrarLabel=false;
   }
+
   salvar(){
     let forma:FormaPagamento = new FormaPagamento();
     if(this.opcao=='cartao'){

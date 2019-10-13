@@ -28,7 +28,7 @@ export class DescProdutoComponent implements OnInit, OnDestroy {
     let item:ItemProduto = new ItemProduto();
     item.valorProduto = produto.grupoPrecificacao.valorFinalProduto;
     item.quantidade = 1;
-    item.produto =produto;
+    item.produto = produto;
     this.cartService.adicionarItem(item);
     this.router.navigate(['/carrinho']);
   }

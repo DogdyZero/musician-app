@@ -4,7 +4,7 @@ import { Produto } from './../../model/produto';
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { EstoqueService } from 'src/app/services/estoque.service';
-import { Estoque } from 'src/app/model/estoque';
+import { Estoque } from '../../model/estoque';
 
 @Component({
   selector: 'app-edit-produto',
@@ -72,6 +72,13 @@ export class EditProdutoComponent implements OnInit {
 
   editProd(produto:Produto){
     this.produtosService.alterarProduto(produto).subscribe((data)=>{
+      let estoque:Estoque = new Estoque();
+      this.router.navigate(['/admin']);    
+    });
+  }
+
+  editEstq(estoque:Estoque){
+    this.estoqueService.alterarEstoque(estoque).subscribe((data)=>{
       let estoque:Estoque = new Estoque();
       this.router.navigate(['/admin']);    
     });

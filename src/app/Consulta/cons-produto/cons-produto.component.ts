@@ -13,6 +13,7 @@ export class ConsProdutoComponent implements OnInit {
     //@Output() deletar = new EventEmitter() 
     produto: Produto[];
     idProd:number;
+    
     constructor(
     private produtosService:ProdutosService,
     private router:Router

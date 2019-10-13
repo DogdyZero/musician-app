@@ -12,15 +12,15 @@
                     </div>
                     <div class="p-col-3">
                         <label><strong>{{inst.produto.nome}} {{inst.produto.marca}}</strong></label><br><br>
-                            <p>{{inst.produto.preco |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
+                            <p>{{inst.produto.grupoPrecificacao.valorFinalProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
                     </div>
-                    <div *ngIf="inst.produto.quantidade>0" id="qnt" class="p-col-4">
+                    <div *ngIf="inst.quantidade>0" id="qnt" class="p-col-4">
                         <span><strong>Quantidade:</strong><br>
-                            <p-spinner [min]=0 [max]="inst.produto.quantidade" [(ngModel)]="inst.quantidade"></p-spinner>
+                            <p-spinner [min]=0 [max]="inst.quantidade" [(ngModel)]="inst.quantidade"></p-spinner>
                             <!-- <input name="qtd_prod" min="1" [(ngModel)]="inst.quantidade" max="{{inst.produto.quantidade}}" class="p-col-3" id="float-input" type="number" pInputText>  -->
                         </span>
                     </div>
-                        <div *ngIf="inst.produto.quantidade<1" id="qnt" class="p-col-3">
+                        <div *ngIf="inst.quantidade < 1" id="qnt" class="p-col-3">
                             <span><strong>produto indisponível
                                 </strong><br>
                             </span>
