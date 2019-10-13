@@ -40,9 +40,9 @@ export class DescProdutoComponent implements OnInit, OnDestroy {
       }
     );
       
-    this.inscricao = this.produtoService.getProdutoById(this.id).subscribe(
+    this.inscricao = this.produtoService.getProdutoEstoque(this.id).subscribe(
       (data)=>{
-        this.produto=data;
+        this.produto=data.produto;
         this.tela=true;
         this.spinner=false;
       }
