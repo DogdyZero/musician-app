@@ -1,45 +1,54 @@
 <app-header></app-header>
 <br>
 <h2>Carrinho de compras</h2>
-<p-card styleClass="ui-card-shadow">
-    <div  class="p-grid">
-        <div class="p-col-7"*ngFor="let inst of itemProduto" >
-                
-        <p-card id="card">
-                <div class="p-grid">
-                    <div class="p-col-2">
-                        <img src="{{inst.produto.pathImage}}">
-                    </div>
-                    <div class="p-col-3">
-                        <label><strong>{{inst.produto.nome}} {{inst.produto.marca}}</strong></label><br><br>
-                            <p>{{inst.produto.grupoPrecificacao.valorFinalProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</p>
-                    </div>
-                    <div *ngIf="inst.quantidade>0" id="qnt" class="p-col-4">
-                        <span><strong>Quantidade:</strong><br>
-                            <p-spinner [min]=0 [max]="inst.quantidade" [(ngModel)]="inst.quantidade"></p-spinner>
-                            <!-- <input name="qtd_prod" min="1" [(ngModel)]="inst.quantidade" max="{{inst.produto.quantidade}}" class="p-col-3" id="float-input" type="number" pInputText>  -->
-                        </span>
-                    </div>
-                        <div *ngIf="inst.quantidade < 1" id="qnt" class="p-col-3">
+<div *ngIf="spinner">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="tela">
+    <p-card styleClass="ui-card-shadow">
+        <div class="p-grid">
+            <div class="p-col-7" *ngFor="let i of objList" >
+
+                <p-card id="card" >
+                    <div class="p-grid">
+                        <div class="p-col-2">
+                            <img src="{{i.item.produto.imagemString}}">
+                        </div>
+                        <div class="p-col-3">
+                            <label><strong>{{i.item.produto.nome}} {{i.item.produto.marca}}</strong></label><br><br>
+                            <p>{{i.item.produto.grupoPrecificacao.valorFinalProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}
+                            </p>
+                        </div>
+                        <div *ngIf="i.qtd>0" id="qnt" class="p-col-4">
+                            <span><strong>Quantidade:</strong><br>
+                                <p-spinner [min]=1 [max]="i.qtd" [(ngModel)]="i.item.quantidade"></p-spinner>
+                                <!-- <input name="qtd_prod" min="1" [(ngModel)]="item.quantidade" max="{{item.produto.quantidade}}" class="p-col-3" id="float-input" type="number" pInputText>  -->
+                            </span>
+                        </div>
+                        <div *ngIf="i.qtd < 1" id="qnt" class="p-col-3">
                             <span><strong>produto indisponível
                                 </strong><br>
                             </span>
                         </div>
-                    <div class="p-col-3">
-                        <button name="btn_del_cart" (click)="remove(inst.id)"id="trsh" pButton type="button" icon="pi pi-trash" ></button>
+                        <div class="p-col-3">
+                            <button name="btn_del_cart" (click)="remove(i.item.id)" id="trsh" pButton type="button"
+                                icon="pi pi-trash"></button>
+                        </div>
                     </div>
-                </div>
-            </p-card>
+                </p-card>
+            </div>
         </div>
-    </div>
-    <p-footer>
-        <a >
-            <button name="btn_comprar_cart" (click)="comprar()" id="buy" pButton type="button" label="Comprar" icon="pi pi-check" style="margin-right: .25em;position: relative;bottom: 10px;"></button>
-        </a>
-        <a >
-            <button id="buy" (click)="voltar()"  name="btn_voltar_cart" pButton type="button" label="Escolher mais produtos" icon="pi pi-arrow-left" style="margin-right: .25em;background-color: grey;width: 200px;position: relative;right: 80px"></button>
-        </a>
+        <p-footer>
+            <a>
+                <button name="btn_comprar_cart" (click)="comprar()" id="buy" pButton type="button" label="Comprar"
+                    icon="pi pi-check" style="margin-right: .25em;position: relative;bottom: 10px;"></button>
+            </a>
+            <a>
+                <button id="buy" (click)="voltar()" name="btn_voltar_cart" pButton type="button"
+                    label="Escolher mais produtos" icon="pi pi-arrow-left"
+                    style="margin-right: .25em;background-color: grey;width: 200px;position: relative;right: 80px"></button>
+            </a>
         </p-footer>
 
-</p-card>
-
+    </p-card>
+</div>

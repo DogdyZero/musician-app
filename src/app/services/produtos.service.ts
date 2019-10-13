@@ -17,6 +17,9 @@ export class ProdutosService {
   getProdutos():Observable<Produto[]>{
     return this.httpClient.get<Produto[]>(`${this.url}/disponiveis`);
   }
+  getTodosProdutos():Observable<Produto[]>{
+    return this.httpClient.get<Produto[]>(this.url);
+  }
   getProdutoEstoque(id:number):Observable<Estoque>{
     return this.httpClient.get<Estoque>(`${this.url}/${id}/estoque`)
   }

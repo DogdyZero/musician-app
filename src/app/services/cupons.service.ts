@@ -15,6 +15,9 @@ export class CuponsService {
   getCupons():Observable<Cupom[]>{
     return this.httpClient.get<Cupom[]>(this.url);
   }
+  updateCupom(cupom:Cupom, id:number):Observable<Cupom>{
+    return this.httpClient.put<Cupom>(`${this.url}/${id}`,cupom);
+  }
   //getCupomUserId(id:Number):Observable<Cupom[]>{
   // return this.httpClient.get<Cupom[]>(`${this.url}/${id}`).pipe();
   //}

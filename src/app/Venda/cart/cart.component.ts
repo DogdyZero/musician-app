@@ -7,6 +7,7 @@ import { Produto } from '../../model/produto';
 import { CartService } from '../../services/cart.service';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Subscription } from 'rxjs';
+import { Estoque } from 'src/app/model/estoque';
 
 @Component({
   selector: 'app-cart',
@@ -15,9 +16,13 @@ import { Subscription } from 'rxjs';
 })
 export class CartComponent implements OnInit {
   id:number;
-  itemProduto:ItemProduto[]=[];
 
+  objList=[]
+  // itemProduto:ItemProduto[]=[];
+  // estoque:number [] =[];
   inscricao:Subscription;
+  tela:boolean=false;
+  spinner:boolean=true;
 
   remove(id:number){
     this.cartService.remove(id);
@@ -27,7 +32,13 @@ export class CartComponent implements OnInit {
   }
 
   comprar(){
-    this.cartService.updateQtdItemCompra(this.itemProduto);
+    let itemProduto:ItemProduto[]=[];
+    for(let i of this.objList){
+      itemProduto.push(i.item);
+    }
+    // console.log(itemProduto);
+
+    this.cartService.updateQtdItemCompra(itemProduto);
     let resultado = this.usuariosService.getUsuario();
     if(resultado ==null){
       this.router.navigate(['/login']);
@@ -39,16 +50,27 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService : CartService,
     private usuariosService :UsuariosService,
+    private produtoService:ProdutosService,
     private router:Router,
     private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe(
-    //   (params:any)=>{
-    //     this.id = params['id'];
-    //   }
-    // );
-    this.itemProduto = this.cartService.getitensProdutos();
+    let itensProduto = this.cartService.getitensProdutos();
+    let qtdItem = itensProduto.length;
+    let i = 0;
+    for(let itemProduto of itensProduto){
+      this.inscricao = this.produtoService.getProdutoEstoque(itemProduto.produto.id).subscribe(
+        (data)=>{
+          let qtd = data.quantidadeProduto;
+          let item = itemProduto;
+          let obj ={item,qtd};
+          this.objList.push(obj)
+          if(i<qtdItem)
+            this.tela=true;
+            this.spinner=false;
+        }
+      );
+    }
   }
   ngOnDestroy(){
     // this.inscricao.unsubscribe();
