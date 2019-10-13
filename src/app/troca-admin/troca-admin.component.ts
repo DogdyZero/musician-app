@@ -27,9 +27,11 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     this.itemProduto.forEach(element => {
       if(idTroca==element.id){
         item = element;
+        let troca:Troca = new Troca();
+        troca.statusItem = StatusItem.TROCA_APROVADA
+        item.troca = troca;
       }
     });
-    
     this.itemProdutoService.updateStatus(item,idTroca).subscribe(data=>{
       // console.log(data);
       // this.trocaService.getPessoaTroca(idTroca).subscribe(pesData=>{
@@ -48,11 +50,21 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     });
     this.display = true;
   }
+ 
 
   recusarTroca(idTroca:number) {
-    // this.itemProdutoService.updateStatus(StatusItem.TROCA_NEGADA,idTroca).subscribe();
+    let item : ItemProduto = new ItemProduto();
+    this.itemProduto.forEach(element => {
+      if(idTroca==element.id){
+        item = element;
+        let troca:Troca = new Troca();
+        troca.statusItem = StatusItem.TROCA_NEGADA
+        item.troca = troca;
+      }
+    });
+    this.itemProdutoService.updateStatus(item,idTroca).subscribe();
     this.display2 = true;
-}
+  }
 
   ngOnInit() {
     this.inscricao[0] = this.itemProdutoService.getItensToTrade().subscribe(
