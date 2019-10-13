@@ -13,8 +13,9 @@
             <td width="40">{{ped.id}}</td>
             <td>{{ped.total |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td>16/09/2019</td>
-            <td>{{ped.statusPedido}}</td>
-            <td><p-dropdown [options]="status" [(ngModel)]="ped.statusPedido" ></p-dropdown>
+            <td *ngIf="!alterado">{{ped.statusPedido}}</td>
+            <td *ngIf="alterado">Processando status...</td>
+            <td><p-dropdown (onChange)="processo()" [options]="status" [(ngModel)]="ped.statusPedido" ></p-dropdown>
             <button name="btn_troca" type="button" (click)="changeStatus(ped)" pButton icon="pi pi-check"></button></td>
         </tr>
     </ng-template>

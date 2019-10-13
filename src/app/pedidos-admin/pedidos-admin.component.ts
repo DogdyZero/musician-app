@@ -20,6 +20,7 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   status: SelectItem[];
   selectedStatus: Status;
   pedidos: Pedido[] = [];
+  alterado:Boolean = false;
 
   inscricao :Subscription[]=[];
 
@@ -46,6 +47,10 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
     }
   }
 
+  processo(){
+    this.alterado = true;
+  }
+
   ngOnInit() {
     this.status = [
       {label:'Status do pedido', value:null},
@@ -54,24 +59,20 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
       {label:'Em transporte', value:{id:3, name: 'Em transporte', code: 'ET'}},
       {label:'Entregue', value:{id:4, name: 'Entregue', code: 'ENT'}},
      ];
-      this.inscricao[0] = this.pedidosService.getPedidos().subscribe(
-          (data)=>{
-            this.pedidos=data;
+    this.inscricao[0] = this.pedidosService.getPedidos().subscribe(
+          (data) => {
+            this.pedidos = data;
           }
         );
 
-      this.pedidos.forEach(element => {
-          console.log(element.statusPedido.valueOf())
+    this.pedidos.forEach(element => {
+      console.log("Enum: ")
+      console.log(element.statusPedido.valueOf())
         }
       );
-
-      
-    } 
-    
-      
-    ngOnDestroy(){
+    }
+    ngOnDestroy() {
       this.inscricao.forEach(i =>i.unsubscribe()); 
-    }  
-  
+    }
 
 }
