@@ -77,7 +77,7 @@ export class NovoCartaoComponent implements OnInit {
       var result = this.item.split(" ");
       this.cups.forEach(element => {
         if(result[0] == element){
-          alert("Esse cupom ja foi utilizado!");
+          alert("Esse cupom ja foi utilizado para essa compra, tente novamente com outro cupom ou cartão!");
           exstCup = true;
         }
       });
