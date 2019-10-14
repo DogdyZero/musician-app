@@ -41,7 +41,7 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
     this.idItem = id;
     this.display = true;
   }
-  solicitarTroca(descricao:string){
+  solicitarTroca(descricao:string) {
     let troca = new Troca();
     troca.descricaoProblema = descricao;
     troca.statusItem =StatusItem.TROCA_SOLICITADA;
@@ -65,6 +65,15 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
         this.pedido = data;
         this.spinner=false;
         this.tela=true;
+        this.pedido.carrinhoCompra.itemProduto.forEach(element =>{
+          console.log(StatusItem.TROCA_APROVADA);
+          // tslint:disable-next-line: max-line-length
+          if(element.troca.statusItem == StatusItem.TROCA_APROVADA || element.troca.statusItem == StatusItem.TROCA_NEGADA || element.troca.statusItem == StatusItem.TROCA_REALIZADA || element.troca.statusItem == StatusItem.TROCA_SOLICITADA) {
+            element.troca.doIt = true;
+          } else {
+            element.troca.doIt = false;
+          }
+        });
       }
     )
     this.opcoesTroca = [
@@ -73,8 +82,12 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
       {label: 'Arrependimento', value: 'Arrependimento'},
       {label: 'Outros Motivos', value: 'Outros Motivos'}
     ];
+
+    
+
+
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.inscricao.unsubscribe();
   }
 
