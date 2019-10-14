@@ -7,4 +7,5 @@ export class Troca {
     statusItem:StatusItem;
     descricaoProblema:string;
     resposta:string;
+    doIt:boolean;
 }
