@@ -9,6 +9,8 @@ import { Pessoa } from '../../model/pessoa';
 import { Usuario } from 'src/app/model/usuario';
 import { PessoasService } from 'src/app/services/pessoas.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { CuponsService } from 'src/app/services/cupons.service';
+import { Status } from 'src/app/model/status.enum';
 
 @Component({
   selector: 'app-novo-cartao',
@@ -60,10 +62,12 @@ export class NovoCartaoComponent implements OnInit {
     } else if (this.opcao=='cupom'){
       for(let cupom of this.pessoa.cupom){
         if(cupom!=null){
-          let obj={label:cupom.codigo+' - R$'+cupom.valor, value:cupom.id + ' ' + cupom.valor}
-          this.valorCard[0]=cupom.valor;
-          this.cupom=true;
-          this.itensLabel.push(obj);
+          if(cupom.status==Status.ATIVO){
+            let obj={label:cupom.codigo+' - R$'+cupom.valor, value:cupom.id + ' ' + cupom.valor}
+            this.valorCard[0]=cupom.valor;
+            this.cupom=true;
+            this.itensLabel.push(obj);
+          }
         }
       }
     } 
@@ -115,7 +119,8 @@ export class NovoCartaoComponent implements OnInit {
 
   constructor(private usuariosService:UsuariosService,
     private pessoasService:PessoasService,
-    private formaPagamentoService:FormaPagamentoService) { }
+    private formaPagamentoService:FormaPagamentoService,
+    private cuponsService:CuponsService) { }
 
   ngOnInit() {
     this.opcoesLabel=[

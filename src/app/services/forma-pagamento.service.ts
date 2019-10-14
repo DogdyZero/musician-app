@@ -18,7 +18,6 @@ export class FormaPagamentoService {
             formaPagamento.tipoPagamento.type='cupom';
         } 
         this.formasPagamento.push(formaPagamento);
-        console.log(this.formasPagamento);
     }
 
     getFormasPagamento(){
