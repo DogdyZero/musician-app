@@ -4,6 +4,9 @@ import { ItemProduto } from '../model/item-produto';
 import { StatusItem } from '../model/status-item.enum';
 import { Troca } from '../model/troca';
 import { ItemProdutoService } from '../services/item-produto.service';
+import { EstoqueService } from '../services/estoque.service';
+import { ProdutosService } from '../services/produtos.service';
+
 
 @Component({
   selector: 'app-troca-admin',
@@ -16,12 +19,11 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
   itemProduto: ItemProduto[] = [];
 
   inscricao:Subscription[]=[];
-  constructor(private itemProdutoService:ItemProdutoService) { }
+  constructor(
+    private estoqueService:EstoqueService,
+    private produtoService:ProdutosService,
+    private itemProdutoService:ItemProdutoService) { }
   
-  updateStatusTroca(){
-
-  }
-
   confirmarTroca(idTroca:number) {
     let item : ItemProduto = new ItemProduto();
     this.itemProduto.forEach(element => {
@@ -32,21 +34,13 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
         item.troca = troca;
       }
     });
-    this.itemProdutoService.updateStatus(item,idTroca).subscribe(data=>{
-      // console.log(data);
-      // this.trocaService.getPessoaTroca(idTroca).subscribe(pesData=>{
-      //   if(pesData!=null){
-      //     let pes = pesData;
-      //     let cupom:Cupom = new Cupom();
-      //     cupom.type='cupom';
-      //     cupom.codigo = 'teste';
-      //     let cupons:Cupom[] = [];
-      //     cupons.push(cupom);
-      //     pes.cumpom = cupons;
-      //     console.log(pes.cumpom);
-      //     this.pessoaService.alterarPessoa(pes).subscribe();
-      //   }
-      // })
+    this.itemProdutoService.updateStatus(item,idTroca).subscribe(itemSubs=>{
+     this.produtoService.getProdutoEstoque(item.produto.id).subscribe(prod=>{
+      let novoEstoque = prod.quantidadeProduto+1;
+      prod.quantidadeProduto=novoEstoque;
+      console.log(prod);
+      this.estoqueService.alterarEstoque(prod).subscribe();
+    })
     });
     this.display = true;
   }

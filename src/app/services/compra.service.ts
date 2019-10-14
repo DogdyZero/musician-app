@@ -9,6 +9,9 @@ import { FreteService } from './frete.service';
 import { UsuariosService } from './usuarios.service';
 import { EstoqueService } from './estoque.service';
 import { ProdutosService } from './produtos.service';
+import { Cupom } from '../model/cupom';
+import { Status } from '../model/status.enum';
+import { CuponsService } from './cupons.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +24,8 @@ export class CompraService {
     private carrinhoService:CartService,
     private usuarioService:UsuariosService,
     private estoqueService:EstoqueService,
-    private produtoService:ProdutosService) { }
+    private produtoService:ProdutosService,
+    private cupomService:CuponsService) { }
 
     efetivarCompra(pessoa:Pessoa){
       let pedidos:Pedido[]=[];
@@ -46,6 +50,15 @@ export class CompraService {
               prod.quantidadeProduto=novoEstoque;
               this.estoqueService.alterarEstoque(prod).subscribe();
             })
+          }
+          for(let pag of this.formaPagamentoService.getFormasPagamento()){
+            if(pag.tipoPagamento instanceof Cupom){
+              let cupom:Cupom = new Cupom();
+              cupom.id = pag.tipoPagamento.id;
+              cupom.status = Status.INATIVO;
+              cupom.type = 'cupom';
+              this.cupomService.updateCupom(cupom,cupom.id).subscribe();
+            }
           }
         }));
       }
