@@ -49,6 +49,7 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
       // })
     });
     this.display = true;
+    window.location.reload();
   }
  
 
@@ -64,14 +65,24 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     });
     this.itemProdutoService.updateStatus(item,idTroca).subscribe();
     this.display2 = true;
+    window.location.reload();
   }
 
   ngOnInit() {
     this.inscricao[0] = this.itemProdutoService.getItensToTrade().subscribe(
       (data)=>{
         this.itemProduto=data;
+        this.itemProduto.forEach(element =>{
+          console.log(StatusItem.TROCA_APROVADA);
+          if(element.troca.statusItem == StatusItem.TROCA_APROVADA || element.troca.statusItem == StatusItem.TROCA_NEGADA || element.troca.statusItem == StatusItem.TROCA_REALIZADA ){
+            element.troca.doIt = true;
+          }else{
+            element.troca.doIt = false;
+          }
+        });
       }
     );
+
   }
 
   ngOnDestroy(){
