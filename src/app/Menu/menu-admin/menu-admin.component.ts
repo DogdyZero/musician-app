@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UsuariosService } from './../../services/usuarios.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Pessoa } from '../../model/pessoa';
@@ -12,7 +14,10 @@ export class MenuAdminComponent implements OnInit {
   activeItem: MenuItem;
   id=0;
   //pessoa = MemoryPessoa;
-  constructor() { }
+  constructor(
+    private usuariosService:UsuariosService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
       this.items = [

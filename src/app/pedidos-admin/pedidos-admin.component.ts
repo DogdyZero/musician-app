@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UsuariosService } from './../services/usuarios.service';
 import { Pedido } from './../model/pedido';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {SelectItem} from 'primeng/api';
@@ -24,7 +26,9 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
 
   inscricao :Subscription[]=[];
 
-  constructor(private pedidosService: PedidosService) { }
+  constructor(
+    private pedidosService: PedidosService,
+    private usuariosService: UsuariosService) { }
   
   changeStatus(pedido:Pedido){
     this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();

@@ -84,6 +84,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {SpinnerModule} from 'primeng/spinner';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ToastModule} from 'primeng/toast';
+import { ConfLoginComponent } from './conf-login/conf-login.component';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import {ToastModule} from 'primeng/toast';
     ResumoCompraComponent,
     NovaEntregaComponent,
     NovoCartaoComponent,
+    ConfLoginComponent,
   ],
   imports: [
     BrowserModule,

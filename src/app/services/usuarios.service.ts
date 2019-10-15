@@ -9,6 +9,7 @@ import { Perfil } from '../model/perfil.enum';
 })
 export class UsuariosService  {
 
+  logado:boolean = false;
   constructor(private httpClient:HttpClient) { 
     
   }
@@ -51,11 +52,13 @@ export class UsuariosService  {
   async efetuarLogin(usuario:Usuario){
     this.usuario = await this.httpClient.post<Usuario>(this.url+'/login',usuario,
       {headers:{'Accept':'application/json'}}).toPromise();
-      if(this.usuario!=null){
+    if(this.usuario!=null){
         let perfil = this.usuario.perfil;
-          if(perfil==Perfil.ADMINISTRADOR){
-            return 'admin';
+        if(perfil==Perfil.ADMINISTRADOR){
+          this.logado = true;
+          return 'admin';
           } else if(perfil==Perfil.CLIENTE){
+            this.logado = true;
             return 'cliente';
           } else  {
             return 'Usuario não localizado';
