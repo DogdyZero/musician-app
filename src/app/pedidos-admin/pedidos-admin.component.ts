@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
+import { UsuariosService } from './../services/usuarios.service';
 import { Pedido } from './../model/pedido';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { PedidosService } from '../services/pedidos.service';
@@ -24,11 +26,20 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
 
   inscricao :Subscription[]=[];
 
-  constructor(private pedidosService: PedidosService) { }
+  constructor(
+    private pedidosService: PedidosService,
+    private usuariosService: UsuariosService) { }
   
   changeStatus(pedido:Pedido){
     this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();
-    window.location.reload(true);
+    this.ngOnInit();
+    this.pedidosService.getPedidos().subscribe(
+      (data) => {
+        this.pedidos = data;
+        this.pedidos.sort( (a,b) => a.id - b.id );
+      }
+    );
+    // this.upId.emit(0);
   }
   checkStatus(pedido:Pedido){
     console.log(pedido.statusPedido.valueOf());
@@ -47,10 +58,6 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
     }
   }
 
-  processo(){
-    this.alterado = true;
-  }
-
   ngOnInit() {
     this.status = [
       {label:'Status do pedido', value:null},
@@ -62,15 +69,11 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
     this.inscricao[0] = this.pedidosService.getPedidos().subscribe(
           (data) => {
             this.pedidos = data;
+            this.pedidos.sort( (a,b) => a.id - b.id );
           }
         );
-
-    this.pedidos.forEach(element => {
-      console.log("Enum: ")
-      console.log(element.statusPedido.valueOf())
-        }
-      );
     }
+
     ngOnDestroy() {
       this.inscricao.forEach(i =>i.unsubscribe()); 
     }
