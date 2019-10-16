@@ -20,6 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { DescProdutoComponent } from './desc-produto/desc-produto.component';
 import { DetalhePedidoComponent } from './detalhe-pedido/detalhe-pedido.component';
 import { ErroComponent } from './erro/erro.component';
+import { ConfLoginComponent } from './conf-login/conf-login.component';
+
 
 
 
@@ -44,7 +46,8 @@ const routes: Routes = [
   { path : 'edit_user/:id', component:EditUsuarioComponent},
   { path : 'cons_cad/:id', component: ConsCadastroAdminComponent},
   { path : 'erro', component:ErroComponent},
-  { path : 'detalhes_pedido/:id', component:DetalhePedidoComponent}
+  { path : 'detalhes_pedido/:id', component:DetalhePedidoComponent},  
+  { path : 'fazer_login', component:ConfLoginComponent}
 
 ];
 

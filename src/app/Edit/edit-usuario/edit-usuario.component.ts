@@ -1,7 +1,8 @@
+import { UsuariosService } from './../../services/usuarios.service';
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { Pessoa } from '../../model/pessoa';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PessoasService } from '../../services/pessoas.service';
 
 @Component({
@@ -18,9 +19,15 @@ export class EditUsuarioComponent implements OnInit {
   tela:boolean=false;
   spinner:boolean=true;
   constructor(private activatedRoute :ActivatedRoute,
-    private pessoasService:PessoasService) { }
+              private usuariosService:UsuariosService,
+              private router:Router,
+              private pessoasService:PessoasService) { }
 
   ngOnInit() {
+    let logado = this.usuariosService.logado;
+    if(logado == false){
+      this.router.navigate(['/fazer_login']);
+    }
     this.activatedRoute.params.subscribe(
       (params:any)=>{
         this.idPessoa = params['id'];

@@ -31,6 +31,7 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
   constructor(
     private pedidoService:PedidosService,
     private usuariosService:UsuariosService,
+    private router:Router,
     private itemProdutoService:ItemProdutoService, 
     private route:Router, 
     private activatedRoute:ActivatedRoute) { }
@@ -52,8 +53,6 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    let usuario = this.usuariosService.getUsuario();
-    this.pessoa = usuario.pessoa;
     let id:number;
     this.activatedRoute.params.subscribe(
       (params:any)=>{
@@ -83,9 +82,12 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
       {label: 'Outros Motivos', value: 'Outros Motivos'}
     ];
 
-    
-
-
+    let logado = this.usuariosService.logado;
+    if(logado == false){
+      this.router.navigate(['/fazer_login']);
+    }
+    let usuario = this.usuariosService.getUsuario();
+    this.pessoa = usuario.pessoa;
   }
   ngOnDestroy() {
     this.inscricao.unsubscribe();
