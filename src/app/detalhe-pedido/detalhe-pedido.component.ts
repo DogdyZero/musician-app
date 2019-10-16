@@ -68,11 +68,11 @@ export class DetalhePedidoComponent implements OnInit, OnDestroy {
         this.pedido.carrinhoCompra.itemProduto.forEach(element =>{
           console.log(StatusItem.TROCA_APROVADA);
           // tslint:disable-next-line: max-line-length
-          if(element.troca.statusItem == StatusItem.TROCA_APROVADA || element.troca.statusItem == StatusItem.TROCA_NEGADA || element.troca.statusItem == StatusItem.TROCA_REALIZADA || element.troca.statusItem == StatusItem.TROCA_SOLICITADA) {
-            element.troca.doIt = true;
-          } else {
-            element.troca.doIt = false;
-          }
+          // if(element.troca.statusItem == StatusItem.TROCA_APROVADA || element.troca.statusItem == StatusItem.TROCA_NEGADA || element.troca.statusItem == StatusItem.TROCA_REALIZADA || element.troca.statusItem == StatusItem.TROCA_SOLICITADA) {
+          //   element.troca.doIt = true;
+          // } else {
+          //   element.troca.doIt = false;
+          // }
         });
       }
     )

@@ -37,10 +37,10 @@
                 <td>{{item.valorProduto |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
                 <td *ngIf="item.troca==null"></td>
                 <td *ngIf="item.troca!=null">{{item.troca.statusItem}}</td>
-                <td *ngIf="!item.troca.doIt"><button name="btn_troca" type="button" (click)="showDialog(item.id)" pButton icon="pi pi-sort-alt"
+                <td ><button name="btn_troca" type="button" (click)="showDialog(item.id)" pButton icon="pi pi-sort-alt"
                     label="Solicitar troca"></button></td>
-                <td *ngIf="item.troca.doIt"><button disabled name="btn_troca" type="button" (click)="showDialog(item.id)" pButton icon="pi pi-sort-alt"
-                    label="Solicitar troca"></button></td>
+                <!-- <td *ngIf="item.troca.doIt"><button disabled name="btn_troca" type="button" (click)="showDialog(item.id)" pButton icon="pi pi-sort-alt"
+                    label="Solicitar troca"></button></td> --> 
             </tr>
         </ng-template>
     </p-table>
