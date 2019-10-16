@@ -7,7 +7,7 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-cup>
-        <tr style="text-align:center" >
+        <tr *ngIf="cup.status=='ATIVO'"style="text-align:center" >
             <td>{{cup.codigo}}</td>
             <td>R$&nbsp;{{cup.valor}}</td>
         </tr>
