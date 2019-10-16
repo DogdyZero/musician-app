@@ -55,6 +55,13 @@ export class CartComponent implements OnInit {
     private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      if(this.tela==false){
+        alert('Ocorreu um erro na sua requisição, tente novamente mais tarde!')
+        this.router.navigate(['/']);
+
+      }
+    }, 5000);
     let itensProduto = this.cartService.getitensProdutos();
     let qtdItem = itensProduto.length;
     let i = 0;
