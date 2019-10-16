@@ -32,13 +32,13 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   
   changeStatus(pedido:Pedido){
     this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();
-    this.ngOnInit();
     this.pedidosService.getPedidos().subscribe(
       (data) => {
         this.pedidos = data;
         this.pedidos.sort( (a,b) => a.id - b.id );
       }
-    );
+      );
+    this.ngOnInit();
     // this.upId.emit(0);
   }
   checkStatus(pedido:Pedido){

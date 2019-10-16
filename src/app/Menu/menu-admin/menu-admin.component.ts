@@ -20,6 +20,10 @@ export class MenuAdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let logado = this.usuariosService.logado;
+    if(logado == false){
+      this.router.navigate(['/fazer_login']);
+    }
       this.items = [
         {label: 'Dashboard', icon : 'pi pi-shopping-cart',
           command:(data)=>{
