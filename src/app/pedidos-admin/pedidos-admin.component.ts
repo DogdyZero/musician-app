@@ -33,7 +33,18 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   changeStatus(pedido:Pedido){
     this.idAlterado = pedido.id;
     this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();
+<<<<<<< HEAD
     // window.location.reload(true);
+=======
+    this.pedidosService.getPedidos().subscribe(
+      (data) => {
+        this.pedidos = data;
+        this.pedidos.sort( (a,b) => a.id - b.id );
+      }
+      );
+    this.ngOnInit();
+    // this.upId.emit(0);
+>>>>>>> 1ced7e061942b615604a12b51e5cc7b790d791a4
   }
   checkStatus(pedido:Pedido){
     console.log(pedido.statusPedido.valueOf());
