@@ -8,9 +8,11 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to formusician-app!');
+  it('efetuar Login', () => {
+    page.navigateTo().then( ()=>{
+      page.efetuarLogin();
+    });
+    // expect(page.checkAuth()).toBeTruthy();
   });
 
   afterEach(async () => {

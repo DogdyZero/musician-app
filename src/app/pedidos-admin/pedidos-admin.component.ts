@@ -23,7 +23,7 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
   selectedStatus: Status;
   pedidos: Pedido[] = [];
   alterado:Boolean = false;
-
+  idAlterado:number;
   inscricao :Subscription[]=[];
 
   constructor(
@@ -31,15 +31,9 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
     private usuariosService: UsuariosService) { }
   
   changeStatus(pedido:Pedido){
+    this.idAlterado = pedido.id;
     this.pedidosService.updateStatus(this.checkStatus(pedido),pedido.id).subscribe();
-    this.pedidosService.getPedidos().subscribe(
-      (data) => {
-        this.pedidos = data;
-        this.pedidos.sort( (a,b) => a.id - b.id );
-      }
-      );
-    this.ngOnInit();
-    // this.upId.emit(0);
+    // window.location.reload(true);
   }
   checkStatus(pedido:Pedido){
     console.log(pedido.statusPedido.valueOf());
@@ -56,6 +50,10 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
     } else{
       return null;
     }
+  }
+  
+  processo(event){
+    this.alterado=true;
   }
 
   ngOnInit() {
