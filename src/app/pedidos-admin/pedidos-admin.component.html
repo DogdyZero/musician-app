@@ -4,7 +4,7 @@
             <th>Id</th>
             <th>Valor</th>  
             <th>Data</th> 
-            <th >Status</th> 
+            <th *ngIf="!alterado">Status</th> 
             <th>Alterar status</th>
         </tr>
     </ng-template>
@@ -14,9 +14,9 @@
             <td>{{ped.total |currency:'BRL':'symbol':'0.2-2':'pt'}}</td>
             <td>14/10/2019</td>
             <td *ngIf="!alterado">{{ped.statusPedido}}</td>
-            <td *ngIf="alterado">processando..</td>
-            <td><p-dropdown (onChange)="processo($event)" [options]="status" [(ngModel)]="ped.statusPedido" ></p-dropdown>
-            <button name="btn_troca" type="button" (click)="changeStatus(ped)" pButton icon="pi pi-check"></button></td>
+            <td *ngIf="alterado"></td>
+            <td><p-dropdown (onChange)="changeStatus(ped)" [options]="status" [(ngModel)]="ped.statusPedido" ></p-dropdown>
+            <!-- <button name="btn_troca" type="button" (click)="changeStatus(ped)" pButton icon="pi pi-check"></button></td> -->
         </tr>
     </ng-template>
 </p-table>
