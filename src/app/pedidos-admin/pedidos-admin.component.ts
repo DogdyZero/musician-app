@@ -38,7 +38,7 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
         this.pedidos.sort( (a,b) => a.id - b.id );
       }
       );
-      this.ngOnInit();
+    this.ngOnInit();
     // this.upId.emit(0);
   }
   checkStatus(pedido:Pedido){
