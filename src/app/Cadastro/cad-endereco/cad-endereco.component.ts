@@ -1,7 +1,7 @@
+import { Endereco } from './../../model/endereco';
 import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
-import {SelectItem, MenuItem, ConfirmationService} from 'primeng/api';
+import { SelectItem, MenuItem, ConfirmationService, Message } from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
-import { Endereco } from '../../model/endereco';
 import { Pessoa } from '../../model/pessoa';
 import { Usuario } from 'src/app/model/usuario';
 
@@ -25,6 +25,9 @@ export class CadEnderecoComponent implements OnInit {
 
   tiposEndereco: SelectItem[];
   tipo: string;
+
+  val:Boolean = true;
+  msgs: Message[] = [];
 
   endereco:Endereco =new Endereco();
   enderecos:Endereco[]=[];
@@ -55,24 +58,45 @@ export class CadEnderecoComponent implements OnInit {
       reject: () => {
         // direcionar para a proxima tela
         this.update.emit(this.usuario);
-        this.updateId.emit(++this.id);    
+        this.updateId.emit(++this.id);  
       }
   });
   }
 
 
   salvar(endereco:Endereco){   
-    if(endereco.bairro==null){
-      endereco.logradouro = this.enderecoCorreios.logradouro;
-      endereco.bairro = this.enderecoCorreios.bairro;
-      endereco.cidade = this.enderecoCorreios.localidade;
-      endereco.estado = this.enderecoCorreios.uf;
+    if(this.tipo == null){
+      this.val = false;
+      console.log("Erro no tipo de logradouro");
     }
-    endereco.tipoLogradouro=this.tipo;
-    this.enderecos.push(endereco);
-    this.usuario.pessoa.endereco = this.enderecos;
-    
-    this.cadastrarNovo();
+    if(endereco.apelidoEndereco == null){
+      this.val = false;
+      console.log("Erro no apelido");
+    }
+    if(endereco.cep == null || endereco.cep.toString().length != 9){
+      this.val = false;
+      console.log("Erro no cep");
+    }
+    if(endereco.numero == null){
+      this.val = false;
+      console.log("Erro no numero");
+    }
+    if(this.val == true){
+      if(endereco.bairro==null){
+        endereco.logradouro = this.enderecoCorreios.logradouro;
+        endereco.bairro = this.enderecoCorreios.bairro;
+        endereco.cidade = this.enderecoCorreios.localidade;
+        endereco.estado = this.enderecoCorreios.uf;
+      }
+      endereco.tipoLogradouro=this.tipo;
+      this.enderecos.push(endereco);
+      this.usuario.pessoa.endereco = this.enderecos;
+      
+      this.cadastrarNovo();
+    }else{
+      this.msgs.push({severity:'error', summary:'Erro no formulário', detail:'Preencha os campos corretamente!'});
+      this.val = true;
+    }
   }
 
   ngOnInit() {
