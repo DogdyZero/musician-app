@@ -45,7 +45,7 @@ export class ConsProdutoComponent implements OnInit {
 
   deletar(id:number){
     this.produtosService.inativarProduto(id).subscribe();
-    window.location.reload();
+    // window.location.reload();
   }
 
 }
