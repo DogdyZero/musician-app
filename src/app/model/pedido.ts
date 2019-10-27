@@ -5,11 +5,9 @@ import { Pagamento } from './pagamento';
 
 export class Pedido {
     id: number;
-    // cliente: Pessoa;
     carrinhoCompra:CarrinhoCompra;
     frete: Frete;
     pagamento:Pagamento;
-    // total: number;
     data: Date;
     total:number;
     statusPedido: StatusPedido;
