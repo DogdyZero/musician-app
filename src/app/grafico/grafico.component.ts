@@ -11,34 +11,37 @@ export class GraficoComponent implements OnInit {
   data: any;
   faturamento:any;
 
-  constructor() {
+  constructor(private graficoService: GraficosService) {
       
   }
 
   ngOnInit() {
-    this.data = {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Novembro', 'Dezembro'],
-      datasets: [
-          {
-              label: 'Guitarra',
-              backgroundColor: '#42A5F5',
-              borderColor: '#1E88E5',
-              data: [10, 12, 23, 24, 15, 16, 30, 15, 25 ,44 ,30,15]
-          },
-          {
-              label: 'Saxofone',
-              backgroundColor: '#9CCC65',
-              borderColor: '#7CB342',
-              data: [3, 2, 3, 4, 3, 2, 2, 1, 1 ,5 ,7,6]
-            },
-          {
-            label: 'Acordeon',
-            backgroundColor: '#444444',
-            borderColor: '#755555',
-            data: [1, 2, 1, 3, 4, 6, 4, 5, 2 ,0 ,1,4]
-          }
-      ]
-  }
+    this.graficoService.getGrafico().subscribe(d =>{
+      this.data =d;
+    });
+  //   this.data = {
+  //     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Novembro', 'Dezembro'],
+  //     datasets: [
+  //         {
+  //             label: 'Guitarra',
+  //             backgroundColor: '#42A5F5',
+  //             borderColor: '#1E88E5',
+  //             data: [10, 12, 23, 24, 15, 16, 30, 15, 25 ,44 ,30,15]
+  //         },
+  //         {
+  //             label: 'Saxofone',
+  //             backgroundColor: '#9CCC65',
+  //             borderColor: '#7CB342',
+  //             data: [3, 2, 3, 4, 3, 2, 2, 1, 1 ,5 ,7,6]
+  //           },
+  //         {
+  //           label: 'Acordeon',
+  //           backgroundColor: '#444444',
+  //           borderColor: '#755555',
+  //           data: [1, 2, 1, 3, 4, 6, 4, 5, 2 ,0 ,1,4]
+  //         }
+  //     ]
+  // }
   this.faturamento = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Novembro', 'Dezembro'],
     datasets: [
