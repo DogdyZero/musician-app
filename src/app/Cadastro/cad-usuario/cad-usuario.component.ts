@@ -3,6 +3,7 @@ import { SelectItem, MenuItem, Message } from 'primeng/api';
 import { Usuario } from '../../model/usuario';
 import { Pessoa } from '../../model/pessoa';
 import { PessoasService } from '../../services/pessoas.service';
+import { CalendarioService } from 'src/app/services/calendario.service';
 
 @Component({
   selector: 'app-cad-usuario',
@@ -10,7 +11,8 @@ import { PessoasService } from '../../services/pessoas.service';
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
-  constructor(private pessoaService:PessoasService){}
+  constructor(private pessoaService:PessoasService,
+    private calendarioService:CalendarioService){}
 
   @Input() usuario :Usuario;
   @Output() update = new EventEmitter();
@@ -53,7 +55,6 @@ export class CadUsuarioComponent implements OnInit {
     if(this.val == true){
       pessoa.dataAniversario =this.data;
       pessoa.genero=this.genero;
-      console.log(this.pessoa)
       this.usuario.pessoa = pessoa;
       this.update.emit(this.usuario);
       this.updateId.emit(++this.id);
@@ -70,16 +71,7 @@ export class CadUsuarioComponent implements OnInit {
       {label: 'feminino', value: 'feminino'},
       {label: 'masculino', value: 'masculino'}
     ];
-    this.pt = {
-      firstDayOfWeek: 1,
-      dayNames: [ "domingo","segunda","terça","quarta","quinta","sexta","sábado" ],
-      dayNamesShort: [ "dom","seg","ter","qua","qui","sex","sáb" ],
-      dayNamesMin: [ "D","S","T","Q","Q","S","S" ],
-      monthNames: [ "janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembr" ],
-      monthNamesShort: [ "jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez" ],
-      today: 'Hoje',
-      clear: 'Limpar'
-  };
+    this.pt = this.calendarioService.getCalendarioPT();
   }
 
 }

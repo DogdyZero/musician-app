@@ -1,4 +1,26 @@
 <p-card header="Venda Produtos Anual" styleClass="ui-card-shadow">
+    <div class="p-grid ">
+        <div class="p-col-2">
+            <span class="ui-float-label">
+                <p-calendar [(ngModel)]="dataInicio" dateFormat="dd/mm/yy" [monthNavigator]="true" [locale]="pt" [yearNavigator]="true"
+                    yearRange="2010:2019"></p-calendar>
+                <label for="float-input">Data Inicio</label>
+            </span>
+        </div>
+        <div class="p-col-2">
+            <span class="ui-float-label">
+                <p-calendar [(ngModel)]="dataFinal" dateFormat="dd/mm/yy" [monthNavigator]="true" [locale]="pt" [yearNavigator]="true"
+                    yearRange="2010:2019"></p-calendar>
+                <label for="float-input">Data Final</label>
+            </span>
+        </div>
+        <div class="p-col-2">
+            <button name="btn_pesquisar" type="button" (click)="pesquisar()" pButton label="Pesquisar" icon="pi pi-check" style="margin-right: .25em"></button>
+        </div>
+    </div>
+    <div>
+
+    </div>
     <div>
         <p-chart type="line" [data]="data" height="300px"></p-chart>
     </div>
