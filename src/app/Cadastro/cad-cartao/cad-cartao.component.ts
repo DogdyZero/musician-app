@@ -1,6 +1,6 @@
 import { Bandeira } from '../../model/bandeira.enum';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import {SelectItem, ConfirmationService} from 'primeng/api';
+import { SelectItem, ConfirmationService, Message } from 'primeng/api';
 import { Pessoa } from '../../model/pessoa';
 import { Cartao } from '../../model/cartao';
 import { Usuario } from 'src/app/model/usuario';
@@ -23,6 +23,9 @@ export class CadCartaoComponent implements OnInit {
 
   cartao: Cartao = new Cartao();
   cartoes:Cartao[] = [];
+
+  val:Boolean = true;
+  msgs: Message[] = [];
   
   tipoBandeira: SelectItem[];
   selectedType: Bandeira;
@@ -47,13 +50,39 @@ export class CadCartaoComponent implements OnInit {
 
 
   salvar(cartao:Cartao){
-    cartao.type='cartao';
-    this.cartao = cartao;
-    this.cartao.bandeira = this.selectedType
-    this.cartoes.push(this.cartao);
-    this.usuario.pessoa.cartao = this.cartoes;
-    console.log(cartao)
-    this.cadastrarNovo();
+    if(this.selectedType == null){
+      this.val = false;
+      console.log("Erro na bandeira");
+    }
+    if(cartao.nomeCartao == null){
+      this.val = false;
+      console.log("Erro no nome");
+    }
+    if(cartao.numeroCartao == null || cartao.numeroCartao.toString().length != 19){
+      this.val = false;
+      console.log("Erro no número do cartão");
+    }
+    if(cartao.numeroCartao == null || cartao.validade.toString().length != 7){
+      this.val = false;
+      console.log("Erro na validade do cartão");
+    }
+    if(cartao.codSeguranca == null || cartao.codSeguranca.toString().length != 3){
+      this.val = false;
+      console.log("Erro no CVV");
+    }
+    if(this.val == true){
+
+      cartao.type='cartao';
+      this.cartao = cartao;
+      this.cartao.bandeira = this.selectedType
+      this.cartoes.push(this.cartao);
+      this.usuario.pessoa.cartao = this.cartoes;
+      console.log(cartao)
+      this.cadastrarNovo();
+    }else{
+      this.msgs.push({severity:'error', summary:'Erro no formulário', detail:'Preencha os campos corretamente!'});
+      this.val = true;
+    }
   }
 
 

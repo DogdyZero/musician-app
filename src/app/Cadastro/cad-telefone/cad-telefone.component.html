@@ -1,14 +1,15 @@
 <p-confirmDialog></p-confirmDialog>
+<p-messages [(value)]="msgs"></p-messages>
 <p-card header="Cadastrar Telefones" styleClass="ui-card-shadow">
     <div class="p-grid">
     <div class="p-col-1">
         <span>DDD
-            <input name="ddd-tel" class="p-col-12" [(ngModel)]="telefone.ddd" type="text" pInputText> 
+            <input name="ddd-tel" class="p-col-12" [(ngModel)]="telefone.ddd" pKeyFilter="int" maxlength="2" type="text" pInputText> 
         </span>
     </div>
     <div class="p-col-3">
             <span>Número
-                <input name="numero-tel" class="p-col-12" [(ngModel)]="telefone.numero" type="text" pInputText> 
+                <input pKeyFilter="int" name="numero-tel" class="p-col-12" [(ngModel)]="telefone.numero" maxlength="9" type="text" pInputText> 
             </span>
         </div>
     </div>
@@ -19,4 +20,3 @@
         </a>
     </p-footer>
 </p-card>
-     

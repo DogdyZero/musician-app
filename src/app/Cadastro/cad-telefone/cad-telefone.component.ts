@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Telefone } from '../../model/telefone';
 import { Pessoa } from '../../model/pessoa';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
 import { Usuario } from 'src/app/model/usuario';
 
 @Component({
@@ -19,6 +19,9 @@ export class CadTelefoneComponent implements OnInit {
 
   @Input() id:number;
   @Output() updateId = new EventEmitter();
+
+  val:Boolean = true;
+  msgs: Message[] = [];
 
   telefone:Telefone = new Telefone();
 
@@ -43,9 +46,22 @@ export class CadTelefoneComponent implements OnInit {
 
 
   salvar(telefone:Telefone){  
-    this.telefones.push(telefone);
-    this.usuario.pessoa.telefone = this.telefones;
-    this.cadastrarNovo();
+    if(telefone.ddd == null || telefone.ddd.toString().length != 2){
+      this.val = false;
+      console.log("Erro no ddd");
+    }
+    if(telefone.numero == null || telefone.numero.toString().length != 9){
+      this.val = false;
+      console.log("Erro no telefone");
+    }
+    if(this.val == true){
+      this.telefones.push(telefone);
+      this.usuario.pessoa.telefone = this.telefones;
+      this.cadastrarNovo();
+    }else{
+      this.msgs.push({severity:'error', summary:'Erro no formulário', detail:'Preencha os campos corretamente!'});
+      this.val = true;
+    }
   }
 
   ngOnInit() {

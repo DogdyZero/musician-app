@@ -1,4 +1,5 @@
 <p-confirmDialog></p-confirmDialog>
+<p-messages [(value)]="msgs"></p-messages>
 <p-card header="Endereco {{ tipo }}"   styleClass="ui-card-shadow">
     <div class="p-grid ">
         <div class="p-col-5">
@@ -16,7 +17,7 @@
     <div class="p-grid ">
         <div class="p-col-2">
             <span class="ui-float-label">Apelido
-                <input name="logradouro_end" class="p-col-11" [(ngModel)]="endereco.apelido" type="text" placeholder="Apelido do endereço" pInputText> 
+                <input name="logradouro_end" class="p-col-11" [(ngModel)]="endereco.apelidoEndereco" type="text" placeholder="Apelido do endereço" pInputText> 
             </span>
         </div>
     </div>

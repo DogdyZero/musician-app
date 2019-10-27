@@ -10,7 +10,7 @@ export class Pedido {
     frete: Frete;
     pagamento:Pagamento;
     // total: number;
-    // data: Date;
+    data: Date;
     total:number;
     statusPedido: StatusPedido;
 }

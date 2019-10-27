@@ -20,7 +20,7 @@
                 <br>
                 <div class="p-grid">
                     <div class="p-col-5">
-                        <span>Nome do titular:
+                        <span>Nome do titular: <br>
                             <input [(ngModel)]="card.nomeCartao" name="nome_card"
                                 placeholder="Nome impresso como no cartão" type="text" class="p-col-10" id="float-input"
                                 pInputText>
@@ -42,7 +42,7 @@
                 <div class="p-grid">
                     <div class="p-col-2">
                         <span>Validade: <br>
-                            <p-inputMask [(ngModel)]="card.validade" name="val_card" mask="99/99" pKeyFilter="num"
+                            <p-inputMask [(ngModel)]="card.validade" name="val_card" mask="99/9999" pKeyFilter="num"
                                 placeholder="MM/AAAA"></p-inputMask>
                         </span>
                     </div>

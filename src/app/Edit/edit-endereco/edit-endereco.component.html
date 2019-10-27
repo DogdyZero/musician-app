@@ -7,7 +7,7 @@
 <div *ngIf="!novoCadastro">
     <p-accordion>
 
-    <p-accordionTab header="Endereço - {{end.cep}}" *ngFor="let end of pessoa.endereco">
+    <p-accordionTab header="Endereço - {{end.cep}} ({{end.apelidoEndereco}})" *ngFor="let end of pessoa.endereco">
         <p-card header="Endereco {{ tipo }}" styleClass="ui-card-shadow">
             <div class="p-grid left-5">
                 <div class="p-col-5 ">
@@ -19,7 +19,7 @@
             <div class="p-grid ">
                 <div class="p-col-2">
                     <span class="ui-float-label">Apelido
-                        <input name="logradouro_end" class="p-col-11" [(ngModel)]="endereco.apelido" type="text"
+                        <input name="logradouro_end" class="p-col-11" [(ngModel)]="end.apelidoEndereco" type="text"
                             placeholder="Apelido do endereço" pInputText>
                     </span>
                 </div>
@@ -29,7 +29,6 @@
                     <span class="ui-float-label">
                         <p-inputMask name="cep_end" [(ngModel)]="end.cep" #cep mask="99999-999" placeholder="99999-999">
                         </p-inputMask>
-                        <label for="float-input">Cep</label>
                     </span>
                 </div>
             </div>
