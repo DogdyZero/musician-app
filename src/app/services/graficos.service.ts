@@ -13,6 +13,8 @@ export class GraficosService {
     let hoje:Date = new Date();
     let mes = hoje.getMonth();
     let mesAtual = mes +1;
+    console.log("hoje.getDate()");
+    console.log(hoje.getDate());
     let dataInicioString:string = hoje.getFullYear()-1+"-"+mesAtual+"-"+hoje.getDate();
     let dataFinalString:string =hoje.getFullYear()+"-"+mesAtual+"-"+hoje.getDate() ;
     // return this.httpClient.get(`${this.url}?dataInicio=2019-01-01&dataFinal=2019-12-31`);
