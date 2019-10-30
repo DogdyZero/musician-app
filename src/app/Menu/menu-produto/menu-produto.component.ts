@@ -34,7 +34,7 @@ export class MenuProdutoComponent implements OnInit {
         estoque.produto = data;
         this.estoqueService.salvarEstoque(estoque).subscribe();
       }
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin']);
       this.newProd = false;
     }, (error) => {
       this.router.navigate(['/']);

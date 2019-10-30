@@ -44,13 +44,6 @@ export class CompraComponent implements OnInit {
   
   ngOnInit() {
     let usuario:Usuario = this.usuarioService.getUsuario();
-    // setTimeout(() => {
-    //   if(usuario==null){
-    //     alert('Ocorreu um erro na sua requisição, tente novamente mais tarde!')
-    //     this.router.navigate(['/']);
-    //   }
-    // }, 5000);
-
     // this.activatedRoute.params.subscribe(
     //   (params:any)=>{
     //     this.idPessoa = params['id'];

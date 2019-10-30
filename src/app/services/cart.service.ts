@@ -89,4 +89,10 @@ export class CartService {
     return this.httpClient.get<ItemProduto[]>(this.url);
   }
 
+  destroy(){
+    this.carrinho = null;
+    this.itensProdutos = null;
+    this.carrinho = new CarrinhoCompra();
+    this.itensProdutos = [];
+  }
 }
