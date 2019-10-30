@@ -56,9 +56,9 @@ export class CadProdutoComponent implements OnInit {
 
   async saveProduto(file) {
     let resultBase64 = await new Promise((resolve) => {
-    let fileReader = new FileReader();
-    fileReader.onload = (e) => resolve(fileReader.result);
-    fileReader.readAsDataURL(this.arquivo);
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => resolve(fileReader.result);
+        fileReader.readAsDataURL(this.arquivo);
     });
     this.grupo.valorFinalProduto =  this.valorFinal;
     this.produto.grupoPrecificacao = this.grupo;
@@ -71,13 +71,13 @@ export class CadProdutoComponent implements OnInit {
   }
     
   async editProduto(){
-  //  let resultBase64 = await new Promise((resolve) => {
-  //       let fileReader = new FileReader();
-  //       fileReader.onload = (e) => resolve(fileReader.result);
-  //       fileReader.readAsDataURL(this.arquivo);
-  //   });
+   let resultBase64 = await new Promise((resolve) => {
+        let fileReader = new FileReader();
+        fileReader.onload = (e) => resolve(fileReader.result);
+        fileReader.readAsDataURL(this.arquivo);
+    });
 
-  //   this.produto.imagemString = resultBase64 as string;
+    this.produto.imagemString = resultBase64 as string;
     this.editProd.emit(this.produto)
   }
 

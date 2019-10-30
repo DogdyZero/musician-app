@@ -22,4 +22,5 @@ export class FreteService {
       this.frete = null;
       this.frete = new Frete();
     }
+
 }

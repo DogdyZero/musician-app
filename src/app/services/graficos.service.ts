@@ -19,7 +19,7 @@ export class GraficosService {
   }
   getGraficoEntre(dataInicio:Date, dataFinal:Date){
     let dataInicioString:string = dataInicio.getFullYear()+"-"+(dataInicio.getMonth()+1)+"-"+dataInicio.getDate();
-    let dataFinalString:string =dataFinal.getFullYear()+"-"+(dataFinal.getMonth()+1)+"-"+dataFinal.getDate() ;    
+    let dataFinalString:string =dataFinal.getFullYear()+"-"+(dataFinal.getMonth()+1)+"-"+dataFinal.getDate() ;
     return this.httpClient.get(`${this.url}?dataInicio=${dataInicioString}&dataFinal=${dataFinalString}`);
   }
 
