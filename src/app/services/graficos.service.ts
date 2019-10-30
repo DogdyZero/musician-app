@@ -11,23 +11,15 @@ export class GraficosService {
 
   getGraficoInicial(){
     let hoje:Date = new Date();
-    let mes = hoje.getMonth();
-    let mesAtual = mes +1;
-    console.log("hoje.getDate()");
-    console.log(hoje.getDate());
-    let dataInicioString:string = hoje.getFullYear()-1+"-"+mesAtual+"-"+hoje.getDate();
-    let dataFinalString:string =hoje.getFullYear()+"-"+mesAtual+"-"+hoje.getDate() ;
+    let dataInicioString:string = hoje.getFullYear()-1+"-"+(hoje.getMonth()+1)+"-"+hoje.getDate();
+    let dataFinalString:string =hoje.getFullYear()+"-"+(hoje.getMonth()+1)+"-"+hoje.getDate() ;
     // return this.httpClient.get(`${this.url}?dataInicio=2019-01-01&dataFinal=2019-12-31`);
     return this.httpClient.get(`${this.url}?dataInicio=${dataInicioString}&dataFinal=${dataFinalString}`);
 
   }
   getGraficoEntre(dataInicio:Date, dataFinal:Date){
-    let mesInicio = dataInicio.getMonth();
-    let mesFinal = dataFinal.getMonth();
-    let novoMesInicio = mesInicio+1;
-    let novoMesFinal = mesFinal+1;
-    let dataInicioString:string = dataInicio.getFullYear()+"-"+novoMesInicio+"-"+dataInicio.getDate();
-    let dataFinalString:string =dataFinal.getFullYear()+"-"+novoMesFinal+"-"+dataFinal.getDate() ;
+    let dataInicioString:string = dataInicio.getFullYear()+"-"+(dataInicio.getMonth()+1)+"-"+dataInicio.getDate();
+    let dataFinalString:string =dataFinal.getFullYear()+"-"+(dataFinal.getMonth()+1)+"-"+dataFinal.getDate() ;    
     return this.httpClient.get(`${this.url}?dataInicio=${dataInicioString}&dataFinal=${dataFinalString}`);
   }
 

@@ -18,5 +18,8 @@ export class FreteService {
     getFrete(){
       return this.frete;
     }
-
+    destroy(){
+      this.frete = null;
+      this.frete = new Frete();
+    }
 }

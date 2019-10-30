@@ -60,6 +60,11 @@ export class CompraService {
               this.cupomService.updateCupom(cupom,cupom.id).subscribe();
             }
           }
+          this.carrinhoService.destroy();
+          this.freteService.destroy();
+          pedidos = null;
+          pedido = null;
+          pagamento = null;
         }));
       }
       return pessoa;
