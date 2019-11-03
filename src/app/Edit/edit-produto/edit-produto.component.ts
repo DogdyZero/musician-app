@@ -72,16 +72,16 @@ export class EditProdutoComponent implements OnInit {
 
   editProd(produto:Produto){
     this.produtosService.alterarProduto(produto).subscribe((data)=>{
-      let estoque:Estoque = new Estoque();
-      this.router.navigate(['/admin']);    
+      // let estoque:Estoque = new Estoque();
     });
+    this.router.navigate(['/admin']);    
   }
 
   editEstq(estoque:Estoque){
     this.estoqueService.alterarEstoque(estoque).subscribe((data)=>{
-      let estoque:Estoque = new Estoque();
-      this.router.navigate(['/admin']);    
+      // let estoque:Estoque = new Estoque();
     });
+    this.router.navigate(['/admin']);    
   }
   cancelEdit(event:Event){
     this.router.navigate(['/admin']);
