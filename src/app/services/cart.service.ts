@@ -23,6 +23,7 @@ export class CartService {
   adicionarItem(item:ItemProduto){
     if(!this.verificarDuplicidade(item)){
       this.itensProdutos.push(item);
+      console.log(this.itensProdutos)
     }
   }
   verificarDuplicidade(item:ItemProduto){
@@ -55,7 +56,7 @@ export class CartService {
 
   remove(id:number){
     for(let inst of this.itensProdutos){
-      if(id==inst.id){
+      if(id==inst.produto.id){
         let index = this.itensProdutos.indexOf(inst);
         this.itensProdutos.splice(index,1);
       }
