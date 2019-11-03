@@ -39,6 +39,7 @@ export class PedidosAdminComponent implements OnInit, OnDestroy {
         this.ngOnInit();
       }
       );
+      this.ngOnInit();
     // this.upId.emit(0);
   }
   checkStatus(pedido:Pedido){

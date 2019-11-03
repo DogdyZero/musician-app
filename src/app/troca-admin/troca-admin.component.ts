@@ -59,7 +59,6 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     });
     this.itemProdutoService.updateStatus(item,idTroca).subscribe();
     this.display2 = true;
-    window.location.reload();
   }
 
   ngOnInit() {

@@ -22,8 +22,11 @@ export class GraficoComponent implements OnInit {
   pesquisar(){
     if(this.dataInicio!=null && this.dataFinal!=null){
       this.graficoService.getGraficoEntre(this.dataInicio,this.dataFinal).subscribe(d =>{
-        this.data.d;
+        this.data = d;
       })
+    }
+    else{
+      alert("ERRO");
     }
   }
 
