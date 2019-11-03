@@ -24,8 +24,9 @@ export class CartComponent implements OnInit {
   tela:boolean=false;
   spinner:boolean=true;
 
-  remove(id:number){
-    this.cartService.remove(id);
+  remove(itemProduto:ItemProduto){
+    this.cartService.remove(itemProduto.produto.id);
+    this.router.navigate(['/carrinho']);
   }
   voltar(){
     this.router.navigate(['/']);
@@ -80,7 +81,8 @@ export class CartComponent implements OnInit {
     }
   }
   ngOnDestroy(){
-    // this.inscricao.unsubscribe();
+    if(this.inscricao!=null)
+      this.inscricao.unsubscribe();
   }
 
 }
