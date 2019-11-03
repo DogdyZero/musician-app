@@ -1,12 +1,21 @@
 <br>
-<div class="ui-g ui-fluid">
-    <div class="ui-g-12 ui-md-4">
-    <div class="ui-inputgroup">
-        <button (click)="consultarId(id1.value)" pButton type="button" label="Buscar"></button>
-        <input #id1 type="text" style="width: 50px;" pInputText placeholder="Digite o ID">         
+<div class="p-grid ">
+        <div class="p-col-2">
+            <span class="ui-float-label">
+                <p-dropdown class="p-col-12" name="tp_pesquisa" [options]="tipoPesquisa" [(ngModel)]="tipo" [showClear]="true" placeholder="Tipo da Pesquisa"></p-dropdown>
+            </span>
+        </div>
+        <div class="p-col-3">
+            <span class="ui-float-label">
+                    <input class="p-col-12" #id1 type="text" pInputText >         
+                <label for="float-input">Buscar</label>
+            </span>
+        </div>
+        <div class="p-col-2">
+            <button (click)="buscar(id1.value)" pButton type="button" label="Buscar"></button>
+        </div>
     </div>
- </div>
- 
+
 <p-table [value]="pessoa">
         <ng-template pTemplate="header">
             <tr>
