@@ -43,7 +43,7 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     })
     });
     this.display = true;
-    window.location.reload();
+    // window.location.reload();
   }
  
 

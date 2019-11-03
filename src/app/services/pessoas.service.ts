@@ -18,6 +18,13 @@ export class PessoasService {
   getPessoas():Observable<Pessoa[]>{
     return this.httpClient.get<Pessoa[]>(this.url);
   }
+
+  buscarPessoaCpf(cpf:string):Observable<Pessoa[]>{
+    return this.httpClient.get<Pessoa[]>(`${this.url}/buscarCpf?cpf=${cpf}`);
+  }
+  buscarPessoaPorNome(nome :string ){
+    return this.httpClient.get<Pessoa[]>(`${this.url}/buscarNome?nome=${nome}`);
+  }
   
   getPessoa(id:number){
     return this.httpClient.get<Pessoa>(`${this.url}/${id}`).pipe();
