@@ -19,6 +19,7 @@ export class PedidosUsuarioComponent implements OnInit {
   constructor(private pedidoService:PedidosService,private router:Router) { }
 
   ngOnInit() {
+    this.pessoa.pedido.sort( (a,b) => b.id - a.id );
   }
 
 }
