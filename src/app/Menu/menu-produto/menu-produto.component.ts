@@ -37,7 +37,7 @@ export class MenuProdutoComponent implements OnInit {
       this.router.navigate(['/admin']);
       this.newProd = false;
     }, (error) => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin']);
       console.log(error);
     });
   }

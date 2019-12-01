@@ -65,6 +65,7 @@ export class TrocaAdminComponent implements OnInit ,OnDestroy{
     this.inscricao[0] = this.itemProdutoService.getItensToTrade().subscribe(
       (data)=>{
         this.itemProduto=data;
+        this.itemProduto.sort( (a,b) => b.id - a.id );
         this.itemProduto.forEach(element =>{
           console.log(StatusItem.TROCA_APROVADA);
           if(element.troca.statusItem == StatusItem.TROCA_APROVADA || element.troca.statusItem == StatusItem.TROCA_NEGADA || element.troca.statusItem == StatusItem.TROCA_REALIZADA ){
