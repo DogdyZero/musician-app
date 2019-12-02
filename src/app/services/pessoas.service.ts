@@ -12,7 +12,7 @@ export class PessoasService {
   constructor(private httpClient:HttpClient) { }
 
   //url:string = 'api/pessoas';
-  url:string = "http://localhost:8080/pessoas";
+  url:string = "https://musician-app-backend.herokuapp.com/pessoas";
 
 
   getPessoas():Observable<Pessoa[]>{

@@ -10,7 +10,7 @@ export class CuponsService {
 
   constructor(private httpClient:HttpClient) { }
   
-  url:string = 'http://localhost:8080/cupons';
+  url:string = 'https://musician-app-backend.herokuapp.com/cupons';
 
   getCupons():Observable<Cupom[]>{
     return this.httpClient.get<Cupom[]>(this.url);

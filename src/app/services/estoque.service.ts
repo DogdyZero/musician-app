@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class EstoqueService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'http://localhost:8080/estoque';
+  url:string = 'https://musician-app-backend.herokuapp.com/estoque';
 
   salvarEstoque(estoque:Estoque):Observable<Estoque>{
     return this.httpClient.post<Estoque>(this.url,estoque);

@@ -9,7 +9,7 @@ import { Cartao } from '../model/cartao';
 export class CartoesService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'http://localhost:8080/cartoes';
+  url:string = 'https://musician-app-backend.herokuapp.com/cartoes';
 
   getCartoes():Observable<Cartao[]>{
     return this.httpClient.get<Cartao[]>(this.url);

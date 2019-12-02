@@ -28,7 +28,7 @@ export class MenuCadastroComponent implements OnInit {
   updateId(event){
     this.id=event;
     if(this.id==this.totalCadastro+1){
-      // this.router.navigate(['/conf_cadastro']);
+      this.router.navigate(['/fechamento']);
     }
   }
   

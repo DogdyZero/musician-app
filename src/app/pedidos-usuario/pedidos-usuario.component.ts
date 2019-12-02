@@ -13,13 +13,13 @@ import { Subscription } from 'rxjs';
 export class PedidosUsuarioComponent implements OnInit {
   pedido: Pedido[] = [];
   @Input() pessoa:Pessoa;
-
+  display
+  val1
   inscricao:Subscription;
   
   constructor(private pedidoService:PedidosService,private router:Router) { }
 
   ngOnInit() {
-    this.pessoa.pedido.sort( (a,b) => b.id - a.id );
   }
 
 }

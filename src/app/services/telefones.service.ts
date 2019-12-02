@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TelefonesService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'http://localhost:8080/telefones';
+  url:string = 'https://musician-app-backend.herokuapp.com/telefones';
 
 
   getTelefones():Observable<Telefone[]>{

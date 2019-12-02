@@ -12,7 +12,7 @@ export class PedidosService {
   constructor(private httpClient:HttpClient) { }
 
   //url:string = 'api/pessoas';
-  url:string = "http://localhost:8080/pedidos";
+  url:string = "https://musician-app-backend.herokuapp.com/pedidos";
 
   pedido:Pedido;
 

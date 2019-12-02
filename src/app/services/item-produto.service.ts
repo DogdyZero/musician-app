@@ -10,7 +10,7 @@ export class ItemProdutoService {
 
   constructor(private httpClient:HttpClient) { }
   
-  url:string = 'http://localhost:8080/item';
+  url:string = 'https://musician-app-backend.herokuapp.com/item';
 
   getItensToTrade():Observable<ItemProduto[]>{
     return this.httpClient.get<ItemProduto[]>(this.url);

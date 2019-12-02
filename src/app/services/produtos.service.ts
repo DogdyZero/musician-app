@@ -11,7 +11,7 @@ export class ProdutosService {
   constructor(private httpClient:HttpClient) { }
 
   //url:string = 'api/pessoas';
-  url:string = "http://localhost:8080/produtos";
+  url:string = "https://musician-app-backend.herokuapp.com/produtos";
 
 
   getProdutos():Observable<Produto[]>{

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class EnderecosService {
   constructor(private httpClient:HttpClient) { }
 
-  url:string = 'http://localhost:8080/enderecos';
+  url:string = 'https://musician-app-backend.herokuapp.com/enderecos';
 
   getEnderecos():Observable<Endereco[]>{
     return this.httpClient.get<Endereco[]>(this.url);

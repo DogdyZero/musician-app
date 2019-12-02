@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ConsEnderecoAdminComponent implements OnInit {
   constructor() { }
   //pessoa = MemoryPessoa;
-
+  pessoa
   ngOnInit() {
 
   }

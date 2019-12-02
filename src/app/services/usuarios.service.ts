@@ -13,7 +13,7 @@ export class UsuariosService  {
   constructor(private httpClient:HttpClient) { 
     
   }
-  url:string = 'http://localhost:8080/usuarios';
+  url:string = 'https://musician-app-backend.herokuapp.com/usuarios';
   
   private usuarios:Usuario[]=[];
   session = sessionStorage;

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsCartaoAdminComponent implements OnInit {
   constructor() { }
-
+  pessoa
   ngOnInit() {
   }
 

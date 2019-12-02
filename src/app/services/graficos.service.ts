@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class GraficosService {
 
   constructor(private httpClient:HttpClient) { }
-  url:string = 'http://localhost:8080/grafico';
+  url:string = 'https://musician-app-backend.herokuapp.com/grafico';
 
   getGraficoInicial(){
     let hoje:Date = new Date();

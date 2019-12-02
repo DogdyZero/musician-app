@@ -9,7 +9,7 @@ import { Pessoa } from '../model/pessoa';
 export class TrocaService {
   constructor(private httpClient:HttpClient) { }
   
-  url:string = 'http://localhost:8080/troca';
+  url:string = 'https://musician-app-backend.herokuapp.com/troca';
 
   getPessoaTroca(id:number):Observable<Pessoa>{
     return this.httpClient.get<Pessoa>(`${this.url}/${id}`);

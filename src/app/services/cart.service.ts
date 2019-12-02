@@ -75,7 +75,9 @@ export class CartService {
   }
 
  
-  url:string = "http://localhost:8080/carrinho";
+  //url:string = "http://localhost:8080/carrinho";
+  url:string = "https://musician-app-backend.herokuapp.com/carrinho";
+
 
 
   addProduto(itemProduto:ItemProduto){
